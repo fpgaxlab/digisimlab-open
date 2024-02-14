@@ -1,0 +1,9 @@
+# ignore
+.vscode
+~temp/
+~antora/
+desktop.ini
+.$*
+
+# ignore word temp files
+~$*
