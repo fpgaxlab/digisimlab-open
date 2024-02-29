@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>寄存器堆实验 :: 计算机组成原理实验指导</title>
+    <title>概述 :: 计算机组成原理实验指导</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -82,7 +82,7 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">基本逻辑电路</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="bl-overview.html">概述</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -121,7 +121,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-overview.html">数据通路概述</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -184,8 +184,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
-    <li>数据通路</li>
-    <li><a href="dp-register_file.html">寄存器堆实验</a></li>
+    <li>基本逻辑电路</li>
+    <li><a href="bl-overview.html">概述</a></li>
   </ul>
 </nav>
 </div>
@@ -194,86 +194,9 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">寄存器堆实验</h1>
-<div class="sect1">
-<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>理解寄存器堆的电路结构。</p>
-</li>
-<li>
-<p>掌握寄存器堆的功能特性。</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
-<div class="sectionbody">
+<h1 class="page">概述</h1>
 <div class="paragraph">
-<p>CPU内部包含若干个通用寄存器，用于暂存参加运算的数据和中间结果，这些寄存器的集合就称为通用寄存器组（Genral Register Set）。
-寄存器组可以设计为单端口、双端口或三端口。单端口是指读出和写入共用同一组地址或数据端口，所以读出和写入不能同时进行，通常应用于多周期的数据通路。而双端口的读、写端口各自独立，在一个周期中可以同时读出和写入。三端口则有两个读端口和一个写端口可以同时操作，通常应用于单周期和流水线数据通路。和早期的处理器相比，现代处理器的通用寄存器的数量更多，一般称为<strong>寄存器堆（Register File）</strong>，也有译为寄存器文件。本实验完成三端口寄存器堆。</p>
-</div>
-<div class="paragraph">
-<p><a href="#fig-9">图 1</a>是具有2个读端口和1个写端口的三端口寄存器堆的电路结构。其中RA表示读端口地址（Read Address），RD表示读端口数据（Read Data）；WA表示写端口地址（Write Address），WD表示写端口数据（Write Data）；WE是写使能（Write Enable）。</p>
-</div>
-<div id="fig-9" class="imageblock">
-<div class="content">
-<img src="_images/dp-rf.png" alt="三端口寄存器堆">
-</div>
-<div class="title">图 1. 三端口寄存器堆的框图</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>理解<a href="#fig-9">图 1</a>结构，采用层次化的方法设计该寄存器堆。具体要求如下。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>数据位宽为4位。</p>
-</li>
-<li>
-<p>2-4译码器模块使用译码器实验完成的电路。</p>
-</li>
-<li>
-<p>寄存器组件使用“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”。</p>
-</li>
-<li>
-<p>R0寄存器读出值恒为0。</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="注"></i>
-</td>
-<td class="content">
-Digital仿真软件中有一个现成的“Register File”组件，但是它的R0寄存器是可写入的，不具备恒为零的特性。而在RISC指令系统中，通常要求R0恒为0。
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>通过仿真验证其功能，并保存仿真过程数据文件。</p>
-</li>
-<li>
-<p>实验结果分析</p>
-<div class="paragraph">
-<p>对仿真过程数据进行分析，从中体现对<a href="#fig-9">图 1</a>电路原理的理解。</p>
-</div>
-</li>
-</ol>
+<p>本章实验有两个目标，一个是学会使用Digital仿真软件，第二是复习几个基本的逻辑电路。这些基本逻辑电路在后面的实验中会用到。多路器在<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元实验</a>、<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>、<a href="dp-single_cycle_datapath.html" class="xref page">单周期数据通路实验</a>等实验中都会用到；译码器在<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>中直接用到，在<a href="cu-hardwire_controller.html" class="xref page">硬布线控制实验</a>中用到译码器的设计方法；计数器在<a href="cu-hardwire_controller.html" class="xref page">硬布线控制实验</a>中用作程序计数器。</p>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">
@@ -284,8 +207,6 @@ Digital仿真软件中有一个现成的“Register File”组件，但是它的
 <div class="paragraph">
 <p>作者：
 肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
-</div>
-</div>
 </div>
 </div>
 </div>

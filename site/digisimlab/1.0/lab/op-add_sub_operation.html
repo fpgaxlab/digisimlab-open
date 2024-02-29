@@ -48,13 +48,13 @@
   </li>
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Digital仿真软件</span>
+    <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../introduce-digitalsim.html">下载与安装</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-getting-started.html">入门</a>
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
@@ -80,8 +80,11 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑元件</span>
+    <span class="nav-text">基本逻辑电路</span>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-overview.html">概述</a>
+  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
   </li>
@@ -95,7 +98,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">运算器</span>
+    <span class="nav-text">运算电路</span>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
@@ -113,15 +116,6 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">存储器</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="mem-memory.html">存储器实验</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
     <span class="nav-text">数据通路</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -132,6 +126,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">单周期数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-memory.html">存储器实验</a>
   </li>
 </ul>
   </li>
@@ -181,7 +184,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
-    <li>运算器</li>
+    <li>运算电路</li>
     <li><a href="op-add_sub_operation.html">加减运算电路实验</a></li>
   </ul>
 </nav>
@@ -362,7 +365,7 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </table>
 </li>
 <li>
-<p>阅读<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
+<p>阅读第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
 </li>
 </ol>
 </div>
@@ -375,14 +378,16 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 <h3 id="_1_设计加减运算电路"><a class="anchor" href="#_1_设计加减运算电路"></a>1. 设计加减运算电路</h3>
 <div class="paragraph">
 <p>理解实验原理，按照<a href="#fig-21">图 1</a>设计加减运算电路。
-参考电路如<a href="#fig-op-add_sub">图 2</a>所示。
-下面给出几点说明。</p>
+参考电路如<a href="#fig-op-add_sub">图 2</a>所示。</p>
 </div>
 <div id="fig-op-add_sub" class="imageblock">
 <div class="content">
 <img src="_images/op-add_sub_res.png" alt="加减运算电路提示" width="80%">
 </div>
 <div class="title">图 2. 参考电路图（部分）</div>
+</div>
+<div class="paragraph">
+<p>下面给出几点说明。</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -408,8 +413,8 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </td>
 <td class="content">
 <div class="paragraph">
-<p>符号扩展器、探测器、分线器等组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。
-用表达式生成电路图的介绍见<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
+<p>符号扩展器、探测器、分线器等组件的介绍见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。
+用表达式生成电路图的介绍见“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”。</p>
 </div>
 </td>
 </tr>
@@ -418,6 +423,10 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </div>
 <div class="sect2">
 <h3 id="_2_验证加法运算"><a class="anchor" href="#_2_验证加法运算"></a>2. 验证加法运算</h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>实验数据记录</p>
 <div class="paragraph">
 <p>设置M=0，按<a href="#tab-op-adder-1">表 1</a>步骤操作，填写加法运算的结果，并仿照第①行的形式写出运算数和结果的真值。</p>
 </div>
@@ -534,9 +543,22 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 <div class="paragraph">
 <p>注：真值按照电路的实际显示数据而非理论计算。</p>
 </div>
+</li>
+<li>
+<p>实验数据分析。</p>
+<div class="paragraph">
+<p>分别针对无符号数和带符号数（补码），分析加法运算结果是否溢出，是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_3_验证减法运算"><a class="anchor" href="#_3_验证减法运算"></a>3. 验证减法运算</h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>实验数据记录</p>
 <div class="paragraph">
 <p>设置M=1，按<a href="#tab-op-adder-2">表 2</a>步骤操作，填写减法运算结果。</p>
 </div>
@@ -607,55 +629,11 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_实验报告要求"><a class="anchor" href="#_实验报告要求"></a>实验报告要求</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>实验目的</p>
 </li>
 <li>
-<p>实验电路图</p>
+<p>实验数据分析。</p>
 <div class="paragraph">
-<p>要求使用Digital仿真软件导出的电路图，并且包含实验名称和学号、姓名。</p>
-</div>
-<div class="paragraph">
-<p>说明电路图中生成溢出标志位的逻辑表达式。</p>
-</div>
-</li>
-<li>
-<p>实验结果与分析</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>验证加法运算</p>
-<div class="paragraph">
-<p>填写实验任务中的数据记录表。</p>
-</div>
-<div class="paragraph">
-<p>分析实验数据。分别针对无符号数和带符号数（补码），分析加法运算结果是否溢出，是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
-</div>
-</li>
-<li>
-<p>验证减法运算</p>
-<div class="paragraph">
-<p>填写实验任务中的数据记录表。</p>
-</div>
-<div class="paragraph">
-<p>分析实验数据。注意观察减法运算是否溢出和溢出标志的关系，是否产生借位和进位标志的关系。</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>总结</p>
-<div class="paragraph">
-<p>讨论实验中遇到的问题。参照实验目的总结自己的收获。</p>
+<p>注意观察减法运算是否溢出和溢出标志的关系，是否产生借位和进位标志的关系。</p>
 </div>
 </li>
 </ol>
@@ -665,6 +643,11 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 <div class="title">许可 | License</div>
 <div class="paragraph">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
 </div>
 </div>
 </div>
