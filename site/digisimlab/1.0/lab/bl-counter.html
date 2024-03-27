@@ -232,9 +232,14 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>设计可预置数计数器组件的验证电路。</p>
+<p>设计一个3位可预置数计数器组件的验证电路。</p>
 <div class="paragraph">
-<p>该组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Counter with preset / 计数器(可预设)”。</p>
+<p>可预置数计数器组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Counter with preset / 计数器(可预设)”。
+添加后将其“数据位数”属性设置为3。
+并将其所有的端口连接到输入输出组件。注意in、out端口的数据位数应与计数器一致。</p>
+</div>
+<div class="paragraph">
+<p>该组件的端口功能见<a href="#bm-bl-counter-a">附录</a>。</p>
 </div>
 </li>
 <li>
@@ -247,6 +252,80 @@
 </div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>由于计数器组件的功能比较丰富，为便于结果分析，仿真时可分为几个部分，分别保存仿真波形。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bm-bl-counter-a"><a class="anchor" href="#bm-bl-counter-a"></a>附录</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>可预置数计数器组件的端口功能如下。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>en</p>
+<div class="paragraph">
+<p>计数使能，高电平有效。</p>
+</div>
+</li>
+<li>
+<p>C</p>
+<div class="paragraph">
+<p>时钟输入。</p>
+</div>
+</li>
+<li>
+<p>dir</p>
+<div class="paragraph">
+<p>计数方向。0为递增计数，1为递减计数。</p>
+</div>
+</li>
+<li>
+<p>in</p>
+<div class="paragraph">
+<p>数据输入。</p>
+</div>
+</li>
+<li>
+<p>ld</p>
+<div class="paragraph">
+<p>装入使能。当为1时，in端口的输入数据在下一个时钟上升沿存入计数器。</p>
+</div>
+</li>
+<li>
+<p>clr</p>
+<div class="paragraph">
+<p>同步复位。当为1时，在下一个时钟上升沿计数值清零。</p>
+</div>
+</li>
+<li>
+<p>out</p>
+<div class="paragraph">
+<p>计数输出。</p>
+</div>
+</li>
+<li>
+<p>ovf</p>
+<div class="paragraph">
+<p>溢出。当使能时，如果计数递增到最大值或递减到0，则输出1。</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">
