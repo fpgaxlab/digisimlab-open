@@ -217,7 +217,12 @@
 <div class="title">图 1. 导线分解/组合示例</div>
 </div>
 <div class="paragraph">
-<p>该组件需要设置“Input Splitting/输入分割”和“Output splitting/输出分割”两个属性。<a href="#fig-ds-splitter">图 1</a>两个组件的属性设置见<a href="#tab-ds-other-1">表 1</a>。</p>
+<p>该组件需要设置“Input Splitting/输入分割”和“Output splitting/输出分割”两个属性。<a href="#fig-ds-splitter">图 1</a>两个组件的属性设置见<a href="#tab-ds-other-1">表 1</a>。
+属性值可以是位数，也可以用位号。以Splitter为例，输入分割属性值为“4”，表示输入导线没有分割，是4位的；输出分割属性值为“2,2”，表示输出导线分割为两部分，每部分2位，按顺序排列下来就是“0-1”位和“2-3”位。也可以直接用位号设置输出分割属性值为“0-1,2-3”。
+分割属性值用位数表示，就只能是按顺序显示。如果需要指定显示顺序，必须用位号表示，如<a href="#fig-ds-splitter">图 1</a>的Merger组件，导线的显示顺序依次为2-3，0-1，4-5。</p>
+</div>
+<div class="paragraph">
+<p>输入分割和输出分割的总位数可以不相等，也就是可以只抽取其中一部分导线。例如从4位导线中只抽取最高位，输出分割属性值可以设为“3-3”。</p>
 </div>
 <table id="tab-ds-other-1" class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. 属性设置举例</caption>
@@ -241,7 +246,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">Output splitting/输出分割</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">2,2</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2,2 或 0-1,2-3</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
 </tr>
 </tbody>
@@ -278,7 +283,7 @@
 <div class="paragraph">
 <p>组件位置：“Components/组件 ➤ IO/输入输出 ➤ Probe/探测器”。
 该组件用于读取探测点的数值。<a href="#fig-ds-splitter">图 1</a>中有两个该组件的例子。
-如果设置了“Label/标签”属性，其值可以显示在测量图表中。</p>
+如果设置了“Label/标签”属性，那么仿真时其值可以显示在测量图表中。</p>
 </div>
 <div class="admonitionblock tip">
 <table>

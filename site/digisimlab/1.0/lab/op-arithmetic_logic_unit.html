@@ -268,14 +268,19 @@
 因为运算结果的最高位就是符号位，所以符号标志的生成逻辑非常简单，逻辑方程如下：</p>
 </div>
 <div class="paragraph text-center">
-<p>N=F<sub>S</sub></p>
+<p>SF=F<sub>S</sub></p>
 </div>
 <div class="paragraph">
 <p>一种简单的零标志生成方法是，将运算结果的每一位进行或运算，如果结果为0，则零标志为1。以4位二进制为例，产生零标志的逻辑方程如下：</p>
 </div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/op-alu-zf.png" alt="ZF" width="218" height="34">
+</div>
+</div>
 <div class="stemblock">
 <div class="content">
-\[Z=\overline{F_0 + F_1 +F_2 + F_3}\]
+\[ZF=\overline{F_0 + F_1 +F_2 + F_3}\]
 </div>
 </div>
 <div class="admonitionblock note">
@@ -322,7 +327,16 @@
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-添加子电路前，先保存当前电路文件，并且保证子电路文件在同一文件夹或子文件夹内。
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>添加子电路前，先保存当前电路文件，并且保证子电路文件在同一文件夹或子文件夹内。</p>
+</li>
+<li>
+<p>子电路应事先调试通过，起码没有连接错误。</p>
+</li>
+</ol>
+</div>
 </td>
 </tr>
 </table>
@@ -342,6 +356,18 @@
 <p>执行测试。</p>
 <div class="paragraph">
 <p>保存测试结果数据用于实验报告的实验结果分析。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+执行测试前，可先启动仿真检查电路连接是否有错误。测试用于检查逻辑错误而非连接错误。
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>

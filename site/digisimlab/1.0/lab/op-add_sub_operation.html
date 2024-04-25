@@ -275,7 +275,8 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </div>
 <div class="paragraph">
 <p>当M=0时，b<sub>i</sub>=y<sub>i</sub>⊕0=y<sub>i</sub>，C0=0，所以F=X+Y；
-当M=1时，\(b_i=y_i\oplus 1=\overline{y_i}\)，C0＝1，故\(F=X+\overline{Y}+1=X−Y\)。</p>
+当M=1时，<span class="image"><img src="_images/op-add_sub-bi.png" alt="op add sub bi" width="140" height="34"></span>，
+C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op add sub sub" width="228" height="34"></span> 。</p>
 </div>
 <div class="paragraph">
 <p>可见，M用来控制是将Y送到加法器运算，还是将Y求相反数后再相加。
@@ -296,6 +297,11 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </div>
 <div class="paragraph">
 <p>假设As和Bs表示两个操作数的符号，Fs表示运算结果的符号，则溢出检测的逻辑表达式为：</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/op-add_sub-ov.png" alt="OV" width="276" height="34">
+</div>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -402,7 +408,7 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 <p>为便于观察异或门输出的数据（减法运算需要记录该数据），添加了一个“Probe/探测器”组件（图中显示问号的那个）。</p>
 </li>
 <li>
-<p><a href="#fig-op-add_sub">图 2</a>未包含溢出检测电路，可以用表达式生成。为了从4位数据中提取最高位作为符号位，使用了“Splitter/分裂器”组件。</p>
+<p><a href="#fig-op-add_sub">图 2</a>未给出溢出检测电路。可以用表达式生成溢出检测电路，并将生成的电路复制到加减电路中（复制时不要包含输入输出引脚），代替图中的溢出检测虚线框。为了从4位数据中抽取最高位作为符号位，使用了3个“Splitter/分裂器”组件；将这3个组件的输出端与溢出检测电路的相应输入端连接。</p>
 </li>
 </ol>
 </div>
