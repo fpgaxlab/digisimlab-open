@@ -6,7 +6,7 @@
     <title>寄存器堆实验 :: 计算机组成原理实验指导</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
   <body class="article">
 <header class="header">
@@ -235,17 +235,16 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>理解<a href="#fig-9">图 1</a>结构，采用层次化的方法设计该寄存器堆。具体要求如下。</p>
+<p>理解<a href="#fig-9">图 1</a>结构，设计该寄存器堆。具体要求如下。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>数据位宽为4位。</p>
+<p>采用层次化设计，将<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。</p>
 </li>
 <li>
-<p>2-4译码器模块使用译码器实验完成的电路。</p>
-</li>
-<li>
-<p>寄存器组件使用“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”。</p>
+<p>寄存器组件使用“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”，寄存器字长（数据位宽）为4位。
+Clk时钟输入组件的用法见第一章Digital仿真软件使用指南的“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。
+MUX多路器组件见<a href="bl-multiplexer.html" class="xref page">多路选择器实验</a>，这里要将选择位的位数设置为2，以构成4选1多路器。</p>
 </li>
 <li>
 <p>R0寄存器读出值恒为0。</p>
@@ -256,7 +255,7 @@
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-Digital仿真软件中有一个现成的“Register File”组件，但是它的R0寄存器是可写入的，不具备恒为零的特性。而在RISC指令系统中，通常要求R0恒为0。
+虽然Digital仿真软件中有一个现成的“Register File”组件，但是它的R0寄存器是可写入的，不具备恒为零的特性。而在RISC指令系统中，通常要求R0恒为0。
 </td>
 </tr>
 </table>
