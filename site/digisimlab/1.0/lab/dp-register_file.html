@@ -242,12 +242,22 @@
 <p>采用层次化设计，将<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。</p>
 </li>
 <li>
-<p>寄存器组件使用“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”，寄存器字长（数据位宽）为4位。
-Clk时钟输入组件的用法见第一章Digital仿真软件使用指南的“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。
-MUX多路器组件见<a href="bl-multiplexer.html" class="xref page">多路选择器实验</a>，这里要将选择位的位数设置为2，以构成4选1多路器。</p>
+<p>寄存器字长（数据位宽）为4位。</p>
+<div class="paragraph">
+<p>寄存器组件使用“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”。</p>
+</div>
 </li>
 <li>
 <p>R0寄存器读出值恒为0。</p>
+<div class="paragraph">
+<p><a href="#fig-9">图 1</a>中R0寄存器实际并不存在，用常数0作为R0寄存器的读出数据。常数0可以用“常量”组件产生，详见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+</div>
+</li>
+<li>
+<p>Clk输入使用时钟输入组件</p>
+<div class="paragraph">
+<p>Clk时钟输入组件及其用法见第一章Digital仿真软件使用指南的“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -255,15 +265,8 @@ MUX多路器组件见<a href="bl-multiplexer.html" class="xref page">多路选�
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>虽然Digital仿真软件中有一个现成的寄存器堆组件（位于“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ Register File”），但是它的R0寄存器是可写入的，不具备恒为零的特性。而在RISC指令系统中，通常要求R0恒为0。</p>
-</li>
-<li>
-<p><a href="#fig-9">图 1</a>R0寄存器实际并不存在，用常数0作为R0寄存器的读出数据。常数0可以用“常量”组件产生，详见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
-</li>
-</ul>
 </div>
 </td>
 </tr>
