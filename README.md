@@ -55,7 +55,9 @@ Digital仿真软件是一种用于设计和仿真数字逻辑电路的教育工�
 
 2. 转到[digisimlab-open](https://gitee.com/fpga-lab/digisimlab-open)项目，点击 `克隆/下载` 按钮，再点击 `下载ZIP` 。
 
-3. 如果以后网站上有更新，重复上述操作。
+3. 将压缩包解压到本地。
+   
+4. 如果以后网站上有更新，重复上述操作。
 
 
 ### 许可 | License
