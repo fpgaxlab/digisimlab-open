@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>比较运算电路实验 :: 计算机组成原理实验指导</title>
+    <title>硬布线控制实验（Ⅲ） :: 计算机组成原理实验指导</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
@@ -107,7 +107,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
 </ul>
@@ -149,7 +149,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
   </li>
 </ul>
@@ -185,8 +185,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
-    <li>运算电路</li>
-    <li><a href="op-compare.html">比较运算电路实验</a></li>
+    <li>控制器</li>
+    <li><a href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a></li>
   </ul>
 </nav>
 </div>
@@ -195,17 +195,17 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">比较运算电路实验</h1>
+<h1 class="page">硬布线控制实验（Ⅲ）</h1>
 <div class="sect1">
 <h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>理解标志位的含义。</p>
+<p>理解load和store访存指令的功能。</p>
 </li>
 <li>
-<p>掌握比较运算方法。</p>
+<p>进一步理解数据通路与指令功能的关联。</p>
 </li>
 </ol>
 </div>
@@ -215,88 +215,26 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在计算机软件程序设计中，常常需要比较两个变量的数值大小。实现两个数大小比较的最直接的做法就是将这两个数相减，根据减法的结果判断两者的大小。例如，若X&lt;Y，则X-Y的结果一定为负，因此依据符号标志就可以判断；但是若运算结果溢出，则恰恰相反。<a href="#tab-3">表 1</a>给出了两个带符号数依据减法运算结果的标志位比较大小的判断条件。而两个无符号数的相减，则可依据是否有借位来判断两个数的大小。<a href="#tab-4">表 2</a>给出了无符号数比较大小的判断条件。</p>
+<p>本项目是在硬布线控制实验Ⅰ或Ⅱ的基础上增加对存储器访问指令的支持。<a href="#fig-cu-arch-3">图 1</a>给出在Ⅰ的基础上支持访存指令的原理框图，读者不难画出在Ⅱ的基础上扩展的原理框图。</p>
 </div>
-<table id="tab-3" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. 两个带符号数比较大小的判定条件</caption>
-<colgroup>
-<col style="width: 35%;">
-<col style="width: 65%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">大小关系</th>
-<th class="tableblock halign-left valign-top">判定条件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X&gt;Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OF⊕SF=0 且ZF=0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X≥Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OF⊕SF =0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X=Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ZF=1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X≠Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ZF=0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X&lt;Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OF⊕SF =1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X≤Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OF⊕SF =1 或ZF=1</p></td>
-</tr>
-</tbody>
-</table>
-<table id="tab-4" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 两个无符号数比较大小的判定条件</caption>
-<colgroup>
-<col style="width: 40%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">大小关系</th>
-<th class="tableblock halign-left valign-top">判定条件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X&gt;Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BF=0 且ZF=0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X≥Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BF=0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X=Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ZF=1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X≠Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ZF=0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X&lt;Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BF=1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X≤Y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BF=1 或ZF=1</p></td>
-</tr>
-</tbody>
-</table>
+<div id="fig-cu-arch-3" class="imageblock">
+<div class="content">
+<img src="_images/cu-arch-mem-1.png" alt="cu arch mem 1">
+</div>
+<div class="title">图 1. 支持访存指令的数据通路及控制</div>
+</div>
 <div class="paragraph">
-<p>注：表中BF表示借位，BF=0代表没有借位，BF=1代表有借位。BF可以由进位标志CF得到，根据电路设计的不同，BF可能与CF相反，也可能与CF一致。</p>
+<p><a href="#fig-cu-arch-3">图 1</a>增加了如下控制信号：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>数据存储器的写允许信号MemWr：为1时，当在CLK时钟上升沿到来，存储器执行写入操作。</p>
+</li>
+<li>
+<p>多路器的选择信号WDsel：为0时，选择将ALU的运算结果送给寄存器堆的写数据端WD；为1时，将从存储器读出的数据送至WD。</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -306,16 +244,27 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>设计</p>
+<p>设计控制器</p>
 <div class="paragraph">
-<p>依据S、Z、O标志位，产生带符号数相等、不等、小于、大于等于的比较结果。
-可使用Digital仿真软件的电路生成功能，输入表达式自动生成电路图，具体用法参考第一章Digital仿真软件使用指南的“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”。</p>
+<p>根据<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令功能及操作码编码表</a>中关于load、store指令的功能描述，扩充修改指令译码的真值表，使用真值表生成电路图。</p>
 </div>
 </li>
 <li>
-<p>仿真</p>
+<p>按照<a href="#fig-cu-arch-3">图 1</a>将各个子电路连接起来。</p>
 <div class="paragraph">
-<p>将比较电路作为子电路添加到ALU实验电路中，并将ALU输出的标志位与比较电路连接。操作ALU做减法运算，输入不同运算数据，验证比较结果是否正确。</p>
+<p>数据存储器使用<a href="mem-memory.html" class="xref page">存储器实验</a>中已经熟悉的RAM组件。该组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ RAM, separated Ports / RAM(独立端口)”。</p>
+</div>
+</li>
+<li>
+<p>仿真验证</p>
+<div class="paragraph">
+<p>自己编写包含访存指令的程序进行验证。</p>
+</div>
+</li>
+<li>
+<p>实验结果分析</p>
+<div class="paragraph">
+<p>对仿真结果进行分析。</p>
 </div>
 </li>
 </ol>
