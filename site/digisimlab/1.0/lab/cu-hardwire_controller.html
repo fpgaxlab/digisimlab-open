@@ -218,11 +218,11 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在前面数据通路的基础上，增加指令存储器、控制器等部件，可以看成是一个简单的计算机主机。原理框图如<a href="#fig-31">图 1</a>。</p>
+<p>在前面数据通路的基础上，增加指令存储器、控制器等部件，可以看成是一个简单的计算机主机。原理框图如<a href="#fig-cu-arch-2">图 1</a>。</p>
 </div>
-<div id="fig-31" class="imageblock">
+<div id="fig-cu-arch-2" class="imageblock">
 <div class="content">
-<img src="_images/lab-image31.png" alt="硬布线控制器_300dpi" width="578" height="334">
+<img src="_images/cu-arch-2.png" alt="cu arch 2">
 </div>
 <div class="title">图 1. 单周期数据通路及控制</div>
 </div>
@@ -242,7 +242,7 @@
 <p>控制器以指令opcode作为输入，为数据通路中所有单元产生控制信号。</p>
 </div>
 <div class="paragraph">
-<p><a href="#fig-31">图 1</a>单周期数据通路中，需要产生如下控制信号：</p>
+<p><a href="#fig-cu-arch-2">图 1</a>单周期数据通路中，需要产生如下控制信号：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -268,7 +268,7 @@
 <div class="paragraph">
 <p>以“addi rd, rs1, #imm”指令为例，该指令将rs1寄存器的值与立即数Imm相加，结果存入rd寄存器。
 rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数Imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S0、S1均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。而LoadPC信号应为0，因为addi不是分支指令，不会产生程序转移。
-<a href="#fig-cu-flow-addi">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示控制信号。</p>
+<a href="#fig-cu-flow-addi">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示有效的控制信号。</p>
 </div>
 <div id="fig-cu-flow-addi" class="imageblock">
 <div class="content">
@@ -473,10 +473,22 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <div class="sect3">
 <h4 id="_2分支指令"><a class="anchor" href="#_2分支指令"></a>2．分支指令</h4>
 <div class="paragraph">
-<p>以“beq rs1, rs2, #imm”指令为例，该指令比较rs1和rs2寄存器的值是否相等，如果相等，则程序转移，下一条指令的地址由imm给出；如果不相等，则顺序执行。转移发生时，控制信号LoadPC=1，将转移地址装入PC；如果不发生转移，LoadPC=0，PC加1。可见，LoadPC并不是固定为1或为0，而是要根据比较运算的结果决定程序是否转移。所以，LoadPC不能单纯根据opcode产生。opcode只能分辨是不是分支指令以及比较的类型，还需要与比较运算配合，才能产生控制信号。</p>
+<p>以“beq rs1, rs2, #imm”指令为例，该指令比较rs1和rs2寄存器的值是否相等，如果相等，则程序转移，下一条指令的地址由imm给出；如果不相等，则顺序执行。
+转移发生时分支指令的信息流如<a href="#fig-cu-flow-branch">图 3</a>所示，绿色通路表示有效的信息流，红色和蓝色表示控制信号。</p>
+</div>
+<div id="fig-cu-flow-branch" class="imageblock">
+<div class="content">
+<img src="_images/cu-flow-branch.png" alt="cu flow branch">
+</div>
+<div class="title">图 3. 转移发生时的分支指令信息流</div>
 </div>
 <div class="paragraph">
-<p><a href="#fig-cu-branch">图 3</a>给出了转移信号的生成方法。
+<p>当转移发生时，控制信号LoadPC=1，将转移地址装入PC；如果不发生转移，LoadPC=0，PC加1。
+可见，LoadPC并不是固定为1或为0，而是要根据比较运算的结果决定程序是否转移。所以，LoadPC不能单纯根据opcode产生。
+opcode只能分辨是不是分支指令以及比较的类型，还需要与比较运算配合，才能产生控制信号。</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig-cu-branch">图 4</a>给出了转移信号的生成方法。
 其中EQ、NE、LT、GE是比较的结果，分别表示相等、不等、小于、大于等于，可以采用前面<a href="op-compare.html" class="xref page">比较运算实验</a>的结果。
 4选1多路器用来从4种比较结果中选择一个。2位的选择信号brType由指令译码根据分支指令的类型产生。
 多路器输出的信号还不能直接作为LoadPC信号，还要判断当前指令是不是转移指令。所以由branch信号控制与门，如果不是分支指令，LoadPC为0；是分支指令，再将多路器的输出作为LoadPC，也就是根据指令类型和比较结果决定程序是否转移。</p>
@@ -485,7 +497,7 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <div class="content">
 <img src="_images/cu-branch.png" alt="cu branch" width="585">
 </div>
-<div class="title">图 3. 转移信号的产生</div>
+<div class="title">图 4. 转移信号的产生</div>
 </div>
 <div class="paragraph">
 <p><a href="#tab-cu-opdecode-2">表 2</a>给出了beq指令的控制信号取值。</p>
@@ -591,35 +603,51 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <li>
 <p>分支判断</p>
 <div class="paragraph">
-<p>根据<a href="#fig-cu-branch">图 3</a>产生转移控制信号LoadPC。</p>
+<p>根据<a href="#fig-cu-branch">图 4</a>产生转移控制信号LoadPC。</p>
 </div>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>按照<a href="#fig-31">图 1</a>将各个子电路连接起来。</p>
+<p>按照<a href="#fig-cu-arch-2">图 1</a>将各个子电路连接起来，并添加Reset输入引脚和CLK时钟输入引脚。</p>
 <div class="paragraph">
 <p>程序计数器PC可使用可预置数的计数器组件，该组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Counter with preset / 计数器(可预设)”。</p>
 </div>
 </li>
 <li>
 <p>仿真验证</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>将<a href="cu-overview.html#exa-cu-isa" class="xref page">斐波那契数列计算程序</a>的机器码作为ROM的数据。</p>
-</li>
-<li>
-<p>仿真运行程序，验证电路是否正确。</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>因为控制器的作用是控制指令的执行，所以需要通过执行指令来检验控制器的设计。<a href="#exa-cu-2">例 1</a>给出了一个测试程序的例子。</p>
+</div>
+<div id="exa-cu-2" class="exampleblock">
+<div class="title">例 1. 分支指令测试程序示例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>0: 0x1815  addi r1, r0, #5
+1: 0x202a  ori  r2, r0, #10
+2: 0x09b0  sub  r3, r1, r2
+3: 0x2ec0  bne  r2, r3, #0</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>上面测试程序使用的指令种类有限，自己编写程序进行更全面的验证。</p>
 </div>
 </li>
 <li>
-<p>验证更多指令</p>
-<div class="paragraph">
-<p>斐波那契计算程序使用的指令种类有限，自己编写程序进行更全面的验证。</p>
+<p>运行斐波那契数列计算程序</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>将概述中<a href="cu-overview.html#exa-cu-isa" class="xref page">斐波那契数列计算程序</a>的机器码作为ROM的数据。</p>
+</li>
+<li>
+<p>仿真运行程序，验证结果是否正确。</p>
+</li>
+</ol>
 </div>
 </li>
 <li>

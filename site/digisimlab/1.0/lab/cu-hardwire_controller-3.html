@@ -215,7 +215,7 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>本项目是在硬布线控制实验Ⅰ或Ⅱ的基础上增加对存储器访问指令的支持。<a href="#fig-cu-arch-3">图 1</a>给出在Ⅰ的基础上支持访存指令的原理框图，读者不难画出在Ⅱ的基础上扩展的原理框图。</p>
+<p>本项目是在硬布线控制实验Ⅰ或Ⅱ的基础上增加对存储器访问指令的支持。<a href="#fig-cu-arch-3">图 1</a>给出在Ⅰ的基础上支持访存指令的原理框图，未支持分支指令。如果已经完成硬布线控制实验Ⅱ，读者不难画出在Ⅱ的基础上支持访存指令的原理框图。</p>
 </div>
 <div id="fig-cu-arch-3" class="imageblock">
 <div class="content">
@@ -236,6 +236,31 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>下面分析存储器访问指令的执行。</p>
+</div>
+<div class="paragraph">
+<p>根据<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令功能表</a>中关于load、store指令的功能描述，load指令将指定存储单元的内容装入指定寄存器，store将指定寄存器内容写入指定存储单元。
+存储器的寻址采用变址寻址，变址寄存器号由rs1字段给出，偏移量由imm给出，所以有效地址EA=(rs1)+imm，即rs1指定的寄存器内容加上imm字段给出的偏移量作为有效地址。</p>
+</div>
+<div class="paragraph">
+<p>对于 <code>load rd, rs1, #imm</code> 指令，从存储器读出的数据写入寄存器，寄存器号由rd给出。load指令的信息流示意图如<a href="#fig-cu-flow-load">图 2</a>所示，绿色通路表示有效的信息流。根据信息流通路，读者可分析出控制信号的取值。</p>
+</div>
+<div id="fig-cu-flow-load" class="imageblock">
+<div class="content">
+<img src="_images/cu-flow-load.png" alt="cu flow load">
+</div>
+<div class="title">图 2. load指令的信息流示意图</div>
+</div>
+<div class="paragraph">
+<p>对于 <code>store rs2, rs1, #imm</code> 指令，源数据的寄存器号由rs2给出，该寄存器的内容将被写入存储器。store指令的信息流示意图如<a href="#fig-cu-flow-store">图 3</a>所示，绿色通路表示有效的信息流。根据信息流通路，读者可分析出控制信号的取值。</p>
+</div>
+<div id="fig-cu-flow-store" class="imageblock">
+<div class="content">
+<img src="_images/cu-flow-store.png" alt="cu flow store">
+</div>
+<div class="title">图 3. store指令的信息流示意图</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -246,11 +271,15 @@
 <li>
 <p>设计控制器</p>
 <div class="paragraph">
-<p>根据<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令功能及操作码编码表</a>中关于load、store指令的功能描述，扩充修改指令译码的真值表，使用真值表生成电路图。</p>
+<p>在硬布线控制实验Ⅰ或Ⅱ的基础上，扩充修改指令译码的真值表，使其支持访存指令。
+然后使用真值表生成电路图。</p>
 </div>
 </li>
 <li>
-<p>按照<a href="#fig-cu-arch-3">图 1</a>将各个子电路连接起来。</p>
+<p>连接电路</p>
+<div class="paragraph">
+<p>参考<a href="#fig-cu-arch-3">图 1</a>原理图，如果已经完成硬布线控制实验Ⅱ，需在Ⅱ的基础上修改原理框图。按照原理图将各个子电路连接起来。</p>
+</div>
 <div class="paragraph">
 <p>数据存储器使用<a href="mem-memory.html" class="xref page">存储器实验</a>中已经熟悉的RAM组件。该组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ RAM, separated Ports / RAM(独立端口)”。</p>
 </div>
@@ -258,7 +287,30 @@
 <li>
 <p>仿真验证</p>
 <div class="paragraph">
-<p>自己编写包含访存指令的程序进行验证。</p>
+<p><a href="#exa-cu-3">例 1</a>给出了一个测试程序的例子。</p>
+</div>
+<div id="exa-cu-3" class="exampleblock">
+<div class="title">例 1. 访存指令测试程序示例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>0: 0x1815 addi r1, r0, #5
+1: 0x202a ori  r2, r0, #10
+2: 0x09b0 sub  r3, r1, r2
+3: 0x3dc5 store r3, r1, #5
+4: 0x3a10 load r1, r2, #0
+5: 0x29c0 beq  r1, r3, #0 <i class="conum" data-value="1"></i><b>(1)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>硬件需支持分支指令。</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </li>
 <li>

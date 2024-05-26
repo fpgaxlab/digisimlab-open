@@ -263,7 +263,7 @@
 <div class="paragraph">
 <p>下面以“addi rd, rs1, #imm”指令为例，分析指令的译码。该指令将rs1寄存器的值与立即数Imm相加，结果存入rd寄存器。
 rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数Imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S0、S1均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。
-<a href="#fig-cu-flow-addi-1">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示控制信号。</p>
+<a href="#fig-cu-flow-addi-1">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示有效的控制信号。</p>
 </div>
 <div id="fig-cu-flow-addi-1" class="imageblock">
 <div class="content">
@@ -479,7 +479,17 @@ and  r3, r3, r2</pre>
 </div>
 <div class="paragraph">
 <p>类似地，可将<a href="#exa-cu-1">例 1</a>中的所有符号指令翻译为机器指令，
-将其作为ROM组件的内容。</p>
+将其作为ROM组件的内容。
+下面给出前3条指令的机器码，还有两条留给读者翻译。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>0: 0x181a
+1: 0x202b
+2: 0x09b0
+3:
+4:</pre>
+</div>
 </div>
 </li>
 <li>
