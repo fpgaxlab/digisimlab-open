@@ -346,7 +346,18 @@ MUX多路器组件曾在<a href="bl-multiplexer.html" class="xref page">多路�
 <li>
 <p>编写测试数据。</p>
 <div class="paragraph">
-<p>测试数据应覆盖ALU的各项运算功能，包括标志位。</p>
+<p>测试数据应覆盖ALU的各项运算功能。算术运算可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>的验证任务，包括标志位的测试。逻辑运算除了测试与、或、异或运算外，也要测试逻辑非运算。测试数据样式见<a href="#exa-test-alu">例 1</a>。</p>
+</div>
+<div id="exa-test-alu" class="exampleblock">
+<div class="title">例 1. ALU测试数据举例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>X	    Y	    M	S1	S0	F	    S	Z	O	C
+0b0011	0b0101	0	0	0	0b1000	1	0	1	0</pre>
+</div>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -361,7 +372,7 @@ MUX多路器组件曾在<a href="bl-multiplexer.html" class="xref page">多路�
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-执行测试前，可先启动仿真检查电路连接是否有错误。测试用于检查逻辑错误而非连接错误。
+测试的目的是检查逻辑设计错误而非连接错误。若要检查电路连接是否有误，可在执行测试前先启动仿真；若启动仿真出错，可根据报错信息改正连接错误。
 </td>
 </tr>
 </table>
@@ -371,6 +382,18 @@ MUX多路器组件曾在<a href="bl-multiplexer.html" class="xref page">多路�
 <p>实验结果分析</p>
 <div class="paragraph">
 <p>对测试结果数据进行分析并给出结论。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+算术运算可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>的验证任务要求和记录表样式。
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ol>

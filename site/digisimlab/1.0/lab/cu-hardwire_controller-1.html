@@ -233,7 +233,7 @@
 </div>
 <div class="paragraph">
 <p>指令存储器是只读存储器，可以使用<a href="mem-memory.html" class="xref page">存储器实验</a>中学习的ROM模块，在初始化时写入要执行的指令编码。运行时只提供读访问，根据输入地址，输出该地址单元存储的指令。
-根据<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>设计，一条指令包含5个部分，OPCODE指定指令功能，连接到控制器的输入；Rs1、Rs2、Rd连接到寄存器堆三个端口的地址；Imm作为运算数经多路器连接到ALU的Y输入端，也可以作为转移地址送给PC。</p>
+根据<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>设计，一条指令包含5个部分，opcode指定指令功能，连接到控制器的输入；rs1、rs2、rd连接到寄存器堆三个端口的地址；imm作为运算数经多路器连接到ALU的Y输入端。</p>
 </div>
 </div>
 <div class="sect2">
@@ -247,7 +247,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>多路器的选择信号Ysel：为0时，选择将寄存器堆的RD2输出数据送给ALU的Y输入端；为1时，ALU的Y操作数来自指令中的立即数Imm。</p>
+<p>多路器的选择信号Ysel：为0时，选择将寄存器堆的RD2输出数据送给ALU的Y输入端；为1时，ALU的Y操作数来自指令中的立即数imm。</p>
 </li>
 <li>
 <p>ALU的运算控制信号：根据前面ALU实验的设计，需要产生ALU的M、S0、S1控制信号。</p>
@@ -261,8 +261,8 @@
 <p>因为指令系统的简单和规整，控制器的设计就是设计译码器来确定控制信号。对于指令系统中的R型和Ｉ型指令，控制器根据opcode的值，译码产生数据通路上的各个控制信号，实现指令功能。</p>
 </div>
 <div class="paragraph">
-<p>下面以“addi rd, rs1, #imm”指令为例，分析指令的译码。该指令将rs1寄存器的值与立即数Imm相加，结果存入rd寄存器。
-rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数Imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S0、S1均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。
+<p>下面以“addi rd, rs1, #imm”指令为例，分析指令的译码。该指令将rs1寄存器的值与立即数imm相加，结果存入rd寄存器。
+rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S0、S1均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。
 <a href="#fig-cu-flow-addi-1">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示有效的控制信号。</p>
 </div>
 <div id="fig-cu-flow-addi-1" class="imageblock">
@@ -395,7 +395,10 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 </div>
 </li>
 <li>
+<p>连接电路</p>
+<div class="paragraph">
 <p>按照<a href="#fig-cu-arch-1">图 1</a>将各个子电路连接起来，并添加Reset输入引脚和CLK时钟输入引脚。</p>
+</div>
 <div class="paragraph">
 <p>程序计数器PC可使用计数器组件，该组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Counter/计数器”。</p>
 </div>
@@ -459,11 +462,11 @@ and  r3, r3, r2</pre>
 <td class="tableblock halign-right valign-top"><p class="tableblock">0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">OPCODE</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Rs1</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Rs2</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Rd</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Imm</p></td>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">opcode</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs1</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs2</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rd</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">imm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">0110</p></td>

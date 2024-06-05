@@ -213,7 +213,8 @@
 <h2 id="bookmark-cu-isa"><a class="anchor" href="#bookmark-cu-isa"></a>指令系统</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>实验计算机指令字长为14位，指令格式如<a href="#tab-cu-instr-filed">表 1</a>所示。</p>
+<p>实验计算机指令字长为14位，指令格式如<a href="#tab-cu-instr-filed">表 1</a>所示。
+其中opcode为4位的操作码，所以最多可有16条指令；rs1、rs2和rd为2位的寄存器号，所以有4个通用寄存器，并且R0寄存器的值恒为零；imm为补码表示的4位立即数。</p>
 </div>
 <table id="tab-cu-instr-filed" class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. 指令格式</caption>
@@ -245,11 +246,11 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock">0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">OPCODE</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Rs1</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Rs2</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Rd</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Imm</p></td>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">opcode</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs1</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs2</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rd</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">imm</p></td>
 </tr>
 </tbody>
 </table>
@@ -257,10 +258,10 @@
 <p>实验计算机设计了R型和I型运算指令、B型分支指令以及M型访存指令，指令功能及操作码编码见<a href="#tab-cu-instr-code">表 2</a>。</p>
 </div>
 <div class="paragraph">
-<p>R型指令的两个源操作数均来自寄存器，分别由Rs1和Rs2给出寄存器号。I型指令的一个源操作数来自寄存器，由Rs1给出寄存器号；另一个源操作数是立即数，由指令的Imm字段提供。运算结果存入由Rd指定的寄存器中。</p>
+<p>R型指令的两个源操作数均来自寄存器，分别由rs1和rs2给出寄存器号。I型指令的一个源操作数来自寄存器，由rs1给出寄存器号；另一个源操作数是立即数，由指令的imm字段提供。运算结果存入由rd指定的寄存器中。</p>
 </div>
 <div class="paragraph">
-<p>B型指令根据rs1和rs2的大小关系决定是顺序执行下一条指令，还是跳转去执行地址为Imm的指令。</p>
+<p>B型指令根据rs1和rs2的大小关系决定是顺序执行下一条指令，还是跳转去执行地址为imm的指令。</p>
 </div>
 <table id="tab-cu-instr-code" class="tableblock frame-all grid-all" style="width: 99%;">
 <caption class="title">表 2. 指令助记符、操作码编码及功能</caption>
@@ -274,7 +275,7 @@
 <tr>
 <th class="tableblock halign-left valign-top">指令类型</th>
 <th class="tableblock halign-left valign-top">指令助记符</th>
-<th class="tableblock halign-left valign-top">OPCODE</th>
+<th class="tableblock halign-left valign-top">opcode</th>
 <th class="tableblock halign-left valign-top">功能</th>
 </tr>
 </thead>
@@ -330,22 +331,22 @@
 <td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">B型</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">beq rs1, rs2, #imm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1010</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1=rs2) goto imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)=(rs2) goto imm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bne rs1, rs2, #imm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1≠rs2) goto imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)≠(rs2) goto imm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">blt rs1, rs2, #imm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1&lt;rs2) goto imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)&lt;(rs2) goto imm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bge rs1, rs2, #imm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1101</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1≥rs2) goto imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)≥(rs2) goto imm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">M型</p></td>

@@ -434,35 +434,38 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <p>设置M=0，按<a href="#tab-op-adder-1">表 1</a>步骤操作，填写加法运算的结果，并仿照第①行的形式写出运算数和结果的真值。</p>
 </div>
 <table id="tab-op-adder-1" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. 加法运算数据记录</caption>
+<caption class="title">表 1. 加法运算数据记录表</caption>
 <colgroup>
-<col style="width: 8.0808%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 7.0707%;">
-<col style="width: 7.0707%;">
-<col style="width: 25.2525%;">
-<col style="width: 25.2526%;">
+<col style="width: 7%;">
+<col style="width: 7%;">
+<col style="width: 8%;">
+<col style="width: 8%;">
+<col style="width: 8%;">
+<col style="width: 7%;">
+<col style="width: 7%;">
+<col style="width: 24%;">
+<col style="width: 24%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">行</p></td>
-<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock">输入</p></td>
+<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输入</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输出</p></td>
 <td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock">运算数和运算结果的真值</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">X</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">Y</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">F</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">O</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">C</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">视为无符号数</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">视为补码</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">M</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">X</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">F</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">O</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">C</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">视为无符号数</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">视为补码</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">①</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
@@ -473,6 +476,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0001</p></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -483,6 +487,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1101</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -493,6 +498,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0001</p></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -503,6 +509,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">⑤</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1011</p></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -513,6 +520,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">⑥</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -523,6 +531,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">⑦</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -533,6 +542,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">⑧</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -550,7 +560,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <li>
 <p>实验数据分析。</p>
 <div class="paragraph">
-<p>分别针对无符号数和带符号数（补码），分析加法运算结果是否溢出，是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
+<p>分别针对无符号数和带符号数（补码），分析加法运算结果（包括标志位）。特别注意无符号数、带符号数加法溢出是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
 </div>
 </li>
 </ol>
@@ -566,68 +576,76 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <p>设置M=1，按<a href="#tab-op-adder-2">表 2</a>步骤操作，填写减法运算结果。</p>
 </div>
 <table id="tab-op-adder-2" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 减法运算数据记录</caption>
+<caption class="title">表 2. 减法运算数据记录表</caption>
 <colgroup>
-<col style="width: 8%;">
-<col style="width: 12%;">
-<col style="width: 12%;">
-<col style="width: 12%;">
-<col style="width: 12%;">
-<col style="width: 7%;">
-<col style="width: 7%;">
-<col style="width: 30%;">
+<col style="width: 7.4766%;">
+<col style="width: 6.542%;">
+<col style="width: 11.2149%;">
+<col style="width: 11.2149%;">
+<col style="width: 11.2149%;">
+<col style="width: 11.2149%;">
+<col style="width: 6.542%;">
+<col style="width: 6.542%;">
+<col style="width: 28.0378%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top">行</th>
-<th class="tableblock halign-center valign-top">X</th>
-<th class="tableblock halign-center valign-top">Y</th>
-<th class="tableblock halign-center valign-top">B</th>
-<th class="tableblock halign-center valign-top">F</th>
-<th class="tableblock halign-center valign-top">O</th>
-<th class="tableblock halign-center valign-top">C</th>
-<th class="tableblock halign-center valign-top">视为补码</th>
-</tr>
-</thead>
 <tbody>
 <tr>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">行</p></td>
+<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输入</p></td>
+<td class="tableblock halign-center valign-middle" colspan="4"><p class="tableblock">输出</p></td>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">运算数和运算结果的真值（视为补码）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">C</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">①</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0111</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 </tbody>
