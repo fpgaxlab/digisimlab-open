@@ -7,10 +7,10 @@ Digital仿真软件是一种用于设计和仿真数字逻辑电路的教育工�
 
 ### 在线阅读
 
-阅读网址：[https://fpga-lab.gitee.io/digisimlab-open](https://fpga-lab.gitee.io/digisimlab-open)。
-由于Gitee Pages暂停服务，2024年5月新增GitHub Pages网址：[https://fpgaxlab.github.io/digisimlab-open/](https://fpgaxlab.github.io/digisimlab-open/)。
+在线阅读网址：[https://digisimlab-open.pages.dev/](https://digisimlab-open.pages.dev/)。
+2024年5月Gitee Pages暂停服务之前发布在：[https://fpga-lab.gitee.io/digisimlab-open](https://fpga-lab.gitee.io/digisimlab-open)。
 
-### 本地阅读
+### 离线阅读
 
 将项目代码下载到本地，进入`site`文件夹，双击`index.html`在浏览器中打开。
 
