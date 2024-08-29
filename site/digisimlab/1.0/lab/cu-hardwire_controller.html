@@ -166,9 +166,12 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <div class="title"><a href="../../1.1/index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-latest">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version is-current">
           <a href="../index.html">1.0</a>
         </li>
       </ul>
@@ -181,7 +184,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../index.html" class="home-link"></a>
+  <a href="../../1.1/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
@@ -189,6 +192,13 @@
     <li><a href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a></li>
   </ul>
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../1.1/lab/cu-hardwire_controller.html">1.1</a>
+    <a class="version is-current" href="cu-hardwire_controller.html">1.0</a>
+  </div>
+</div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="页内目录" data-levels="2">
@@ -218,13 +228,13 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在前面数据通路的基础上，增加指令存储器、控制器等部件，可以看成是一个简单的计算机主机。原理框图如<a href="#fig-cu-arch-2">图 1</a>。</p>
+<p>在前面<a href="dp-single_cycle_datapath.html" class="xref page">数据通路实验</a>的基础上，增加指令存储器、控制器等部件，可以看成是一个简单的计算机主机。原理框图如<a href="#fig-cu-arch-2">图 1</a>。</p>
 </div>
 <div id="fig-cu-arch-2" class="imageblock">
 <div class="content">
 <img src="_images/cu-arch-2.png" alt="cu arch 2">
 </div>
-<div class="title">图 1. 单周期数据通路及控制</div>
+<div class="title">图 1. 支持分支指令的单周期数据通路及控制</div>
 </div>
 <div class="sect2">
 <h3 id="_指令部件"><a class="anchor" href="#_指令部件"></a>指令部件</h3>
@@ -660,6 +670,14 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_思考与拓展"><a class="anchor" href="#_思考与拓展"></a>思考与拓展</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>本实验的转移指令的目的地址是由立即数给出的，即直接寻址。如果改为相对寻址，即目的地址=(PC)+imm，数据通路应做何种变化？</p>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>概述 :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">下载与安装</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">计数器实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">数据通路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">单周期数据通路实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath-2.html">单周期数据通路实验（Ⅱ）</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>控制器</li>
+    <li><a href="cu-overview.html">概述</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="cu-overview.html">1.1</a>
+    <a class="version" href="../../1.0/lab/cu-overview.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">概述</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>历史上控制器的类型主要有两种：微程序控制和硬布线控制。微程序控制一般与CISC指令系统配套，控制多周期数据通路。硬布线控制多与RISC指令系统配套，控制单周期或流水线数据通路。这里主要讨论硬布线控制。</p>
+</div>
+<div class="paragraph">
+<p>控制器的作用是发出控制信号，控制数据通路处理加工数据。在前面的数据通路实验中，通过手动输入控制信号完成运算过程的控制；增加了控制器之后，通过控制器产生控制信号完成运算过程。</p>
+</div>
+<div class="paragraph">
+<p>控制器产生控制信号的依据是指令。指令存放在指令存储器中。控制器从指令存储器中逐条取出指令，根据指令的功能产生相应的控制信号。控制器实验的硬件是在前面数据通路的基础上，增加指令存储器、控制器等部件，因此可以看成是一个简单的模型计算机。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bookmark-cu-isa"><a class="anchor" href="#bookmark-cu-isa"></a>指令系统</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>实验计算机指令字长为14位，指令格式如<a href="#tab-cu-instr-filed">表 1</a>所示。
+其中opcode为4位的操作码，所以最多可有16条指令；rs1、rs2和rd为2位的寄存器号，所以有4个通用寄存器，并且R0寄存器的值恒为零；imm为补码表示的4位立即数。</p>
+</div>
+<table id="tab-cu-instr-filed" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. 指令格式</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 12.1212%;">
+<col style="width: 12.1213%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">opcode</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs1</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs2</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rd</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">imm</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>实验计算机设计了R型和I型运算指令、B型分支指令以及M型访存指令，指令功能及操作码编码见<a href="#tab-cu-instr-code">表 2</a>。</p>
+</div>
+<div class="paragraph">
+<p>R型指令的两个源操作数均来自寄存器，分别由rs1和rs2给出寄存器号。I型指令的一个源操作数来自寄存器，由rs1给出寄存器号；另一个源操作数是立即数，由指令的imm字段提供。运算结果存入由rd指定的寄存器中。</p>
+</div>
+<div class="paragraph">
+<p>B型指令根据rs1和rs2的大小关系决定是顺序执行下一条指令，还是跳转去执行地址为imm的指令。</p>
+</div>
+<table id="tab-cu-instr-code" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">表 2. 指令助记符、操作码编码及功能</caption>
+<colgroup>
+<col style="width: 19%;">
+<col style="width: 35%;">
+<col style="width: 17%;">
+<col style="width: 29%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">指令类型</th>
+<th class="tableblock halign-left valign-top">指令助记符</th>
+<th class="tableblock halign-left valign-top">opcode</th>
+<th class="tableblock halign-left valign-top">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="5"><p class="tableblock">R型</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add rd, rs1, rs2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)＋(rs2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sub rd, rs1, rs2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)－(rs2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">and rd, rs1, rs2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0011</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)∧(rs2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">or rd, rs1, rs2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)∨(rs2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xor rd, rs1, rs2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0101</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)⊕(rs2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">I型</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addi rd, rs1, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)＋imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">andi rd, rs1, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)∧imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ori rd, rs1, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)∨imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xori rd, rs1, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←(rs1)⊕imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">B型</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beq rs1, rs2, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)=(rs2) goto imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bne rs1, rs2, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)≠(rs2) goto imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">blt rs1, rs2, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)&lt;(rs2) goto imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bge rs1, rs2, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1101</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if (rs1)≥(rs2) goto imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">M型</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">load rd, rs1, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rd←Mem[(rs1)＋imm]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">store rs2, rs1, #imm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mem[(rs1)＋imm]←(rs2)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>下面给出一个例子，使用上述指令系统，编写一个计算斐波那契数列的程序。
+斐波那契数列（Fibonacci sequence）是指这样一个数列：{1,1,2,3,5,8,13,21&#8230;&#8203;}，它的首项为1，第2项也为1，且从第3项起,每一项都等于它前两项之和。用符号定义如下：F(1)=1，F(2)=1， F(n)=F(n-1)+F(n-2)（n ≥ 3，n ∈ N*）。</p>
+</div>
+<div id="exa-cu-isa" class="exampleblock">
+<div class="title">例 1. 计算斐波那契数列的程序</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>汇编语言程序</p>
+<div class="listingblock">
+<div class="content">
+<pre>     addi r1, r0, 1    # r1：term1
+     addi r2, r0, 1    # r2：term2
+loop:
+     add  r3, r1, r2   # nextTerm = term1 + term2
+     addi r1, r2, 0    # term1 = term2
+     addi r2, r3, 0    # term2 = nextTerm
+     beq  r0, r0, loop # 循环</pre>
+</div>
+</div>
+</li>
+<li>
+<p>机器指令程序</p>
+<div class="listingblock">
+<div class="content">
+<pre>0b01100000010001
+0b01100000100001
+0b00010110110000
+0b01101000010000
+0b01101100100000
+0b10100000000010</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验安排"><a class="anchor" href="#_实验安排"></a>实验安排</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>硬布线控制一共安排了Ⅰ、Ⅱ、Ⅲ三个实验项目。
+项目Ⅰ完成R型和I型运算指令的控制；
+项目Ⅱ除了R型和I型运算指令，还要完成B型分支指令的控制；
+项目Ⅲ增加M型访存指令的控制。
+在编写上，项目Ⅰ和项目Ⅱ是独立的，既可以依次完成项目Ⅰ和项目Ⅱ，也可以直接从项目Ⅱ开始。项目Ⅲ是递增的，需要先完成项目Ⅰ或项目Ⅱ。</p>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

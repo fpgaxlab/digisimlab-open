@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单周期数据通路实验（Ⅰ） :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">下载与安装</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">计数器实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">数据通路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-overview.html">概述</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">单周期数据通路实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath-2.html">单周期数据通路实验（Ⅱ）</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>数据通路</li>
+    <li><a href="dp-single_cycle_datapath.html">单周期数据通路实验（Ⅰ）</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="dp-single_cycle_datapath.html">1.1</a>
+    <a class="version" href="../../1.0/lab/dp-single_cycle_datapath.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">单周期数据通路实验（Ⅰ）</h1>
+<div class="sect1">
+<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1．理解单周期数据通路的组成结构。</p>
+</div>
+<div class="paragraph">
+<p>2．掌握单周期数据通路信息加工过程。</p>
+</div>
+<div class="paragraph">
+<p>3．锻炼分析问题与解决问题的能力。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="#fig-dp-1">图 1</a>是本实验的单周期数据通路，该数据通路使用了前面实验中的ALU和三端口寄存器堆。
+ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入端Y的运算数据可以来自寄存器堆的RD2读端口，或者来自立即数。
+寄存器堆写端口WD的数据来自ALU的运算结果F。
+该数据通路可以在一个周期内完成从寄存器堆读数据、ALU运算、运算结果保存到寄存器堆。</p>
+</div>
+<div id="fig-dp-1" class="imageblock">
+<div class="content">
+<img src="_images/dp-datapath-1.png" alt="单周期数据通路300dpi" width="621" height="350">
+</div>
+<div class="title">图 1. 单周期数据通路</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>设计</p>
+<div class="paragraph">
+<p>用Digital仿真软件按照<a href="#fig-dp-1">图 1</a>绘制电路图。
+ALU和三端口寄存器堆使用前面实验完成的。</p>
+</div>
+</li>
+<li>
+<p>仿真</p>
+<div class="paragraph">
+<p>编写测试用例完成以下验证操作。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>将2个常数存入R1、R2寄存器</p>
+<div class="paragraph">
+<p>常数通过ImmediateData输入引脚送入。从<a href="#fig-dp-1">图 1</a>可以看出，ImmediateData并没有直接连在寄存器堆的写端口，而是经过多路器后送到了ALU的Y输入端；所以要将ImmediateData送到寄存器堆的写端口，必须经过ALU。在前面寄存器堆的实验中已经设计R0寄存器的值恒为0，可以用ALU将ImmediateData加上R0寄存器值，将ImmediateData传送到寄存器堆的写端口。</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="注意"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>存入的常数应有助于判别下面将要验证的各种运算结果是否正确，可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="#exa-test-dp">例 1</a>给出了一个测试用例，该测试用例试图向R0寄存器写入数据“5”，用来验证R0寄存器的值是否恒为零。</p>
+</div>
+<div id="exa-test-dp" class="exampleblock">
+<div class="title">例 1. 数据通路测试用例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>Clock	WE	WA	RA1	RA2	IM	Ysel	M	S0	S1	F	S Z O C
+0	    1	0	0	0	0x5	1	    0	0	0	X	X X X X <i class="conum" data-value="1"></i><b>(1)</b>
+1	    1	0	0	0	0x5	1	    0	0	0	0x5	0 0 0 0 <i class="conum" data-value="2"></i><b>(2)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>该行给出Clock为0的激励数据，实现操作：R0+5→R0；预期响应“X”表示任意值，即不参与比较。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>该行给出Clock为1的数据，激励数据应保持不变，如果R0恒为零，输出F应为5；如果R0被写入5，输出F会变为10。
+所以根据输出F是否为5即可判断R0是否恒为零。</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Clock从0到1的变化也可用字母“C”表示，故上面两行可用一行代替如下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Clock	WE	WA	RA1	RA2	IM	Ysel	M	S0	S1	F	S Z O C
+C	    1	0	0	0	0x5	1	    0	0	0	0x5	0 0 0 0</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>完成以下运算并验证结果是否正确。</p>
+<div class="paragraph">
+<p>R1 + R2 → R3;</p>
+</div>
+<div class="paragraph">
+<p>R1 − R2 → R3;</p>
+</div>
+<div class="paragraph">
+<p>R1 ⊕ 0b1111 → R3;</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>在结果与预期不符的情况下，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>实验结果分析</p>
+<div class="paragraph">
+<p>对测试结果进行详细分析说明，并给出结论。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_预习要求"><a class="anchor" href="#_预习要求"></a>预习要求</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>理解实验原理，初步编写测试用例数据。</p>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>加减运算电路实验 :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">下载与安装</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">计数器实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算电路</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">数据通路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">单周期数据通路实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath-2.html">单周期数据通路实验（Ⅱ）</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>运算电路</li>
+    <li><a href="op-add_sub_operation.html">加减运算电路实验</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="op-add_sub_operation.html">1.1</a>
+    <a class="version" href="../../1.0/lab/op-add_sub_operation.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">加减运算电路实验</h1>
+<div class="sect1">
+<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解使用加法器实现补码加减运算的原理。</p>
+</li>
+<li>
+<p>掌握溢出判断方法。</p>
+</li>
+<li>
+<p>学会使用Digital仿真软件的符号扩展器等常用组件。</p>
+</li>
+<li>
+<p>学会使用表达式生成电路图。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_加减运算"><a class="anchor" href="#_加减运算"></a>加减运算</h3>
+<div class="paragraph">
+<p>加法运算是最基本的算术运算，其运算速度对计算机的运行速度有着重要影响。
+4位的加法器可以用4个全加器级联构成，由于存在进位链的传递延时，运算速度随着精度的提高（位数增加）而降低。所以实际的并行加法器并不会采用全加器级联的方法，而是采用先行进位加法器。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验不考虑并行加法器的实现细节，而是侧重于功能仿真，可以直接使用加法器组件。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>由于补码加法可以连同符号位在内一起运算，并且补码减法可以转换为加法，所以在计算机中通常采用补码进行加减运算。其基本公式如下：</p>
+</div>
+<div class="paragraph text-center">
+<p>[X+Y] <sub>补</sub> =[X] <sub>补</sub> +[Y] <sub>补</sub></p>
+</div>
+<div class="paragraph text-center">
+<p>[X−Y] <sub>补</sub> =[X] <sub>补</sub> +[−Y] <sub>补</sub></p>
+</div>
+<div class="paragraph">
+<p>这两个公式是补码加减运算的理论依据，它们所包含的意义是：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>求两个数的和，可以先将这两个数的补码相加，所得到的结果就是这两个数和的补码；</p>
+</li>
+<li>
+<p>求两个数的差，可以转换为加法进行计算。将第一个数的补码加上第二个数相反数的补码，所得到的结果就是这两个数差的补码。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>也就是说可以利用二进制加法器进行补码加减运算，只需要在加法器的基础上增加求补电路就可以实现减法，无需为减法设计专门的电路。
+根据上述原理可以设计出补码加减运算电路如<a href="#fig-21">图 1</a>所示。</p>
+</div>
+<div id="fig-21" class="imageblock ">
+<div class="content">
+<img src="_images/op-add_sub.png" alt="op add sub">
+</div>
+<div class="title">图 1. 四位加减运算电路原理图</div>
+</div>
+<div class="paragraph">
+<p>图中ADDER是二进制加法器，实现的加法运算为F＝A+B+C0；其中a<sub>i</sub>=x<sub>i</sub>，b<sub>i</sub>=y<sub>i</sub>⊕M，C0=M。</p>
+</div>
+<div class="paragraph">
+<p>当M=0时，b<sub>i</sub>=y<sub>i</sub>⊕0=y<sub>i</sub>，C0=0，所以F=X+Y；
+当M=1时，<span class="image"><img src="_images/op-add_sub-bi.png" alt="op add sub bi" width="140" height="34"></span>，
+C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op add sub sub" width="228" height="34"></span> 。</p>
+</div>
+<div class="paragraph">
+<p>可见，M用来控制是将Y送到加法器运算，还是将Y求相反数后再相加。
+当M=0时做加法运算，M=1时做减法运算。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_补码加法运算的溢出检测"><a class="anchor" href="#_补码加法运算的溢出检测"></a>补码加法运算的溢出检测</h3>
+<div class="paragraph">
+<p>溢出（overflow）是指运算结果超出了数的表示范围。
+通过上面的讨论可知，有符号数的补码加减运算和无符号数的加法运算可以用同一个电路实现。
+对于4位二进制编码，无符号数的表示范围是0～15，补码表示的带符号数的范围是−8～+7。
+如果用<a href="#fig-21">图 1</a>电路进行无符号数运算，结果大于15会产生进位，因此根据进位C值就可以判断无符号数的加法是否溢出。
+但是补码加法运算是否溢出并不能根据进位来判断。下面介绍一种便于实验电路实现的补码加法运算的溢出检测方法——根据两个操作数的符号位和结果的符号位是否一致进行判断。</p>
+</div>
+<div class="paragraph">
+<p>两个参加运算的数据如果符号相异，做加法时是不会产生溢出的。只有两个相同符号的数做加法运算时才有可能产生溢出。换句话说，两个正数相加结果为负数，或者两个负数相加结果为正数，均表示运算结果溢出。检测方法如下：</p>
+</div>
+<div class="paragraph">
+<p>假设As和Bs表示两个操作数的符号，Fs表示运算结果的符号，则溢出检测的逻辑表达式为：</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/op-add_sub-ov.png" alt="OV" width="276" height="34">
+</div>
+</div>
+<div class="paragraph">
+<p>当两个加数为负数（As=Bs=1），而结果为正数（Fs=0）时，或者当两个加数为正数（As=Bs=0），而结果为负数（Fs=1）时，OV＝1，即发生溢出。</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="注意"></i>
+</td>
+<td class="content">
+需要说明的是，上面的讨论是针对加法运算。同理不难找出补码减法运算的溢出检测方法。但实际上，因为减法是转换为加法运算的，只要检测时使用B的符号而不是Y的符号，并不需要为减法运算另外设计溢出检测电路。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_预习要求"><a class="anchor" href="#_预习要求"></a>预习要求</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解实验原理。复习补码的表示，列出负数的4位补码与真值的对应关系：</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">补码</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1101</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1111</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">真值</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>阅读第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_设计加减运算电路"><a class="anchor" href="#_1_设计加减运算电路"></a>1. 设计加减运算电路</h3>
+<div class="paragraph">
+<p>理解实验原理，按照<a href="#fig-21">图 1</a>设计加减运算电路。
+参考电路如<a href="#fig-op-add_sub">图 2</a>所示。</p>
+</div>
+<div id="fig-op-add_sub" class="imageblock">
+<div class="content">
+<img src="_images/op-add_sub_res.png" alt="加减运算电路提示" width="80%">
+</div>
+<div class="title">图 2. 参考电路图（部分）</div>
+</div>
+<div class="paragraph">
+<p>下面给出几点说明。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>加法器组件位于“Components/组件 ➤ Arithmetic/运算器 ➤ Adder/加法器”。</p>
+</li>
+<li>
+<p><a href="#fig-21">图 1</a>用了4个1位的异或门，而<a href="#fig-op-add_sub">图 2</a>使用1个4位的异或门。因为X、Y是4位的，用1个4位的异或门更便于画图。但是M仍然是1位的，因此用“Sign extender/符号扩展器”组件扩展为4位。</p>
+</li>
+<li>
+<p>为便于观察异或门输出的数据（减法运算需要记录该数据），添加了一个“Probe/探测器”组件（图中显示问号的那个）。</p>
+</li>
+<li>
+<p><a href="#fig-op-add_sub">图 2</a>未给出溢出检测电路。可以用表达式生成溢出检测电路，并将生成的电路复制到加减电路中（复制时不要包含输入输出引脚），代替图中的溢出检测虚线框。
+<a href="#fig-op-add_sub">图 2</a>为了从4位数据中抽取最高位作为符号位，使用了3个“Splitter/分裂器”组件；将这3个组件的输出端与溢出检测电路的相应输入端连接。</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>符号扩展器、探测器、分线器等组件的介绍见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。
+用表达式生成电路图的介绍见“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_验证加法运算"><a class="anchor" href="#_2_验证加法运算"></a>2. 验证加法运算</h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>实验数据记录</p>
+<div class="paragraph">
+<p>设置M=0，按<a href="#tab-op-adder-1">表 1</a>步骤操作，填写加法运算的结果，并仿照第①行的形式写出运算数和结果的真值。</p>
+</div>
+<table id="tab-op-adder-1" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. 加法运算数据记录表</caption>
+<colgroup>
+<col style="width: 7%;">
+<col style="width: 7%;">
+<col style="width: 8%;">
+<col style="width: 8%;">
+<col style="width: 8%;">
+<col style="width: 7%;">
+<col style="width: 7%;">
+<col style="width: 24%;">
+<col style="width: 24%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">行</p></td>
+<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输入</p></td>
+<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输出</p></td>
+<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock">运算数和运算结果的真值</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">M</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">X</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">F</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">O</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">C</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">视为无符号数</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">视为补码</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">①</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3+5=8</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3+5=−8 <sup>[注]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0001</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1101</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0001</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">⑤</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">⑥</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">⑦</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">⑧</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>注：真值按照电路的实际显示数据而非理论计算。</p>
+</div>
+</li>
+<li>
+<p>实验数据分析。</p>
+<div class="paragraph">
+<p>分别针对无符号数和带符号数（补码），分析加法运算结果（包括标志位）。特别注意无符号数、带符号数加法溢出是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_验证减法运算"><a class="anchor" href="#_3_验证减法运算"></a>3. 验证减法运算</h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>实验数据记录</p>
+<div class="paragraph">
+<p>设置M=1，按<a href="#tab-op-adder-2">表 2</a>步骤操作，填写减法运算结果。</p>
+</div>
+<table id="tab-op-adder-2" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. 减法运算数据记录表</caption>
+<colgroup>
+<col style="width: 7.4766%;">
+<col style="width: 6.542%;">
+<col style="width: 11.2149%;">
+<col style="width: 11.2149%;">
+<col style="width: 11.2149%;">
+<col style="width: 11.2149%;">
+<col style="width: 6.542%;">
+<col style="width: 6.542%;">
+<col style="width: 28.0378%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">行</p></td>
+<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输入</p></td>
+<td class="tableblock halign-center valign-middle" colspan="4"><p class="tableblock">输出</p></td>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">运算数和运算结果的真值（视为补码）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">①</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0111</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>实验数据分析。</p>
+<div class="paragraph">
+<p>注意观察减法运算是否溢出和溢出标志的关系，是否产生借位和进位标志的关系。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
