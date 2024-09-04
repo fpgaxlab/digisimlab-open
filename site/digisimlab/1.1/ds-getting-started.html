@@ -237,10 +237,46 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_软件设置"><a class="anchor" href="#_软件设置"></a>软件设置</h2>
+<h2 id="bm-settings"><a class="anchor" href="#bm-settings"></a>软件设置</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>点击菜单项“Edit/编辑 ➤ Settings/设置”，在Settings对话框中，不勾选“Use IEEE 91-1984 shapes / 使用IEEE 91-1984外观”，“Language/语言”下拉列表中选择界面语言（有简体中文），勾选“Component tree view is visible at startup / 应用启动时显示组件树”，勾选“Show Grid / 显示栅格”，点击OK后可看到界面和异或门形状的变化。可根据自己的习惯决定使用哪种风格的逻辑门形状。</p>
+<p>点击菜单项“Edit/编辑 ➤ Settings/设置”，Settings/设置对话框中的常用设置如下。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use IEEE 91-1984 shapes / 使用IEEE 91-1984外观</p>
+<div class="paragraph">
+<p>该选项决定使用哪种逻辑元件的图形符号。软件默认使用IEEE图形符号，如果不勾选则使用IEC 60617-12标准规定的图形符号。
+可根据自己的习惯决定使用哪种风格的逻辑门形状。
+由于我国推荐性国家标准GB/T 4728.12采用了IEC的标准，故建议不勾选此选项。</p>
+</div>
+</li>
+<li>
+<p>“Language/语言”下拉列表</p>
+<div class="paragraph">
+<p>选择界面语言，默认Engilsh，可选择简体中文。</p>
+</div>
+</li>
+<li>
+<p>Component tree view is visible at startup / 应用启动时显示组件树</p>
+<div class="paragraph">
+<p>若勾选，则在窗口左边栏显示组件树。该选项在下次软件启动后生效。</p>
+</div>
+</li>
+<li>
+<p>Show Grid / 显示栅格</p>
+<div class="paragraph">
+<p>是否在窗口中显示栅格圆点。</p>
+</div>
+</li>
+<li>
+<p>Show the number of wires on a bus / 在总线上显示导线数</p>
+<div class="paragraph">
+<p>当导线的位宽大于1时，是否在导线上标注位数。</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -284,7 +320,7 @@
 </table>
 </div>
 <div class="paragraph">
-<p>对于连接多位数据的信号线，仿真时无法用颜色反映其状态，均显示为蓝色。如果希望在导线上标注位宽，可以通过菜单项“Edit/编辑 ➤ Settings/设置”打开Settings对话框，勾选“Show the number of wires on a bus / 在总线上显示导线数”，效果如<a href="#fig-ds-bw">图 1</a>所示。注意，设置后并不能立刻看到效果，要在启动仿真后才会在导线上显示位宽。</p>
+<p>对于连接多位数据的信号线，仿真时无法用颜色反映其状态，均显示为蓝色。如果希望在导线上标注位宽，可在<a href="#bm-settings">软件设置</a>中勾选“在总线上显示导线数”，效果如<a href="#fig-ds-bw">图 1</a>所示。注意，设置后并不能立刻看到效果，要在启动仿真后才会在导线上显示位宽。</p>
 </div>
 <div id="fig-ds-bw" class="imageblock">
 <div class="content">
