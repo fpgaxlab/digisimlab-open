@@ -52,7 +52,10 @@
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载与安装</a>
+    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -223,7 +226,7 @@
 <h2 id="_使用真值表生成电路图"><a class="anchor" href="#_使用真值表生成电路图"></a>使用真值表生成电路图</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>以2-4译码器为例，输入输出端口如<a href="#fig-ds-decoder2-4">图 1</a>所示。逻辑功能见<a href="#tab-ds-decoder2-4">表 1</a>。</p>
+<p>以具有使能控制的2-4译码器为例，输入输出端口如<a href="#fig-ds-decoder2-4">图 1</a>所示。逻辑功能见<a href="#tab-ds-decoder2-4">表 1</a>。</p>
 </div>
 <div id="fig-ds-decoder2-4" class="imageblock">
 <div class="content">
@@ -232,7 +235,7 @@
 <div class="title">图 1. 带有使能控制的2-4译码器</div>
 </div>
 <table id="tab-ds-decoder2-4" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. 2-4译码器真值表</caption>
+<caption class="title">表 1. 带有使能控制的2-4译码器真值表</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 14.2857%;">
@@ -335,7 +338,36 @@
 <h2 id="_使用逻辑表达式生成电路图"><a class="anchor" href="#_使用逻辑表达式生成电路图"></a>使用逻辑表达式生成电路图</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在Digital仿真软件中点击菜单项“Analysis/分析 ➤ Expression/表达式”，打开表达式编辑窗口。表达式的书写方法可点击该窗口的“Help”按钮查阅。</p>
+<p>在Digital仿真软件中点击菜单项“Analysis/分析 ➤ Expression/表达式”，打开表达式编辑窗口。</p>
+</div>
+<div class="paragraph">
+<p>可以使用多种常见的符号书写逻辑表达式：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>与："&amp;"，"*"</p>
+</li>
+<li>
+<p>或："|"，"+"，"#"</p>
+</li>
+<li>
+<p>异或："^"</p>
+</li>
+<li>
+<p>非："~"，"!"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>和常规一样，与运算优先级高于或运算和异或运算。
+多个表达式可以用“，”或“;”分隔。
+如果需要命名表达式，可以使用 <code>let</code> 命令，如</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>let U=A+B，let V=A*B</pre>
+</div>
 </div>
 </div>
 </div>

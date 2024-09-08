@@ -51,8 +51,11 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载与安装</a>
+    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -195,7 +198,7 @@
   <ul>
     <li><a href="index.html">计算机组成原理实验指导</a></li>
     <li>Digital仿真软件使用指南</li>
-    <li><a href="introduce-digitalsim.html">下载与安装</a></li>
+    <li><a href="introduce-digitalsim.html">下载、安装及启动</a></li>
   </ul>
 </nav>
 <div class="page-versions">
@@ -213,24 +216,37 @@
 <article class="doc">
 <h1 class="page">数字电路仿真软件——Digital</h1>
 <div class="sect1">
-<h2 id="_简介"><a class="anchor" href="#_简介"></a>简介</h2>
+<h2 id="_下载"><a class="anchor" href="#_下载"></a>下载</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Digital是一种用于设计和仿真数字逻辑电路的教育工具，它是免费、开源和跨平台的。</p>
-</div>
-<div class="paragraph">
-<p>本书使用的版本是2023年2月3日发布的v0.30。</p>
+<p><a href="https://github.com/hneemann/Digital/">Digital开源项目</a>发布在github开源项目托管网站，可从该项目的<a href="https://github.com/hneemann/Digital/releases/">Release页面</a>下载其发行版<a href="https://github.com/hneemann/Digital/releases/latest/download/Digital.zip/"><em>Digital.zip</em></a>。也可从本课程的<a href="https://gitee.com/fpga-lab/digisimlab-open">实验材料网站</a>下载。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_下载"><a class="anchor" href="#_下载"></a>下载</h2>
+<h2 id="_安装"><a class="anchor" href="#_安装"></a>安装</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/hneemann/Digital/">Digital开源项目</a>发布在github开源项目托管网站，可从该项目的<a href="https://github.com/hneemann/Digital/releases/latest/download/Digital.zip/">Release页面</a>下载其发行版<em>Digital.zip</em>。也可从本课程的<a href="https://gitee.com/fpga-lab/digisimlab-open">实验材料网站</a>下载。</p>
+<p>Digital软件无需安装，将<em>Digital.zip</em>文件解压即可。</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_启动"><a class="anchor" href="#_启动"></a>启动</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>运行Digital仿真软件需要Java Runtime Environment（至少是JRE 8）。可以安装<a href="http://www.java.com">Oracle的JRE</a>或者基于开源OpenJDK构建的Java环境，Digital仿真软件的开发者建议安装<a href="https://adoptium.net/">Eclipse Temurin</a>。</p>
+</div>
+<div class="paragraph">
+<p>在Windows和MacOS上可以直接启动<em>Digital.jar</em>文件，在Linux上启动shell脚本文件<em>Digital.sh</em>。</p>
+</div>
+<div class="paragraph">
+<p>如果启动Digital仿真软件时出现问题，可尝试从命令行运行：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>java -jar Digital.jar</pre>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -250,30 +266,6 @@
 </td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_安装"><a class="anchor" href="#_安装"></a>安装</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Digital软件无需安装，将<em>Digital.zip</em>文件解压即可。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_启动"><a class="anchor" href="#_启动"></a>启动</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>在Windows和MacOS上可以直接启动<em>Digital.jar</em>文件，在Linux上启动shell脚本文件<em>Digital.sh</em>。</p>
-</div>
-<div class="paragraph">
-<p>如果启动Digital仿真软件时出现问题，可尝试从命令行运行：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>java -jar Digital.jar</pre>
-</div>
 </div>
 </div>
 </div>

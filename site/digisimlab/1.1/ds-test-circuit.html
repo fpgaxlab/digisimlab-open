@@ -52,7 +52,10 @@
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载与安装</a>
+    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -216,7 +219,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>除了一步步输入数据进行仿真，Digital仿真软件还支持编写测试用例（test case），自动地对电路施加输入数据、对比输出结果。
-测试用例可以直接给出数据，也可以编写程序自动生成测试数据。</p>
+测试用例可以直接给出激励和预期响应的数据，也可以编写程序自动生成测试数据。下面分别介绍这两种方法。</p>
 </div>
 </div>
 </div>
@@ -227,7 +230,7 @@
 <p>以前面的2-4译码器为例，点击菜单项“Components/组件 ➤ Misc./其他 ➤ Test case / 测试用例”，添加一个测试组件。右键点击该测试组件，点击组件属性窗口中的“Edit/编辑”按钮，将<a href="#exa-test-vec">例 1</a>的内容复制到编辑器中。</p>
 </div>
 <div id="exa-test-vec" class="exampleblock">
-<div class="title">例 1. 2-4译码器测试数据</div>
+<div class="title">例 1. 2-4译码器测试用例</div>
 <div class="content">
 <div class="listingblock">
 <div class="content">
@@ -249,13 +252,18 @@
 <p><a href="#exa-test-vec">例 1</a>中第一行是电路的输入输出引脚的名称（即“Label/标签”属性），后面各行是测试数据，每一列与第一行的引脚对应。</p>
 </div>
 <div class="paragraph">
+<p>在测试时，Digital仿真软件将激励数据施加到电路的输入端口，然后将电路输出与预期响应值进行比较。
+除了比较电路的输出，电路内部的寄存器输出也可以与预期值比较，因此第一行也可以出现寄存器的名称。
+激励和预期响应值除了“0”、“1”之外，还可以用 “X”表示不关心，“Z”表示高阻态。</p>
+</div>
+<div class="paragraph">
 <p>点击菜单项“Simulation/仿真 ➤ Run Tests / 运行测试用例”或对应工具条按钮，弹出“Test result /测试结果”窗口。输出引脚的数据如果与预期相符，则以绿底色显示；如果不相符，则以红底色显示，并且同时给出预期值和测试值的对比。</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="注"></i>
+<i class="fa icon-caution" title="注意"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -289,6 +297,42 @@
 repeat(4)  0  bits(2, n) bits(4, 0)
 repeat(4)  1  bits(2, n) bits(4, 1&lt;&lt;n)</pre>
 </div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">程序说明</dt>
+<dd>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>“repeat([n])”表示生成[n]行测试数据。</p>
+<div class="paragraph">
+<p><code>repeat(4)</code> 创建4行，其中循环变量n从0到3。</p>
+</div>
+</li>
+<li>
+<p>“bits（[bits]，[value]）”语句将多个位输入作为一组二进制值。例如，</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>bits(4, 0)</code> 创建4位的0，即0000；</p>
+</li>
+<li>
+<p><code>bits(2, n)</code> 则创建2位的数据，其值为循环变量n，即第1行值为00，第2行值为01，等等。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>“&lt;&lt;”为左移运算符。</p>
+<div class="paragraph">
+<p><code>bits(4, 1&lt;&lt;n)</code> 创建4位的数据，其值为“1左移n位”，四行数据分别为0001、0010、0100、10000。</p>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
