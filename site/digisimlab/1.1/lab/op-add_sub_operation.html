@@ -373,7 +373,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <p><a href="#fig-op-add_sub">图 2</a>未给出溢出检测电路。根据上面介绍的溢出检测方法，可以在Digital仿真软件中用如下表达式生成溢出检测电路。</p>
 <div class="listingblock">
 <div class="content">
-<pre>let OF = As &amp; Bs &amp; ~Fs | ~As &amp; ~Bs &amp; Fs</pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">let OF = As &amp; Bs &amp; ~Fs | ~As &amp; ~Bs &amp; Fs</code></pre>
 </div>
 </div>
 <div class="paragraph">
