@@ -230,7 +230,7 @@
 <p>以前面的2-4译码器为例，点击菜单项“Components/组件 ➤ Misc./其他 ➤ Test case / 测试用例”，添加一个测试组件。右键点击该测试组件，点击组件属性窗口中的“Edit/编辑”按钮，将<a href="#exa-test-vec">例 1</a>的内容复制到编辑器中。</p>
 </div>
 <div id="exa-test-vec" class="exampleblock">
-<div class="title">例 1. 2-4译码器测试用例</div>
+<div class="title">例 1. 2-4译码器测试数据</div>
 <div class="content">
 <div class="listingblock">
 <div class="content">
@@ -253,8 +253,8 @@
 </div>
 <div class="paragraph">
 <p>在测试时，Digital仿真软件将激励数据施加到电路的输入端口，然后将电路输出与预期响应值进行比较。
-除了比较电路的输出，电路内部的寄存器输出也可以与预期值比较，因此第一行也可以出现寄存器的名称。
-激励和预期响应值除了“0”、“1”之外，还可以用 “X”表示不关心，“Z”表示高阻态。</p>
+激励和预期响应值除了“0”、“1”之外，还可以用 “X”表示不关心，“Z”表示高阻态。
+对于时钟输入，可以使用字母“C”表示一个时钟周期。Digital仿真软件在测试时首先施加其他激励数据，之后施加一个时钟脉冲，然后将电路输出与预期响应比较。</p>
 </div>
 <div class="paragraph">
 <p>点击菜单项“Simulation/仿真 ➤ Run Tests / 运行测试用例”或对应工具条按钮，弹出“Test result /测试结果”窗口。输出引脚的数据如果与预期相符，则以绿底色显示；如果不相符，则以红底色显示，并且同时给出预期值和测试值的对比。</p>
@@ -272,6 +272,9 @@
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>在仿真状态下，点击测试结果窗口的某行数据，会在电路图上显示该行数据，便于进行结果分析。</p>
 </div>
 <div class="paragraph">
 <p>在“Test result /测试结果”窗口中点击菜单项“File/文件 ➤ Save Data / 保存数据”，测试结果数据将被保存为CSV文件。该文件可通过WPS等办公软件打开，用于实验报告的实验结果分析。</p>
@@ -326,7 +329,7 @@ repeat(4)  1  bits(2, n) bits(4, 1&lt;&lt;n)</code></pre>
 <li>
 <p>“&lt;&lt;”为左移运算符。</p>
 <div class="paragraph">
-<p><code>bits(4, 1&lt;&lt;n)</code> 创建4位的数据，其值为“1左移n位”，四行数据分别为0001、0010、0100、10000。</p>
+<p><code>bits(4, 1&lt;&lt;n)</code> 创建4位的数据，其值为“1左移n位”，四行数据分别为0001、0010、0100、1000。</p>
 </div>
 </li>
 </ol>

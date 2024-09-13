@@ -261,7 +261,7 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 <li>
 <p>仿真</p>
 <div class="paragraph">
-<p>编写测试用例完成以下验证操作。</p>
+<p>通过仿真验证数据通路，并保存仿真过程数据文件。</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -278,49 +278,37 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>存入的常数应有助于判别下面将要验证的各种运算结果是否正确，可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>。</p>
+<p>存入的常数应有助于判别下面将要验证的各种运算结果是否正确。</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><a href="#exa-test-dp">例 1</a>给出了一个测试用例，该测试用例试图向R0寄存器写入数据“5”，用来验证R0寄存器的值是否恒为零。</p>
+<p>可以手动操作完成验证，或者编写测试用例（test case）进行电路测试。
+<a href="#exa-test-dp">例 1</a>给出了将“5”存入R1寄存器的测试数据。</p>
 </div>
 <div id="exa-test-dp" class="exampleblock">
-<div class="title">例 1. 数据通路测试用例</div>
+<div class="title">例 1. 将“5”存入R1寄存器</div>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Clock	WE	WA	RA1	RA2	IM	Ysel	M	S0	S1	F	S Z O C
-0	    1	0	0	0	0x5	1	    0	0	0	X	X X X X <i class="conum" data-value="1"></i><b>(1)</b>
-1	    1	0	0	0	0x5	1	    0	0	0	0x5	0 0 0 0 <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">Clk	WE	WA	RA1	RA2	IM	Ysel M	S0	S1	F	S	Z	O	C
+0   1	0	0	0	0x5	1    0	0	0	0x5	0	0	0	0 <i class="conum" data-value="1"></i><b>(1)</b>
+1   1	0	0	0	0x5	1    0	0	0	0x5	0	1	0	0 <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>该行给出Clock为0的激励数据，实现操作：R0+5→R0；预期响应“X”表示任意值，即不参与比较。</td>
+<td>将“5”写入R1寄存器；</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>该行给出Clock为1的数据，激励数据应保持不变，如果R0恒为零，输出F应为5；如果R0被写入5，输出F会变为10。
-所以根据输出F是否为5即可判断R0是否恒为零。</td>
+<td>读出R1。</td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Clock从0到1的变化也可用字母“C”表示，故上面两行可用一行代替如下：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Clock	WE	WA	RA1	RA2	IM	Ysel	M	S0	S1	F	S Z O C
-C	    1	0	0	0	0x5	1	    0	0	0	0x5	0 0 0 0</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>仿真时首先施加激励数据，之后施加一个周期的时钟，然后将输出与预期响应比较。</p>
 </div>
 </div>
 </div>
@@ -334,21 +322,16 @@ C	    1	0	0	0	0x5	1	    0	0	0	0x5	0 0 0 0</code></pre>
 <p>R1 − R2 → R3;</p>
 </div>
 <div class="paragraph">
-<p>R1 ⊕ 0b1111 → R3;</p>
+<p>R1 &amp; R2 → R3;</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="注"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>在结果与预期不符的情况下，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
+<p>R1 | R2 → R3;</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>R1 ⊕  R2 → R3;</p>
+</div>
+<div class="paragraph">
+<p>R2 ⊕ 0b1111 → R3;</p>
 </div>
 </li>
 </ol>
@@ -359,16 +342,11 @@ C	    1	0	0	0	0x5	1	    0	0	0	0x5	0 0 0 0</code></pre>
 <div class="paragraph">
 <p>对测试结果进行详细分析说明，并给出结论。</p>
 </div>
+<div class="paragraph">
+<p>在结果与预期不符的情况下，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
+</div>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_预习要求"><a class="anchor" href="#_预习要求"></a>预习要求</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>理解实验原理，初步编写测试用例数据。</p>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">

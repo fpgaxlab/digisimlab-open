@@ -296,7 +296,38 @@
 </div>
 </li>
 <li>
-<p>通过仿真验证其功能，并保存仿真过程数据文件。</p>
+<p>通过仿真验证寄存器堆的功能，并保存仿真过程数据文件。</p>
+<div class="paragraph">
+<p>可以手动操作进行仿真，也可以编写测试用例（test case）对电路进行测试。
+<a href="#exa-test-rf">例 1</a>给出了寄存器堆测试数据的一个例子，它试图向R0寄存器写入数据“5”，用来验证R0寄存器的值是否恒为零。</p>
+</div>
+<div id="exa-test-rf" class="exampleblock">
+<div class="title">例 1. 验证R0是否恒为零的测试数据</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">WE	WA	WD	RA1	RA2	Clk	RD1	RD2
+1	0	0x5	0	0	C	0 	0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#exa-test-rf">例 1</a>中字母“C”表示Clk变化一个周期。在Clk变化之前，首先施加其他激励数据；时钟周期执行后，再将输出与预期响应比较。
+如果R0恒为零，RD1和RD2输出应为0；如果WD上的数据5被写入了R0，则RD1和RD2会输出5，表明R0不具备恒为0的特性。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+在测试结果数据中，Clk的值始终为0，而不是字母“C”。这是因为显示值为一个时钟周期结束后的值。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>实验结果分析</p>
