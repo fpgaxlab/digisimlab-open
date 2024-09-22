@@ -215,23 +215,45 @@
 </aside>
 <article class="doc">
 <h1 class="page">时序电路仿真</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>时序电路由时钟驱动，在时钟边沿改变电路的状态。典型的时序电路组件是D触发器，下面使用它构成一个二分频器。</p>
+<p>时序电路由时钟驱动，在时钟边沿改变电路的状态。
+下面以典型的时序电路组件D触发器为例，说明时序电路的仿真。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_d触发器组件"><a class="anchor" href="#_d触发器组件"></a>D触发器组件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>添加以下组件并连接。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>添加“Components/组件 ➤ Flip-Flops/触发器 ➤ D-Flip-flop/D 触发器”。</p>
+</li>
+<li>
+<p>添加“Components/组件 ➤ IO/输入输出 ➤ Input/输入”，将其命名为In，并连接到D触发器的D端口。</p>
+</li>
+<li>
+<p>添加“Components/组件 ➤ IO/输入输出 ➤ Clock Input/时钟输入”，将其命名为Clk，并连接到D触发器的C端口。</p>
+</li>
+<li>
+<p>添加“Components/组件 ➤ IO/输入输出 ➤ Outpu/输出”，将其命名为Out，并连接到D触发器的Q端口。</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>添加“Components/组件 ➤ Flip-Flops/触发器 ➤ D-Flip-flop/D 触发器”，将D触发器的反向输出端连接到D输入端；
-添加“Components/组件 ➤ IO/输入输出 ➤ Clock Input/时钟输入”，将其命名为Clk，并连接到D触发器的C端口；
-添加“Components/组件 ➤ IO/输入输出 ➤ Outpu/输出”，将其命名为Out，并连接到D触发器的Q端口。
-如<a href="#fig-ds-dff">图 1</a>所示。</p>
-</div>
-<div id="fig-ds-dff" class="imageblock">
-<div class="content">
-<img src="_images/ds-dff_divid2.png" alt="ds dff divid2">
-</div>
-<div class="title">图 1. D触发器构成2分频器</div>
+<p>点击菜单项“Edit/编辑 ➤ Circuit specific settings/设置当前电路”，在对话框的“Advanced/高级设置”页面下勾选“Show measurement graph at simulation start/仿真启动时显示测量图”。</p>
 </div>
 <div class="paragraph">
-<p>点击菜单项“Edit/编辑 ➤ Circuit specific settings/设置当前电路”，在对话框的“Advanced/高级设置”页面下勾选“Show measurement graph at simulation start/仿真启动时显示测量图”。启动仿真后，每点击一次Clk引脚，其状态翻转一次。</p>
+<p>启动仿真，改变输入，观察输出变化。
+可以看出，仅当Clk由0变1的瞬间，输出Out才会变化，其值与输入In相同。</p>
+</div>
+<div class="paragraph">
+<p>仿真波形可以保存为图形文件。点击波形窗口的菜单项“File/文件 ➤ Export SVG / 导出SVG”，窗口中记录的波形将被保存为SVG图形文件。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -245,14 +267,68 @@
 </tr>
 </table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_时序电路测试"><a class="anchor" href="#_时序电路测试"></a>时序电路测试</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>停止仿真，右键点击Clk引脚，在属性窗口中勾选“Start real time clock/使用实时时钟”，“Frequency/频率”设置为1Hz（赫兹）。再次启动仿真，可看到Clk每秒翻转一次。如果设置频率为2或3赫兹，可看到Clk以更高的速度翻转。</p>
+<p>在<a href="ds-test-circuit.html" class="xref page">电路测试</a>中，已经学习了组合逻辑电路的测试用例。对于时序电路，主要不同在于时钟输入。在测试用例中，可以用字母“C”表示Clk的变化，如<a href="#exa-sim-dff-1">例 1</a>所示。</p>
+</div>
+<div id="exa-sim-dff-1" class="exampleblock">
+<div class="title">例 1. D触发器的测试用例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>In  Clk Out
+1   C   1
+0   C   0
+1   C   0 <i class="conum" data-value="1"></i><b>(1)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>这里的输出有意写错。</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>测试时，Digital仿真软件首先施加输入In的激励数据，然后将Clk变化一个周期，之后比较电路输出与预期响应是否一致。
+测试波形如<a href="#img-sim-dff-1">图 1</a>所示。
+如果比较结果与预期一致，则以绿色显示；否则显示为红色。</p>
+</div>
+<div id="img-sim-dff-1" class="imageblock">
+<div class="content">
+<img src="_images/ds-dff-1.png" alt="ds dff 1">
+</div>
+<div class="title">图 1. D触发器的测试波形图</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实时时钟"><a class="anchor" href="#_实时时钟"></a>实时时钟</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>右键点击Clk引脚，在属性窗口中勾选“Start real time clock/使用实时时钟”，“Frequency/频率”设置为1Hz（赫兹）。</p>
+</div>
+<div class="paragraph">
+<p>断开D触发器的D输入端与输入引脚In的连接，将D触发器的反向输出端连接到D输入端，构成一个二分频器。如<a href="#fig-ds-dff">图 2</a>所示。</p>
+</div>
+<div id="fig-ds-dff" class="imageblock">
+<div class="content">
+<img src="_images/ds-dff_divid2.png" alt="ds dff divid2">
+</div>
+<div class="title">图 2. D触发器构成2分频器</div>
+</div>
+<div class="paragraph">
+<p>启动仿真，可以看到Clk自动地翻转。如果设置频率为2或3赫兹，可看到Clk以更高的速度翻转。</p>
 </div>
 <div class="paragraph">
 <p>从波形图可以看出，输出Out信号的周期是输入Clk信号的2倍，或者说输出信号的频率是输入信号的二分之一，即二分频。</p>
-</div>
-<div class="paragraph">
-<p>仿真波形可以保存为图形文件。点击波形窗口的菜单项“File/文件 ➤ Export SVG / 导出SVG”，窗口中记录的波形将被保存为SVG图形文件。</p>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">
@@ -263,6 +339,8 @@
 <div class="paragraph">
 <p>作者：
 肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
 </div>
 </div>
 </div>
