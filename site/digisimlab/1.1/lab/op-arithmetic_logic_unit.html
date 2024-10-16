@@ -259,7 +259,7 @@
 <li>
 <p>SF（Sign Flag）：符号标志。</p>
 <div class="paragraph">
-<p>SF＝1表示结果为负数，SF＝0表示结果为正数。</p>
+<p>SF＝1表示结果为负数，SF＝0表示结果非负。</p>
 </div>
 </li>
 <li>
@@ -287,7 +287,7 @@
 因为运算结果的最高位就是符号位，所以符号标志的生成逻辑非常简单，逻辑方程如下：</p>
 </div>
 <div class="paragraph text-center">
-<p>SF=F<sub>S</sub></p>
+<p>SF=F<sub>3</sub></p>
 </div>
 <div class="paragraph">
 <p>一种简单的零标志生成方法是，将运算结果的每一位进行或运算，如果结果为0，则零标志为1。以4位二进制为例，产生零标志的逻辑方程如下：</p>
