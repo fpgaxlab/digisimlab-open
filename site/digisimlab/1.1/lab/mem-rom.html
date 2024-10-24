@@ -119,11 +119,11 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">存储器</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="mem-ram.html">RAM实验</a>
-  </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
@@ -235,7 +235,16 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>ROM（Read Only Memory），即只读存储器，是指在应用系统中只能读出、不能写入的半导体随机存储器。
-在计算机中，存放程序代码是ROM的一个典型应用场景。</p>
+在计算机中，存放程序代码是ROM的一个典型应用场景。
+也可以用来存放固定不变的数据，如字符点阵数据。</p>
+</div>
+<div class="paragraph">
+<p>此外，还可以用ROM实现逻辑功能。
+将ROM的地址看作逻辑电路的输入，而对应单元的内容就是逻辑电路的输出。
+例如，可以用8X1位的ROM实现3输入或门的逻辑。</p>
+</div>
+<div class="paragraph">
+<p>本实验用ROM实现七段数码管的译码。</p>
 </div>
 </div>
 </div>
@@ -248,14 +257,21 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>按照<a href="#fig-mem-rom">图 1</a>绘制电路图。</p>
+<p>用ROM设计七段显示译码电路</p>
+<div class="paragraph">
+<p>电路如<a href="#fig-mem-rom">图 1</a>所示。ROM的地址作为十六进制数据输入，ROM单元的内容存放数码管每个段的是否需要点亮的信息。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>绘制电路图。</p>
 <div class="paragraph">
 <p>其中ROM组件的属性设置为“数据位数：8；地址位数：4”。
 显示组件位于“Components/组件 ➤ IO/输入输出 ➤ Displays/显示 ➤ Seven-Segment Display / 7段数码管”。</p>
 </div>
 <div id="fig-mem-rom" class="imageblock">
 <div class="content">
-<img src="_images/mem-rom.png" alt="mem rom">
+<img src="_images/mem-rom.png" alt="，" width="320">
 </div>
 <div class="title">图 1. 使用ROM组件构成7段显示译码器</div>
 </div>
@@ -278,23 +294,23 @@
 </div>
 </div>
 </li>
-<li>
-<p>仿真</p>
-<div class="paragraph">
-<p>通过输入引脚输入“0000~0111” 8组数据，七段数码管应显示数字“0~7”。如果不是，请检查电路。</p>
+</ol>
 </div>
 </li>
 <li>
-<p>完善数据使电路能够显示“8~F”（选做）</p>
+<p>仿真</p>
 <div class="paragraph">
-<p>理解显示原理，编写“8~F”的显示数据，填入ROM的后8个存储单元，验证结果是否正确。</p>
+<p>通过输入引脚输入“0000~0111” 8组数据，七段数码管应显示数字“0~7”。</p>
+</div>
+</li>
+<li>
+<p>完善数据使电路能够显示“8~F”</p>
+<div class="paragraph">
+<p>理解数码管显示原理，编写“8~F”的显示数据，填入ROM的后8个存储单元，验证结果是否正确。</p>
 </div>
 </li>
 <li>
 <p>总结ROM组件的功能和用法</p>
-<div class="paragraph">
-<p>对比与RAM组件的差异。</p>
-</div>
 </li>
 </ol>
 </div>
