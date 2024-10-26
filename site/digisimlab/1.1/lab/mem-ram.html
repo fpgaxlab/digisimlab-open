@@ -239,18 +239,33 @@ RAM（Random Access Memory），即随机存取存储器，通常是指可随机
 <div class="sect1">
 <h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>RAM组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ RAM, separated Ports / RAM(独立端口)”。</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>绘制电路图</p>
 <div class="paragraph">
-<p>RAM组件的属性设置为：数据位数：4；地址位数：4。</p>
+<p>电路如<a href="#fig-mem-ram">图 1</a>所示。与ROM实验类似，RAM存储器的输出连接七段数码显示器。
+输入端口连接到输入引脚。</p>
 </div>
 <div class="paragraph">
-<p>为RAM组件的所有端口添加输入输出引脚，并设置位宽和标签。</p>
+<p>RAM组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ RAM, separated Ports / RAM(独立端口)”。
+RAM组件的属性设置为：数据位数：8；地址位数：4。
+相应设置输入组件的位宽。</p>
+</div>
+<div id="fig-mem-ram" class="imageblock">
+<div class="content">
+<img src="_images/mem-ram.png" alt="，" width="320">
+</div>
+<div class="title">图 1. RAM组件的练习电路</div>
+</div>
+</li>
+<li>
+<p>仿真</p>
+<div class="paragraph">
+<p>RAM组件和ROM组件不同，ROM的数据通过属性设置进行初始化，而RAM的数据须通过输入端口写入。</p>
+</div>
+<div class="paragraph">
+<p>通过仿真熟悉RAM的功能、用法，记录仿真过程并保存数据。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -260,17 +275,16 @@ RAM（Random Access Memory），即随机存取存储器，通常是指可随机
 </td>
 <td class="content">
 <div class="paragraph">
+<p>Digital仿真软件设计的RAM组件读写端口名称有些与众不同。
+str是写，ld是读。
+str、ld对应的单词分别是store和load。将来学习了控制器实验的<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>之后，也许能够理解这样命名的原因。</p>
+</div>
+<div class="paragraph">
 <p>在RAM组件的属性窗口点击“帮助”按钮，可了解RAM组件各端口的功能。</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-</li>
-<li>
-<p>仿真</p>
-<div class="paragraph">
-<p>通过仿真熟悉RAM的功能、用法，记录仿真过程并保存数据。</p>
 </div>
 </li>
 <li>
