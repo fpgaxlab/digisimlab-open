@@ -259,11 +259,23 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>和<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>使用前面实验完成的。
 存储器使用<a href="mem-ram.html" class="xref page">存储器实验</a>中已经熟悉的RAM组件。</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+图中存储器的OE端口也可以固定接常量1，即始终读出。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>仿真</p>
 <div class="paragraph">
-<p>编写测试用例完成以下验证操作。</p>
+<p>通过仿真验证数据通路，并保存仿真过程数据文件。</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -316,36 +328,57 @@ C   1     1  0   0   0x5 1    0  0  0   0     0     0x5 0  0  0  0 <i class="con
 </div>
 </li>
 <li>
-<p>完成以下运算并验证结果是否正确。</p>
+<p>依次完成以下操作。</p>
+<div class="paragraph">
+<p>R1 → Mem[0];</p>
+</div>
+<div class="paragraph">
+<p>R2 → Mem[1];</p>
+</div>
 <div class="paragraph">
 <p>R1 + R2 → R3;</p>
+</div>
+<div class="paragraph">
+<p>R3 → Mem[2];</p>
 </div>
 <div class="paragraph">
 <p>R1 − R2 → R3;</p>
 </div>
 <div class="paragraph">
+<p>R3 → Mem[3];</p>
+</div>
+<div class="paragraph">
 <p>R1 &amp; R2 → R3;</p>
+</div>
+<div class="paragraph">
+<p>R3 → Mem[4];</p>
 </div>
 <div class="paragraph">
 <p>R1 | R2 → R3;</p>
 </div>
 <div class="paragraph">
+<p>R3 → Mem[5];</p>
+</div>
+<div class="paragraph">
 <p>R1 ⊕  R2 → R3;</p>
+</div>
+<div class="paragraph">
+<p>R3 → Mem[6];</p>
 </div>
 <div class="paragraph">
 <p>R2 ⊕ 0b1111 → R3;</p>
 </div>
+<div class="paragraph">
+<p>R3 → Mem[7];</p>
+</div>
 </li>
 <li>
-<p>完成以下存储器访问并验证结果是否正确。</p>
+<p>依次读出存储器的0~7号单元内容并验证结果是否正确。</p>
+</li>
+<li>
+<p>设计更复杂的数据通路操作。</p>
 <div class="paragraph">
-<p>R1 → Mem[5];</p>
-</div>
-<div class="paragraph">
-<p>R2 → Mem[10];</p>
-</div>
-<div class="paragraph">
-<p>Mem[5] → R3;</p>
+<p>例如，将两个存储单元的内容相加，结果存入另一存储单元。</p>
 </div>
 </li>
 </ol>
@@ -354,24 +387,13 @@ C   1     1  0   0   0x5 1    0  0  0   0     0     0x5 0  0  0  0 <i class="con
 <li>
 <p>实验结果分析</p>
 <div class="paragraph">
-<p>对测试结果进行详细分析说明，并给出结论。</p>
+<p>对实验结果进行详细分析说明，并给出结论。</p>
+</div>
+<div class="paragraph">
+<p>若结果与预期不符，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
 </div>
 </li>
 </ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="注"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>在结果与预期不符的情况下，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">
