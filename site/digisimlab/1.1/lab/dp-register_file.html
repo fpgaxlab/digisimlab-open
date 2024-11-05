@@ -246,6 +246,9 @@
 </div>
 <div class="title">图 1. 三端口寄存器堆的框图</div>
 </div>
+<div class="paragraph">
+<p>在RISC指令系统中，通常要求R0恒为0。为了实现这一要求，用常数“0”代替R0寄存器作为四选一<a href="bl-multiplexer.html" class="xref page">多路选择器</a>0通道的输入，<a href="#fig-9">图 1</a>中R0寄存器的虚线表示其实际并不存在。</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -254,28 +257,45 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>理解<a href="#fig-9">图 1</a>结构，设计该寄存器堆。具体要求如下。</p>
+<p>理解<a href="#fig-9">图 1</a>结构，设计该寄存器堆。</p>
+<div class="paragraph">
+<p>具体要求如下。</p>
+</div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>采用层次化设计，将<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>如果写端口地址WA使用一个2位的输入组件，需要用分线器组件（见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>）将2位的WA拆分为两个1位的导线，再连接到译码器的A1、A0。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>寄存器字长（数据位宽）为4位。</p>
 <div class="paragraph">
-<p>寄存器组件使用“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”。</p>
-</div>
-</li>
-<li>
-<p>R0寄存器读出值恒为0。</p>
-<div class="paragraph">
-<p><a href="#fig-9">图 1</a>中R0寄存器实际并不存在，用常数0作为R0寄存器的读出数据。常数0可以用“常量”组件产生，详见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+<p>四个寄存器使用曾在<a href="bl-register.html" class="xref page">触发器和寄存器实验</a>学习过的寄存器组件，可从菜单“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”找到该组件，将数据位数设置为4。</p>
 </div>
 </li>
 <li>
 <p>Clk输入使用时钟输入组件</p>
 <div class="paragraph">
 <p>Clk时钟输入组件及其用法见第一章Digital仿真软件使用指南的“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。</p>
+</div>
+</li>
+<li>
+<p>R0寄存器读出值恒为0。</p>
+<div class="paragraph">
+<p>常数“0”可以用“常量”组件产生（见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”），位数与寄存器的字长相同，即4位。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -285,7 +305,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>虽然Digital仿真软件中有一个现成的寄存器堆组件（位于“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ Register File”），但是它的R0寄存器是可写入的，不具备恒为零的特性。而在RISC指令系统中，通常要求R0恒为0。</p>
+<p>虽然Digital仿真软件中有一个现成的寄存器堆组件（位于“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ Register File”），但是它的R0寄存器是可写入的，不具备恒为零的特性。</p>
 </div>
 </td>
 </tr>
