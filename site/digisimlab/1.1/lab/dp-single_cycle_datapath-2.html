@@ -128,6 +128,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path.html">存储器应用实验</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -280,7 +283,10 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>将2个常数存入R1、R2寄存器</p>
+<p>数据写入寄存器堆</p>
+<div class="paragraph">
+<p>将2个常数存入R1、R2寄存器。</p>
+</div>
 <div class="paragraph">
 <p>常数通过ImmediateData输入引脚送入。从<a href="#fig-dp-2">图 1</a>可以看出，ImmediateData并没有直接连在寄存器堆的写端口，而是经过多路器后送到了ALU的Y输入端；所以要将ImmediateData送到寄存器堆的写端口，必须经过ALU。在前面寄存器堆的实验中已经设计R0寄存器的值恒为0，可以用ALU将ImmediateData加上R0寄存器值，将ImmediateData传送到寄存器堆的写端口。</p>
 </div>
@@ -298,78 +304,38 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>可以手动操作完成验证，或者编写测试用例（test case）进行电路测试。
-<a href="#exa-test-dp2">例 1</a>给出了将“5”存入R1寄存器的测试数据。</p>
-</div>
-<div id="exa-test-dp2" class="exampleblock">
-<div class="title">例 1. 将“5”存入R1寄存器</div>
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">Clk RegWr WA RA1 RA2 IM  Ysel M  S1 S0  MemWr WDsel F   S  Z  C  O
-C   1     1  0   0   0x5 1    0  0  0   0     0     0x5 0  0  0  0 <i class="conum" data-value="1"></i><b>(1)</b>
-0   0     0  1   0   0   0    0  0  0   0     0     0x5 0  0  0  0 <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>将“5”写入R1寄存器；</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>读出R1。</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 </li>
 <li>
-<p>依次完成以下操作。</p>
+<p>寄存器数据写入RAM</p>
+<div class="paragraph">
+<p>将R1和R2寄存器的内容，分别写入到存储器的0号单元和1号单元中。即</p>
+</div>
 <div class="paragraph">
 <p>R1 → Mem[0];</p>
 </div>
 <div class="paragraph">
 <p>R2 → Mem[1];</p>
 </div>
+</li>
+<li>
+<p>完成各种ALU运算，并将结果存入存储器的2~7号单元。即</p>
 <div class="paragraph">
-<p>R1 + R2 → R3;</p>
+<p>R1 + R2 → R3; R3 → Mem[2];</p>
 </div>
 <div class="paragraph">
-<p>R3 → Mem[2];</p>
+<p>R1 − R2 → R3; R3 → Mem[3];</p>
 </div>
 <div class="paragraph">
-<p>R1 − R2 → R3;</p>
+<p>R1 &amp; R2 → R3; R3 → Mem[4];</p>
 </div>
 <div class="paragraph">
-<p>R3 → Mem[3];</p>
+<p>R1 | R2 → R3; R3 → Mem[5];</p>
 </div>
 <div class="paragraph">
-<p>R1 &amp; R2 → R3;</p>
+<p>R1 ⊕  R2 → R3; R3 → Mem[6];</p>
 </div>
 <div class="paragraph">
-<p>R3 → Mem[4];</p>
-</div>
-<div class="paragraph">
-<p>R1 | R2 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R3 → Mem[5];</p>
-</div>
-<div class="paragraph">
-<p>R1 ⊕  R2 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R3 → Mem[6];</p>
-</div>
-<div class="paragraph">
-<p>R2 ⊕ 0b1111 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R3 → Mem[7];</p>
+<p>R2 ⊕ 0b1111 → R3; R3 → Mem[7];</p>
 </div>
 </li>
 <li>
