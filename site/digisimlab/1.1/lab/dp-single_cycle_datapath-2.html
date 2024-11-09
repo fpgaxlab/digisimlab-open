@@ -304,6 +304,34 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>可以手动操作完成验证，或者编写测试用例（test case）进行电路测试。
+<a href="#exa-test-dp2">例 1</a>给出了将“5”存入R1寄存器的测试数据。</p>
+</div>
+<div id="exa-test-dp2" class="exampleblock">
+<div class="title">例 1. 将“5”存入R1寄存器</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Clk RegWr WA RA1 RA2 IM  Ysel M  S1 S0  MemWr WDsel F   S  Z  C  O
+C   1     1  0   0   0x5 1    0  0  0   0     0     0x5 0  0  0  0 <i class="conum" data-value="1"></i><b>(1)</b>
+0   0     0  1   0   0   0    0  0  0   0     0     0x5 0  0  0  0 <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>将“5”写入R1寄存器；</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>读出R1。</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>寄存器数据写入RAM</p>
