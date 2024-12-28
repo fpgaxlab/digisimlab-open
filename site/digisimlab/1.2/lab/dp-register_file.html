@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>寄存器堆实验 :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">*计数器实验</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath-2.html">*数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>基本逻辑电路</li>
+    <li><a href="dp-register_file.html">寄存器堆实验</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <div class="version-menu">
+    <a class="version is-current" href="dp-register_file.html">1.2</a>
+    <a class="version" href="../../1.1/lab/dp-register_file.html">1.1</a>
+    <a class="version" href="../../1.0/lab/dp-register_file.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">寄存器堆实验</h1>
+<div class="sect1">
+<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解寄存器堆的电路结构和功能特性。</p>
+</li>
+<li>
+<p>学会使用Digital仿真软件的层次化设计方法。</p>
+</li>
+<li>
+<p>学会使用Digital仿真软件的探测器、分线器、常量等组件。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CPU内部包含若干个通用寄存器，用于暂存参加运算的数据和中间结果，这些寄存器的集合就称为通用寄存器组（Genral Register Set）。
+寄存器组可以设计为单端口、双端口或三端口。单端口是指读出和写入共用同一组地址或数据端口，所以读出和写入不能同时进行，通常应用于多周期的数据通路。而双端口的读、写端口各自独立，在一个周期中可以同时读出和写入。三端口则有两个读端口和一个写端口可以同时操作，通常应用于单周期和流水线数据通路。和早期的处理器相比，现代处理器的通用寄存器的数量更多，一般称为<strong>寄存器堆（Register File）</strong>，也有译为寄存器文件。</p>
+</div>
+<div class="sect2">
+<h3 id="_双端口寄存器堆"><a class="anchor" href="#_双端口寄存器堆"></a>双端口寄存器堆</h3>
+<div class="paragraph">
+<p><a href="#fig-rf-2port">图 1</a>是双端口寄存器堆的电路结构。其中RA（Read Address）表示读端口地址，RD（Read Data）表示读端口数据；WA（Write Address）表示写端口地址，WD（Write Data）表示写端口数据；WE（Write Enable）是写使能，Clk是写时钟。</p>
+</div>
+<div id="fig-rf-2port" class="imageblock">
+<div class="content">
+<img src="_images/dp-rf-2port.png" alt="双端口寄存器堆" width="475" height="409">
+</div>
+<div class="title">图 1. 双端口寄存器堆的框图</div>
+</div>
+<div class="paragraph">
+<p>根据<a href="#fig-rf-2port">图 1</a>用Digital仿真软件设计的电路图如<a href="#fig-rf-2port-sim">图 2</a>所示。</p>
+</div>
+<div id="fig-rf-2port-sim" class="imageblock">
+<div class="content">
+<img src="_images/dp-rf-2port-sim.png" alt="双端口寄存器堆电路图" width="617">
+</div>
+<div class="title">图 2. 双端口寄存器堆电路图</div>
+</div>
+<div class="paragraph">
+<p>说明如下。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>四个4位的寄存器</p>
+<div class="paragraph">
+<p>R0～R3寄存器使用曾在<a href="bl-register.html" class="xref page">触发器和寄存器实验</a>学习过的寄存器组件，可从菜单“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”找到该组件，将数据位数设置为4。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>为便于观察寄存器的值，在寄存器的Q输出端放置了<a href="../ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>，该组件的介绍见第一章Digital仿真软件使用指南“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>2-4译码器</p>
+<div class="paragraph">
+<p>使用<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。
+有关添加子电路的方法，请参考第一章Digital仿真软件使用指南“<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>”。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="#fig-rf-2port-sim">图 2</a>写端口地址WA使用一个2位的输入组件，需要用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的WA拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见第一章Digital仿真软件使用指南“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>多路选择器</p>
+<div class="paragraph">
+<p><a href="bl-multiplexer.html" class="xref page">多路选择器实验</a>中使用过多路器组件作为2选1多路器，这里需要4选1多路器，应将选择位的位数设置为2。</p>
+</div>
+</li>
+<li>
+<p>使用时钟输入组件作为Clk输入</p>
+<div class="paragraph">
+<p>时钟输入组件及其用法见第一章Digital仿真软件使用指南“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_三端口寄存器堆"><a class="anchor" href="#_三端口寄存器堆"></a>三端口寄存器堆</h3>
+<div class="paragraph">
+<p><a href="#fig-9">图 3</a>是具有2个读端口和1个写端口的三端口寄存器堆的电路结构。</p>
+</div>
+<div id="fig-9" class="imageblock">
+<div class="content">
+<img src="_images/dp-rf.png" alt="三端口寄存器堆" width="475" height="409">
+</div>
+<div class="title">图 3. 三端口寄存器堆的框图</div>
+</div>
+<div class="paragraph">
+<p>和<a href="#fig-rf-2port">图 1</a>相比，有两个区别：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>增加了一组读端口</p>
+<div class="paragraph">
+<p>RA1、RD1为读端口1，RA2、RD2为读端口2。</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="注意"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>读端口1和读端口2均可读出R0～R3四个寄存器中的某一个寄存器的值。
+不要<strong>误解</strong>为RD1只能输出R1的值，RD2只能输出R2的值。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>R0寄存器的值恒为0</p>
+<div class="paragraph">
+<p>在RISC指令系统中，通常要求R0恒为0。为了实现这一要求，用常数“0”代替R0寄存器作为4选1多路选择器0通道的输入，<a href="#fig-9">图 3</a>中R0寄存器的虚线表示其实际并不存在。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>虽然Digital仿真软件中有一个现成的寄存器堆组件（位于“Components/组件 ➤ Memory/存储器 ➤ RAM ➤ Register File”），但是它的R0寄存器是可写入的，不具备恒为零的特性。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
+<div class="paragraph">
+<p>理解<a href="#fig-9">图 3</a>结构，设计该三端口寄存器堆。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>常数“0”可以用<a href="../ds-other-useful.html#bm-const" class="xref page">常量组件</a>产生，位数与寄存器的字长相同，即4位。常量组件的介绍见“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
+<div class="paragraph">
+<p>通过仿真验证寄存器堆的功能，并保存仿真过程数据文件。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>验证R0恒为0</p>
+<div class="paragraph">
+<p>尝试将一个非零数据写入R0寄存器，检查R0是否被改变。</p>
+</div>
+</li>
+<li>
+<p>数据写入寄存器堆</p>
+<div class="paragraph">
+<p>将不同的数据存入R1、R2、R3寄存器。</p>
+</div>
+</li>
+<li>
+<p>从寄存器堆读出数据</p>
+<div class="paragraph">
+<p>分别从RD1和RD2读出R0、R1、R2、R3的值。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_实验结果分析"><a class="anchor" href="#_实验结果分析"></a>实验结果分析</h3>
+<div class="paragraph">
+<p>对仿真过程数据进行分析，从中体现对<a href="#fig-9">图 3</a>电路原理的理解。</p>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
