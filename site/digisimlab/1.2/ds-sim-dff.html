@@ -248,14 +248,9 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>点击菜单项“Edit/编辑 ➤ Circuit specific settings/设置当前电路”，在对话框的“Advanced/高级设置”页面下勾选“Show measurement graph at simulation start/仿真启动时显示测量图”。</p>
-</div>
-<div class="paragraph">
-<p>启动仿真，改变输入，观察输出变化。
-可以看出，仅当Clk由0变1的瞬间，输出Out才会变化，其值与输入In相同。</p>
-</div>
-<div class="paragraph">
-<p>仿真波形可以保存为图形文件。点击波形窗口的菜单项“File/文件 ➤ Export SVG / 导出SVG”，窗口中记录的波形将被保存为SVG图形文件。</p>
+<p>启动仿真，点击菜单项“Simulation/仿真 ➤ Show measurement value table / 显示测量图”，改变输入，观察输出变化。
+可以看出，仅当Clk由0变1的瞬间，输出Out才会变化，其值与输入In相同。
+因此称作“上升沿触发”。其他时间即使输入变化，输出也不会改变，体现了D触发器的记忆作用。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -264,10 +259,13 @@
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-<a href="ds-getting-started.html" class="xref page">新手入门</a>中曾介绍了在启动仿真后点击菜单项“Simulation/仿真 ➤ Show measurement value table / 显示测量图”，这里介绍的在启动仿真之前设置电路属性的效果与其相同，不仅在需要多次启动仿真时省去了每次点击菜单的操作，而且在下面使用实时时钟的情况下能够及时记录仿真开始时的测量图形和数据。
+为了在仿真时显示波形，也可以在启动仿真之前设置电路属性，点击菜单项“Edit/编辑 ➤ Circuit specific settings/设置当前电路”，在对话框的“Advanced/高级设置”页面下勾选“Show measurement graph at simulation start/仿真启动时显示测量图”。这样不仅在需要多次启动仿真时省去了每次点击菜单的操作，而且在下面使用实时时钟的情况下能够及时记录仿真开始时的测量图形和数据。
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>仿真波形可以保存为图形文件。点击波形窗口的菜单项“File/文件 ➤ Export SVG / 导出SVG”，窗口中记录的波形将被保存为SVG图形文件。</p>
 </div>
 </div>
 </div>
