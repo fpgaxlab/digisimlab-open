@@ -96,7 +96,7 @@
     <a class="nav-link" href="lab/bl-register.html">触发器和寄存器实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/bl-counter.html">*计数器实验</a>
+    <a class="nav-link" href="lab/bl-counter.html">计数器实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab/dp-register_file.html">寄存器堆实验</a>
@@ -226,6 +226,30 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="bm-probe"><a class="anchor" href="#bm-probe"></a>探测器（Probe）</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>组件位置：“Components/组件 ➤ IO/输入输出 ➤ Probe/探测器”。
+该组件用于读取探测点的数值。<a href="#fig-ds-splitter">图 1</a>中有两个该组件的例子。</p>
+</div>
+<div class="paragraph">
+<p>如果设置了“Label/标签”属性，那么仿真时其值可以显示在测量图表中。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+即使“Probe/探测器”组件位于子电路中，测量图表中仍然可以显示其值，这对于观察子电路中的状态是非常有用的。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="bm-splitter"><a class="anchor" href="#bm-splitter"></a>分线器/并线器（Splitter/Merger）</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -295,30 +319,6 @@
 </div>
 <div class="paragraph">
 <p>虽然“Splitter/Merger”组件也可以扩展导线的位宽（见<a href="#fig-ds-splitter">图 1</a>示例），但是只能扩展固定的常数。而符号扩展器则是根据电路工作时的实际数据进行扩展，如果输入数据的最高位为“0”，扩展0；为“1”则扩展1。在计算机中，最高位表示带符号数的符号，故称为符号扩展。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="bm-probe"><a class="anchor" href="#bm-probe"></a>探测器（Probe）</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>组件位置：“Components/组件 ➤ IO/输入输出 ➤ Probe/探测器”。
-该组件用于读取探测点的数值。<a href="#fig-ds-splitter">图 1</a>中有两个该组件的例子。</p>
-</div>
-<div class="paragraph">
-<p>如果设置了“Label/标签”属性，那么仿真时其值可以显示在测量图表中。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="提示"></i>
-</td>
-<td class="content">
-即使“Probe/探测器”组件位于子电路中，测量图表中仍然可以显示其值，这对于观察子电路中的状态是非常有用的。
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
