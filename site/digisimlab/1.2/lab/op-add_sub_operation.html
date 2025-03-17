@@ -334,7 +334,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <i class="fa icon-caution" title="注意"></i>
 </td>
 <td class="content">
-需要说明的是，上面的讨论是针对加法运算。同理不难找出补码减法运算的溢出检测方法。但实际上，因为减法是转换为加法运算的，只要检测时使用B的符号而不是Y的符号，并不需要为减法运算另外设计溢出检测电路。
+需要说明的是，上面的讨论是针对加法运算。同理不难找出补码减法运算的溢出检测方法。但实际上，因为减法是转换为加法运算的，只要检测时使用B的符号而不是Y的符号（见<a href="#fig-op-add_sub">图 2</a>），并不需要为减法运算另外设计溢出检测电路。
 </td>
 </tr>
 </table>
@@ -461,7 +461,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">12+11=7(错)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">(-4)+(-5)=7(错)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">进位，溢出</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有进位，溢出</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
@@ -669,8 +669,8 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1001</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0111</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -681,8 +681,8 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -696,7 +696,22 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <li>
 <p>实验数据分析。</p>
 <div class="paragraph">
-<p>注意观察减法运算是否溢出和溢出标志的关系，是否产生借位和进位标志的关系。</p>
+<p>注意观察减法运算是否产生借位和进位标志的关系；补码减法溢出是否与溢出标志相符。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>通过验证应能看出，进位标志的状态和运算是否产生借位恰好是相反的。
+如果希望是一致的，即减法运算有借位时C=1，无借位时C=0，应如何修改电路？</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ol>
