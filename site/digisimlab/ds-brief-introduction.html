@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数字电路仿真软件——Digital :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-compare.html">*比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-single_cycle_datapath-2.html">*数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-overview.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">计算机组成原理实验指导</a></li>
+    <li>Digital仿真软件使用指南</li>
+    <li><a href="ds-brief-introduction.html">简介</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <div class="version-menu">
+    <a class="version is-current" href="ds-brief-introduction.html">1.2</a>
+    <a class="version" href="1.1/ds-brief-introduction.html">1.1</a>
+    <a class="version is-missing" href="1.0/index.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">数字电路仿真软件——Digital</h1>
+<div class="sect1">
+<h2 id="_简介"><a class="anchor" href="#_简介"></a>简介</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Digital是一种用于设计和仿真数字逻辑电路的教育工具，它是免费、开源和跨平台的。</p>
+</div>
+<div class="paragraph">
+<p>Digital仿真软件的前身是Carl Burch开发的<a href="http://www.cburch.com/logisim/">Logisim</a>。
+Logisim是一款出色的教学工具，一直持续开发到2011年，曾被全球很多高校采用。
+2013年，Carl Burch开始开发一款名为Toves的新仿真软件。
+2014年，Carl Burch最终<a href="http://www.cburch.com/logisim/retire-note.html">宣布</a>停止开发Logisim。
+Carl Burch在一篇<a href="https://sourceforge.net/p/circuit/news/2013/06/work-commences-on-toves-successor-to-logisim/">博客</a>中解释了为什么他决定开发一个新的仿真软件而不是改进Logisim。简而言之，在他看来，Logisim架构中存在难以克服的弱点。
+但是，Toves的开发并没有进行下去，在很早的阶段就停止了。</p>
+</div>
+<div class="paragraph">
+<p>由于Logisim是作为开源发布的，因此有许多Logisim的继任者，如<a href="https://github.com/logisim-evolution/logisim-evolution">Logisim-evolution</a>，在Logisim的基础上继续开发和完善。但是，大部分继任项目并没有解决Logisim架构上的问题，它们更多的是添加功能和修复错误。</p>
+</div>
+<div class="paragraph">
+<p>Digital仿真软件的开发者意识到难以在Logisim的基础上彻底解决架构问题，决定完全从头开发一个新的仿真软件，并于2016年3月启动了<a href="https://github.com/hneemann/Digital/">Digital项目</a>。
+Digital仿真软件已经达到了与Logisim相当的开发水平，而且在某些方面（性能、电路测试、电路分析、硬件支持）已经超过了Logisim。
+有关Digital超越Logisim的主要改进，可阅读<a href="https://github.com/hneemann/Digital/">Digital开源项目</a>的Readme。</p>
+</div>
+<div class="paragraph">
+<p>本书1.0和1.1版本使用的Digital仿真软件版本是2023年2月3日发布的v0.30。
+1.2版本使用的Digital仿真软件版本是2024年9月3日发布的v0.31。</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
