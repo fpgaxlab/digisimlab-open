@@ -281,7 +281,7 @@ RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法
 <div class="content">
 <img src="_images/mem-path2-3.png" alt="mem path2 3">
 </div>
-<div class="title">图 3. RAM数据写入寄存器的信息传递路径</div>
+<div class="title">图 3. 读出RAM数据写入寄存器的信息传递路径</div>
 </div>
 </div>
 </div>
@@ -348,6 +348,9 @@ RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法
 </li>
 <li>
 <p>寄存器数据写入RAM</p>
+<div class="paragraph">
+<p>理解<a href="#fig-mem-path2-2">图 2</a>信息传递路径，完成以下验证。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -379,9 +382,19 @@ RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法
 </div>
 </li>
 <li>
-<p>读出RAM数据写入寄存器</p>
+<p>读出RAM数据并写入寄存器</p>
 <div class="paragraph">
-<p>将上面写入RAM的内容读出，分别存入R3和R1寄存器。</p>
+<p>理解<a href="#fig-mem-path2-3">图 3</a>信息传递路径，先后将上面写入RAM两个存储单元的内容读出，分别存入R3和R1寄存器。即：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>以立即数Imm作为RAM的地址，读出该地址单元的内容并写入R1寄存器；</p>
+</li>
+<li>
+<p>以R2作为RAM的地址，读出该地址单元的内容并写入R3寄存器。</p>
+</li>
+</ul>
 </div>
 </li>
 </ol>
