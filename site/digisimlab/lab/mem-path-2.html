@@ -239,18 +239,50 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="#fig-dp-2">图 1</a>是本实验的存储器数据通路，该数据通路使用了前面实验中的ALU、三端口寄存器堆和RAM存储器。
-和<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>相比，运算部分没有变化，新增加了存储器。
-DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的RD2读端口提供。
-存储器的地址A来自ALU运算结果F。
-存储器的读出数据DO通过多路器连接到寄存器堆的写端口WD，可以写入寄存器堆。
-该数据通路可以在一个周期内完成一次完整的ALU运算或者一次存储器访问。</p>
+<p><a href="#fig-mem-path2-1">图 1</a>是本实验的存储器数据通路，该数据通路使用了前面实验中的ALU、三端口寄存器堆和RAM、ROM存储器。
+和<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>相比，运算部分基本没有变化，新增加了存储器。
+DI是RAM的数据输入端口，写入RAM的数据由寄存器堆的RD2读端口提供。
+RAM的地址A来自ALU运算结果F。
+RAM的读出数据DO通过多路器连接到寄存器堆的写端口WD，可以写入寄存器堆。
+ROM作为七段译码器，连接数码管显示WD端口的数值。</p>
 </div>
-<div id="fig-dp-2" class="imageblock">
+<div id="fig-mem-path2-1" class="imageblock">
 <div class="content">
 <img src="_images/mem-datapath2-1.png" alt="存储器数据通路">
 </div>
 <div class="title">图 1. 存储器数据通路</div>
+</div>
+<div class="paragraph">
+<p>运算相关的信息加工过程在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>中已经熟悉。
+下面着重分析存储器相关的信息传递路径。</p>
+</div>
+<div class="sect2">
+<h3 id="_寄存器数据写入ram的信息传递路径"><a class="anchor" href="#_寄存器数据写入ram的信息传递路径"></a>寄存器数据写入RAM的信息传递路径</h3>
+<div class="paragraph">
+<p>要将数据写入RAM，需准备要写入的数据并提供要写入单元的地址。
+RAM的数据输入DI来自寄存器堆的读端口2，所以只能将某一寄存器的值写入RAM的存储单元；换句话说，需要写入RAM的数据必须先存放于某一寄存器中。
+RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法运算）产生RAM地址。从<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>已经知道，ALU的运算数据可以来自RD1、RD2或立即数Imm；但这里RD2已用于提供要写入RAM的数据，所以只能用RD1加上立即数来指定RAM的地址。
+信息传递路径如<a href="#fig-mem-path2-2">图 2</a>绿色通路所示。</p>
+</div>
+<div id="fig-mem-path2-2" class="imageblock">
+<div class="content">
+<img src="_images/mem-path2-2.png" alt="mem path2 2">
+</div>
+<div class="title">图 2. 寄存器数据写入RAM的信息传递路径</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_读出ram数据写入寄存器的信息传递路径"><a class="anchor" href="#_读出ram数据写入寄存器的信息传递路径"></a>读出RAM数据写入寄存器的信息传递路径</h3>
+<div class="paragraph">
+<p>RAM的地址仍然由ALU产生，RAM输出数据DO要传送到寄存器堆的写端口WD需要经过多路器的选择。
+信息传递路径如<a href="#fig-mem-path2-3">图 3</a>绿色通路所示。</p>
+</div>
+<div id="fig-mem-path2-3" class="imageblock">
+<div class="content">
+<img src="_images/mem-path2-3.png" alt="mem path2 3">
+</div>
+<div class="title">图 3. RAM数据写入寄存器的信息传递路径</div>
+</div>
 </div>
 </div>
 </div>
@@ -260,17 +292,28 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <div class="sect2">
 <h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
-<p>用Digital仿真软件按照<a href="#fig-dp-2">图 1</a>绘制电路图。
-可以在前面<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>电路图的基础上扩充存储器组件。</p>
+<p>用Digital仿真软件按照<a href="#fig-mem-path2-1">图 1</a>绘制电路图。</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="注"></i>
+<i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-图中存储器的OE端口也可以固定接常量1，即始终读出。
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>可以在前面<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>电路图的基础上扩充。</p>
+</li>
+<li>
+<p><a href="#fig-mem-path2-1">图 1</a>中RAM的OE端口也可以接常量1，即始终读出。</p>
+</li>
+<li>
+<p>ROM和数码管电路可以直接复制<a href="mem-rom.html" class="xref page">ROM实验</a>中完成的电路。</p>
+</li>
+</ol>
+</div>
 </td>
 </tr>
 </table>
@@ -287,7 +330,7 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <p>常数写入寄存器堆</p>
 <div class="paragraph">
 <p>将2个非零常数存入R2、R3寄存器。
-信息传递路径与<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>基本相同，不同之处是寄存器堆写端口WD增加了一个多路选择器，由WDsel选择写入数据来自ALU的运算结果，或者来自存储器的读出数据DO。</p>
+信息传递路径与<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>基本相同，不同之处是寄存器堆写端口WD增加了一个多路选择器，写入数据来自ALU的运算结果时，WDsel应为0。</p>
 </div>
 </li>
 <li>
@@ -295,10 +338,10 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <div class="ulist">
 <ul>
 <li>
-<p>以R2、R3作为运算数，执行某种ALU运算，运算结果存入R1寄存器;</p>
+<p>以寄存器R2、R3作为运算数，执行某种ALU运算，运算结果存入R1寄存器;</p>
 </li>
 <li>
-<p>以R2和立即数（ImmediateData）作为运算数，运算结果存入R3;</p>
+<p>以寄存器R2和立即数（ImmediateData）作为运算数，运算结果存入R3;</p>
 </li>
 </ul>
 </div>
@@ -308,21 +351,37 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <div class="ulist">
 <ul>
 <li>
-<p>以R2作为存储器的地址，将R1的内容写入该地址单元;</p>
+<p>以R2作为RAM的地址，将R1的内容写入该地址单元;</p>
 </li>
 <li>
-<p>以立即数作为存储器的地址，将R3的内容写入该地址单元。</p>
+<p>以立即数Imm作为RAM的地址，将R3的内容写入该地址单元。</p>
 <div class="paragraph">
-<p>注意立即数应与R2的值不相同，以免覆盖上一步的写入单元。</p>
+<p>注意立即数应与R2的值不相同，以免覆盖上面写入的单元。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>RAM地址A=RD1+Imm。
+若要以R2作为RAM的地址，则RA1=2，同时使Imm=0。
+若要以立即数Imm作为RAM的地址，则应使用R0的值（恒为0）作为RD1，即RA1=0。</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>读出存储器数据写入寄存器</p>
+<p>读出RAM数据写入寄存器</p>
 <div class="paragraph">
-<p>将上面写入存储器的内容读出，分别存入R3和R1寄存器。</p>
+<p>将上面写入RAM的内容读出，分别存入R3和R1寄存器。</p>
 </div>
 </li>
 </ol>
