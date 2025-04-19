@@ -148,7 +148,7 @@
     <span class="nav-text">控制器</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-overview.html">概述</a>
+    <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
@@ -282,7 +282,7 @@
 <p>因为指令系统的简单和规整，控制器的设计就是设计译码器来确定控制信号。对于指令系统中的R型和Ｉ型指令，控制器根据opcode的值，译码产生数据通路上的各个控制信号，实现指令功能。</p>
 </div>
 <div class="paragraph">
-<p>下面以“addi rd, rs1, #imm”指令为例，分析指令的译码。该指令将rs1寄存器的值与立即数imm相加，结果存入rd寄存器。
+<p>下面以“addi rd, rs1, imm”指令为例，分析指令的译码。该指令将rs1寄存器的值与立即数imm相加，结果存入rd寄存器。
 rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S0、S1均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。
 <a href="#fig-cu-flow-addi-1">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示有效的控制信号。</p>
 </div>
@@ -434,8 +434,8 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>addi r1, r0, #10
-ori  r2, r0, #11
+<pre>addi r1, r0, 10
+ori  r2, r0, 11
 sub  r3, r1, r2
 xor  r3, r1, r3
 and  r3, r3, r2</pre>
@@ -448,7 +448,7 @@ and  r3, r3, r2</pre>
 <li>
 <p>将<a href="#exa-cu-1">例 1</a>程序中的符号指令逐条翻译为机器指令，作为ROM的数据。</p>
 <div class="paragraph">
-<p>下面以第一条指令 <code>addi r1, r0, #10</code> 为例，说明翻译为机器指令的方法。
+<p>下面以第一条指令 <code>addi r1, r0, 10</code> 为例，说明翻译为机器指令的方法。
 查<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令编码表</a>可知 <code>addi</code> 的操作码为 <code>0110</code>，
 按照<a href="cu-overview.html#tab-cu-instr-filed" class="xref page">指令格式</a>，将 <code>0110</code> 填入位13～10。
 该指令的rd寄存器号为1，rs1寄存器号为0，立即数为10（十进制），将寄存器号和立即数以二进制形式填写到指令的对应字段，如下所示。

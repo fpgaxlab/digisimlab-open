@@ -148,7 +148,7 @@
     <span class="nav-text">控制器</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-overview.html">概述</a>
+    <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
@@ -287,7 +287,7 @@
 <div class="sect3">
 <h4 id="_1r型和ｉ型指令的译码"><a class="anchor" href="#_1r型和ｉ型指令的译码"></a>1．R型和Ｉ型指令的译码</h4>
 <div class="paragraph">
-<p>以“addi rd, rs1, #imm”指令为例，该指令将rs1寄存器的值与立即数imm相加，结果存入rd寄存器。
+<p>以“addi rd, rs1, imm”指令为例，该指令将rs1寄存器的值与立即数imm相加，结果存入rd寄存器。
 rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S0、S1均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。而LoadPC信号应为0，因为addi不是分支指令，不会产生程序转移。
 <a href="#fig-cu-flow-addi">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，红色表示有效的控制信号。</p>
 </div>
@@ -494,7 +494,7 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <div class="sect3">
 <h4 id="_2分支指令"><a class="anchor" href="#_2分支指令"></a>2．分支指令</h4>
 <div class="paragraph">
-<p>以“beq rs1, rs2, #imm”指令为例，该指令比较rs1和rs2寄存器的值是否相等，如果相等，则程序转移，下一条指令的地址由imm给出；如果不相等，则顺序执行。
+<p>以“beq rs1, rs2, imm”指令为例，该指令比较rs1和rs2寄存器的值是否相等，如果相等，则程序转移，下一条指令的地址由imm给出；如果不相等，则顺序执行。
 转移发生时分支指令的信息流如<a href="#fig-cu-flow-branch">图 3</a>所示，绿色通路表示有效的信息流，红色和蓝色表示控制信号。</p>
 </div>
 <div id="fig-cu-flow-branch" class="imageblock">
@@ -649,10 +649,10 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>0: 0x1815  addi r1, r0, #5
-1: 0x202a  ori  r2, r0, #10
+<pre>0: 0x1815  addi r1, r0, 5
+1: 0x202a  ori  r2, r0, 10
 2: 0x09b0  sub  r3, r1, r2
-3: 0x2ec0  bne  r2, r3, #0</pre>
+3: 0x2ec0  bne  r2, r3, 0</pre>
 </div>
 </div>
 </div>

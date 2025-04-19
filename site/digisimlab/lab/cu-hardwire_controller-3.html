@@ -148,7 +148,7 @@
     <span class="nav-text">控制器</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-overview.html">概述</a>
+    <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
@@ -265,7 +265,7 @@
 存储器的寻址采用变址寻址，变址寄存器号由rs1字段给出，偏移量由imm给出，所以有效地址EA=(rs1)+imm，即rs1指定的寄存器内容加上imm字段给出的偏移量作为有效地址。</p>
 </div>
 <div class="paragraph">
-<p>对于 <code>load rd, rs1, #imm</code> 指令，从存储器读出的数据写入寄存器，寄存器号由rd给出。load指令的信息流示意图如<a href="#fig-cu-flow-load">图 2</a>所示，绿色通路表示有效的信息流。根据信息流通路，读者可分析出控制信号的取值。</p>
+<p>对于 <code>load rd, rs1, imm</code> 指令，从存储器读出的数据写入寄存器，寄存器号由rd给出。load指令的信息流示意图如<a href="#fig-cu-flow-load">图 2</a>所示，绿色通路表示有效的信息流。根据信息流通路，读者可分析出控制信号的取值。</p>
 </div>
 <div id="fig-cu-flow-load" class="imageblock">
 <div class="content">
@@ -274,7 +274,7 @@
 <div class="title">图 2. load指令的信息流示意图</div>
 </div>
 <div class="paragraph">
-<p>对于 <code>store rs2, rs1, #imm</code> 指令，源数据的寄存器号由rs2给出，该寄存器的内容将被写入存储器。store指令的信息流示意图如<a href="#fig-cu-flow-store">图 3</a>所示，绿色通路表示有效的信息流。根据信息流通路，读者可分析出控制信号的取值。</p>
+<p>对于 <code>store rs2, rs1, imm</code> 指令，源数据的寄存器号由rs2给出，该寄存器的内容将被写入存储器。store指令的信息流示意图如<a href="#fig-cu-flow-store">图 3</a>所示，绿色通路表示有效的信息流。根据信息流通路，读者可分析出控制信号的取值。</p>
 </div>
 <div id="fig-cu-flow-store" class="imageblock">
 <div class="content">
@@ -315,12 +315,12 @@
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>0: 0x1815 addi r1, r0, #5
-1: 0x202a ori  r2, r0, #10
+<pre>0: 0x1815 addi r1, r0, 5
+1: 0x202a ori  r2, r0, 10
 2: 0x09b0 sub  r3, r1, r2
-3: 0x3dc5 store r3, r1, #5
-4: 0x3a10 load r1, r2, #0
-5: 0x29c0 beq  r1, r3, #0 <i class="conum" data-value="1"></i><b>(1)</b></pre>
+3: 0x3dc5 store r3, r1, 5
+4: 0x3a10 load r1, r2, 0
+5: 0x29c0 beq  r1, r3, 0 <i class="conum" data-value="1"></i><b>(1)</b></pre>
 </div>
 </div>
 <div class="colist arabic">
