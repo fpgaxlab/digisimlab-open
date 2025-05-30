@@ -237,7 +237,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>ROM（Read Only Memory），即只读存储器，是指在应用系统中只能读出、不能写入的半导体随机存储器。
-在计算机中，存放程序代码是ROM的一个典型应用场景。
+在计算机中，存放引导程序代码是ROM的一个典型应用场景。
 也可以用来存放固定不变的数据，如字符点阵数据。</p>
 </div>
 <div class="paragraph">
@@ -297,6 +297,18 @@ ROM组件的属性设置为“数据位数：8；地址位数：4”。
 </div>
 <div class="title">图 3. 使用ROM组件构成7段显示译码器</div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+ROM组件输出的8位数据需经过分线器组件拆分为8个1位数据连接到数码管的输入端口。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>初始化ROM数据</p>
@@ -322,7 +334,7 @@ ROM组件的属性设置为“数据位数：8；地址位数：4”。
 <li>
 <p>仿真</p>
 <div class="paragraph">
-<p>通过输入引脚输入“0000~0111” 8组数据，七段数码管应显示数字“0~7”。</p>
+<p>使OE为1，通过输入引脚输入“0000~0111” 8组数据，七段数码管应显示数字“0~7”。</p>
 </div>
 </li>
 <li>

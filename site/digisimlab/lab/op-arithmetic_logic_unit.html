@@ -285,10 +285,10 @@
 <p>OF和CF由加法器产生，在前面的实验中已经完成。这个实验还需要完成符号标志和零标志的检测电路。
 因为运算结果的最高位就是符号位，所以符号标志的生成逻辑非常简单，逻辑方程如下：</p>
 </div>
-<div class="paragraph text-center">
+<div id="formula-op-alu-1" class="paragraph text-center">
 <p>SF=F<sub>3</sub></p>
 </div>
-<div class="paragraph">
+<div id="formula-op-alu-2" class="paragraph">
 <p>一种简单的零标志生成方法是，将运算结果的每一位进行或运算，如果结果为0，则零标志为1。以4位二进制为例，产生零标志的逻辑方程如下：</p>
 </div>
 <div class="imageblock text-center">
@@ -327,19 +327,7 @@ MUX多路器组件曾在<a href="bl-multiplexer.html" class="xref page">多路�
 <div class="sect2">
 <h3 id="_2_验证任务"><a class="anchor" href="#_2_验证任务"></a>2.验证任务</h3>
 <div class="paragraph">
-<p>验证数据应覆盖ALU的各项运算功能。算术运算可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>的验证任务，包括标志位的测试；逻辑运算除了测试与、或、异或运算外，也要测试逻辑非运算。
-可以手动操作进行验证，也可以采用<a href="bl-decoder.html" class="xref page">译码器实验</a>学过的<a href="../ds-test-circuit.html" class="xref page">电路测试</a>的方法进行验证，测试用例样式见<a href="#exa-test-alu">例 1</a>。</p>
-</div>
-<div id="exa-test-alu" class="exampleblock">
-<div class="title">例 1. ALU测试用例样式</div>
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">X	    Y	    M	S1	S0	F	    S	Z	O	C
-0b1100	0b1011	0	0	0	0b0111	0	0	1	1</code></pre>
-</div>
-</div>
-</div>
+<p>验证数据应覆盖ALU的各项运算功能。算术运算可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>的验证任务，包括标志位的测试；逻辑运算除了测试与、或、异或运算外，也要测试逻辑非运算。</p>
 </div>
 <div class="paragraph">
 <p>保存验证结果数据，进行分析并给出结论。</p>
