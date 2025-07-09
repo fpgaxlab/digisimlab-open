@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.2</a>
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../1.1/index.html">1.1</a>
@@ -203,9 +206,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="dp-single_cycle_datapath.html">1.2</a>
+    <a class="version is-current" href="dp-single_cycle_datapath.html">1.3</a>
+    <a class="version" href="../1.2/lab/dp-single_cycle_datapath.html">1.2</a>
     <a class="version" href="../1.1/lab/dp-single_cycle_datapath.html">1.1</a>
     <a class="version" href="../1.0/lab/dp-single_cycle_datapath.html">1.0</a>
   </div>
@@ -237,16 +241,21 @@
 <div class="paragraph">
 <p>计算机本质上是一个加工处理二进制信息的电路，包括ALU、寄存器、存储器等部件，这些部件通过信号线以某种方式连接起来，并且在控制器的控制下，使信息按照一定的规则在各个部件之间有序流动，完成信息的加工处理。这些信息加工部件及信息传递路径的总和就称为<strong>数据通路</strong>。</p>
 </div>
+<div class="sect2">
+<h3 id="_单总线多周期数据通路"><a class="anchor" href="#_单总线多周期数据通路"></a>单总线（多周期）数据通路</h3>
 <div class="paragraph">
 <p>不同结构的数据通路在成本、速度及工作方式上有着较大差异。
 <a href="#fig-9">图 1</a>是一个<strong>单总线数据通路</strong>的例子，在这个数据通路上完成一次加法运算需要3个时钟周期。</p>
 </div>
 <div id="fig-9" class="imageblock">
 <div class="content">
-<img src="_images/image9.png" alt="多周期数据通路_300dpi" width="407" height="392">
+<img src="_images/image9.png" alt="多周期数据通路" width="407" height="392">
 </div>
 <div class="title">图 1. 单总线数据通路示例</div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_单周期数据通路"><a class="anchor" href="#_单周期数据通路"></a>单周期数据通路</h3>
 <div class="paragraph">
 <p><a href="#fig-dp-1">图 2</a>是另一种数据通路的结构，它只需要一个时钟周期就可以完成一次运算处理，称为<strong>单周期数据通路</strong>。
 虽然不能单纯以时钟个数的多少来评价性能的优劣，但从发展历史来看，单总线数据通路是早期技术的产物，当时的主要考量是减少连接线的数量、降低成本。
@@ -261,9 +270,82 @@ ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入�
 </div>
 <div id="fig-dp-1" class="imageblock">
 <div class="content">
-<img src="_images/dp-datapath-1.png" alt="单周期数据通路300dpi" width="621" height="350">
+<img src="_images/dp-datapath-1.png" alt="单周期数据通路" width="487" height="350">
 </div>
 <div class="title">图 2. 单周期数据通路</div>
+</div>
+<div class="sect3">
+<h4 id="bm-dp1-rr"><a class="anchor" href="#bm-dp1-rr"></a>两个寄存器之间的运算</h4>
+<div class="paragraph">
+<p>下面以两个寄存器间的运算为例，说明数据通路的信息加工过程。
+两个寄存器间的运算关系可用下式表示。</p>
+</div>
+<div class="paragraph text-center">
+<p>R[WA] = R[RA1] op R[RA2]</p>
+</div>
+<div class="paragraph">
+<p>式中，R[n]表示编号为n的寄存器的值，op表示ALU进行的运算。</p>
+</div>
+<div class="paragraph">
+<p>信息传递路径如<a href="#fig-dp-2">图 3</a>绿线所示。
+两个寄存器的值分别从RD1和RD2读出，为此需要通过RA1和RA2提供寄存器号。
+RD1直接连到了ALU的X输入端，但RD2和ALU的Y输入端之间还插入了一个2选1多路器。
+因为RD2连接的多路器通道0，为了将RD2送到Y端，需要控制Ys为0，使2选1多路器选择通道0的RD2。
+ALU的运算功能由M、S1、S0控制。运算结果F直接作为寄存器堆的写数据WD。
+通过前面<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>已经知道，为了将WD数据写入寄存器堆，需要提供欲写入寄存器的寄存器号WA，并且允许写入即WE为1，最后在Clk时钟上升沿的触发下将运算结果写入WA指定的寄存器。</p>
+</div>
+<div id="fig-dp-2" class="imageblock">
+<div class="content">
+<img src="_images/dp-datapath-1-3.png" alt="寄存器之间的运算通路" width="487" height="350">
+</div>
+<div class="title">图 3. 两个寄存器之间的运算通路</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="bm-dp1-ri"><a class="anchor" href="#bm-dp1-ri"></a>寄存器和立即数之间的运算</h4>
+<div class="paragraph">
+<p>一个寄存器和立即数Imm进行运算的信息传递路径如<a href="#fig-dp-3">图 4</a>所示，其运算关系为</p>
+</div>
+<div class="paragraph text-center">
+<p>R[WA] = R[RA1] op Imm</p>
+</div>
+<div class="paragraph">
+<p>和两个寄存器运算的主要区别是用立即数Imm取代了寄存器R[RA2]，读者可自行分析信息加工过程。</p>
+</div>
+<div id="fig-dp-3" class="imageblock">
+<div class="content">
+<img src="_images/dp-datapath-1-4.png" alt="寄存器和立即数的运算通路" width="487" height="350">
+</div>
+<div class="title">图 4. 寄存器和立即数之间的运算通路</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+和Digital仿真软件不同，<a href="#fig-dp-2">图 3</a>、<a href="#fig-dp-3">图 4</a>绿色导线的深浅并不代表其电平状态，只是为了更直观地表达互不相连的交叉线。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>特别需要说明的是，如果RA1=0，ALU进行加法运算，则</p>
+</div>
+<div class="paragraph text-center">
+<p>R[WA] = R[0] + Imm</p>
+</div>
+<div class="paragraph">
+<p>又因为R0的值恒为0（见<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>），故</p>
+</div>
+<div class="paragraph text-center">
+<p>R[WA] = Imm</p>
+</div>
+<div class="paragraph">
+<p>也就是将立即数Imm存入由WA指定的寄存器。</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -274,20 +356,38 @@ ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入�
 <h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
 <p>用Digital仿真软件按照<a href="#fig-dp-1">图 2</a>绘制电路图。
+数据通路的数据位数为4位。
 ALU和三端口寄存器堆使用前面实验完成的。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
 <div class="paragraph">
-<p>通过仿真验证数据通路，并保存仿真过程数据文件。</p>
+<p>依次完成以下验证任务，分析实验数据，判断结果的正确性。
+若结果与预期不符，尝试分析故障现象并排除故障，提升分析问题与解决问题的能力。
+最后保存仿真过程数据文件。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>因为电路图上无法直接观察到写入寄存器堆内部的数值，仿真时应开启「显示测量图」，以便通过测量图表观察寄存器堆内部的Q1、Q2、Q3值。开启方法见<a href="../ds-getting-started.html#bm-show-measure" class="xref page">显示测量图</a>。</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>将2个常数存入R1、R2寄存器</p>
+<p>将非零常数存入寄存器</p>
 <div class="paragraph">
-<p>常数通过ImmediateData输入引脚送入。从<a href="#fig-dp-1">图 2</a>可以看出，ImmediateData并没有直接连在寄存器堆的写端口，而是经过多路器后送到了ALU的Y输入端；所以要将ImmediateData送到寄存器堆的写端口，必须经过ALU。在前面寄存器堆的实验中已经设计R0寄存器的值恒为0，可以用ALU将ImmediateData加上R0寄存器值，将ImmediateData传送到寄存器堆的写端口。</p>
+<p>开始仿真后所有寄存器的值均为0，需要先向寄存器写入非零数据，才能进行后续的运算。
+例如，假设要将常数9存入R2寄存器，则可将常数9通过Imm输入，与R0进行加法运算后结果存入R2寄存器，即完成<code>R[2] = R[0] + 9 = 9</code>。运算过程参考实验原理部分<a href="#bm-dp1-ri">寄存器和立即数之间的运算</a>的特例。</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -297,7 +397,8 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>存入的常数应有助于判别下面将要验证的各种运算结果是否正确。</p>
+<p>存入的常数应有助于后续步骤检验实验电路的功能和特性。
+例如，应有助于验证数据通路可进行4位二进制运算，有助于检验运算结果的标志位等。</p>
 </div>
 </td>
 </tr>
@@ -305,39 +406,20 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 </div>
 </li>
 <li>
-<p>完成两个寄存器之间的运算并验证结果是否正确。如：</p>
+<p>完成寄存器和立即数之间的运算并保存运算结果。</p>
 <div class="paragraph">
-<p>R1 + R2 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R1 − R2 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R1 &amp; R2 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R1 | R2 → R3;</p>
-</div>
-<div class="paragraph">
-<p>R1 ⊕  R2 → R3;</p>
+<p>将前面已存入数据的寄存器的内容，通过ALU与Imm给出的常数进行算术、逻辑运算，结果存入另一寄存器。
+例如，假设前面已将R2存入数据，将其与Imm进行加法运算后结果存入R3寄存器，即完成<code>R[3] = R[2] + Imm</code>。运算过程参考实验原理部分<a href="#bm-dp1-ri">寄存器和立即数之间的运算</a>。</p>
 </div>
 </li>
 <li>
-<p>完成寄存器和立即数之间的运算并验证结果是否正确。如：</p>
+<p>完成两个寄存器之间的各种运算并保存运算结果。</p>
 <div class="paragraph">
-<p>R2 ⊕ 0b1111 → R3;</p>
+<p>将前面已存入数据的2个寄存器的内容，通过ALU进行各种运算，结果存入另一寄存器。
+例如，假设R2、R3已经存有数据，进行加法运算后结果存入R1寄存器，即完成<code>R[1] = R[2] + R[3]</code>。运算过程参考实验原理部分<a href="#bm-dp1-rr">两个寄存器之间的运算</a>。</p>
 </div>
 </li>
 </ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_实验结果分析"><a class="anchor" href="#_实验结果分析"></a>实验结果分析</h3>
-<div class="paragraph">
-<p>对测试结果进行详细分析说明，并给出结论。</p>
-</div>
-<div class="paragraph">
-<p>在结果与预期不符的情况下，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">

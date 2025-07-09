@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="lab/op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="lab/cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">1.2</a>
+          <a href="index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="1.1/index.html">1.1</a>
@@ -203,9 +206,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="ds-getting-started.html">1.2</a>
+    <a class="version is-current" href="ds-getting-started.html">1.3</a>
+    <a class="version" href="1.2/ds-getting-started.html">1.2</a>
     <a class="version" href="1.1/ds-getting-started.html">1.1</a>
     <a class="version" href="1.0/ds-getting-started.html">1.0</a>
   </div>
@@ -222,7 +226,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>第一次启动Digital仿真软件时，会自动弹出一个使用指南，引导用户一步步熟悉Digital仿真软件的基本操作。
-如果没有自动弹出，可从菜单项“View/视图 ➤ Start Tutorial/使用指南”调出。
+如果没有自动弹出，可从菜单项「视图 ➤ 使用指南」（View ➤ Start Tutorial）调出。
 请跟随使用指南完成所有的操作。</p>
 </div>
 <div class="admonitionblock note">
@@ -232,7 +236,7 @@
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的“1.2 First Steps/起步”包含了该使用指南的更详细图文。
+<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的「1.2 起步」（1.2 First Steps）包含了该使用指南的更详细图文。
 </td>
 </tr>
 </table>
@@ -275,12 +279,12 @@
 <h2 id="bm-settings"><a class="anchor" href="#bm-settings"></a>软件设置</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>点击菜单项“Edit/编辑 ➤ Settings/设置”，Settings/设置对话框中的常用设置如下。</p>
+<p>点击菜单项「编辑 ➤ 设置」（Edit ➤ Settings），设置（Settings）对话框中的常用设置如下。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Use IEEE 91-1984 shapes / 使用IEEE 91-1984外观</p>
+<p>使用IEEE 91-1984外观（Use IEEE 91-1984 shapes）</p>
 <div class="paragraph">
 <p>该选项决定使用哪种逻辑元件的图形符号。软件默认使用IEEE图形符号，如果不勾选则使用IEC 60617-12标准规定的图形符号。
 可根据自己的习惯决定使用哪种风格的逻辑门形状。
@@ -288,25 +292,25 @@
 </div>
 </li>
 <li>
-<p>“Language/语言”下拉列表</p>
+<p>语言（Language）</p>
 <div class="paragraph">
-<p>选择界面语言，默认Engilsh，可选择简体中文。</p>
+<p>从下拉列表中选择界面语言，默认Engilsh，可选择简体中文。</p>
 </div>
 </li>
 <li>
-<p>Component tree view is visible at startup / 应用启动时显示组件树</p>
+<p>应用启动时显示组件树（Component tree view is visible at startup）</p>
 <div class="paragraph">
 <p>若勾选，则在窗口左边栏显示组件树。该选项在下次软件启动后生效。</p>
 </div>
 </li>
 <li>
-<p>Show Grid / 显示栅格</p>
+<p>显示栅格（Show Grid）</p>
 <div class="paragraph">
 <p>是否在窗口中显示栅格圆点。</p>
 </div>
 </li>
 <li>
-<p>Show the number of wires on a bus / 在总线上显示导线数</p>
+<p>在总线上显示导线数（Show the number of wires on a bus）</p>
 <div class="paragraph">
 <p>当导线的位宽大于1时，是否在导线上标注位数。</p>
 </div>
@@ -353,7 +357,7 @@
 <div class="sect2">
 <h3 id="_删除"><a class="anchor" href="#_删除"></a>删除</h3>
 <div class="paragraph">
-<p>选中对象后，鼠标点击工具条的删除按钮，或者按下 <code>Delete</code> 键，均可删除选中的对象。</p>
+<p>选中对象后，鼠标点击工具条的删除按钮，或者按下「Delete」键，均可删除选中的对象。</p>
 </div>
 </div>
 </div>
@@ -362,9 +366,11 @@
 <h2 id="_数据位宽"><a class="anchor" href="#_数据位宽"></a>数据位宽</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_数据位数属性"><a class="anchor" href="#_数据位数属性"></a>“数据位数”属性</h3>
+<h3 id="_数据位数属性"><a class="anchor" href="#_数据位数属性"></a>「数据位数」属性</h3>
 <div class="paragraph">
-<p>每个组件都有一些可以设置的属性，可以通过在组件上点击鼠标右键打开属性窗口。在前面的<a href="#bm-first-steps">构建电路及仿真</a>操作中，已经通过属性窗口设置了引脚组件的标签。现在将所有组件的位宽（属性窗口中的“Data Bits / 数据位数”）设置为4位，使电路成为同时处理4位数据的异或门。</p>
+<p>每个组件都有一些可以设置的属性，可以通过在组件上点击鼠标右键打开属性窗口。在前面的<a href="#bm-first-steps">构建电路及仿真</a>操作中，已经通过属性窗口设置了引脚组件的标签。
+现在右键点击异或门组件，在弹出的属性窗口中将「数据位数」（Data Bits）设置为4位，使异或门能够同时处理4位数据。
+然后将连接异或门的两个输入组件和一个输出组件的数据位数均设置为4位，否则仿真时会报错。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -379,7 +385,7 @@
 </table>
 </div>
 <div class="paragraph">
-<p>如果希望在导线上标注位宽，可在<a href="#bm-settings">设置对话框</a>中勾选“在总线上显示导线数”，效果如<a href="#fig-ds-bw">图 1</a>所示。注意，设置后并不能立刻看到效果，要在启动仿真后才会在导线上显示位宽。</p>
+<p>如果希望在导线上标注位宽，可在<a href="#bm-settings">设置对话框</a>中勾选「在总线上显示导线数」，效果如<a href="#fig-ds-bw">图 1</a>所示。注意，设置后并不能立刻看到效果，要在启动仿真后才会在导线上显示位宽。</p>
 </div>
 <div id="fig-ds-bw" class="imageblock">
 <div class="content">
@@ -402,7 +408,7 @@
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-点击“Apply/应用”按钮而不是“OK/确定”按钮，这样就可以同时保持打开多个引脚的输入窗口，方便交替输入多组数据。
+点击「应用」（Apply）按钮而不是「确定」（OK）按钮，这样就可以同时保持打开多个引脚的输入窗口，方便交替输入多组数据。
 </td>
 </tr>
 </table>
@@ -411,22 +417,22 @@
 <div class="sect3">
 <h4 id="_数据的显示"><a class="anchor" href="#_数据的显示"></a>数据的显示</h4>
 <div class="paragraph">
-<p>对于连接多位数据的导线，仿真时并非用颜色反映其状态，均显示为蓝色，其值显示在导线上。
+<p>对于连接多位数据的导线，仿真时并非像1位的导线那样用颜色反映其状态，而是均显示为蓝色，其值显示在导线上。
 但如果导线过短则不会显示，此时可将鼠标指向导线也会提示其数值。</p>
 </div>
 <div class="paragraph">
 <p>输入、输出组件的数值显示在该组件的上方。
-通过组件“高级设置”中的“数字格式”属性，可以选择数值的显示方式（十进制、十六进制、二进制等）。</p>
+通过组件「高级设置」中的「数字格式」属性，可以选择数值的显示方式（十进制、带符号十进制、十六进制、二进制等）。</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_仿真结果记录及导出"><a class="anchor" href="#_仿真结果记录及导出"></a>仿真结果记录及导出</h2>
+<h2 id="bm-show-measure"><a class="anchor" href="#bm-show-measure"></a>仿真结果记录及导出</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>仿真状态下点击菜单项“Simulation/仿真 ➤ Show measurement value table / 显示测量图”，然后在打开的测量图窗口中点击菜单“View/视图 ➤ Show table/显示表格”，打开测试数据表格的记录窗口。之后每当改变输入引脚的数据，图表中随之增加一步输入、输出数据的记录，如<a href="#fig-ds-rec">图 2</a>所示。</p>
+<p>仿真状态下点击菜单项「仿真 ➤ 显示测量图」（Simulation ➤ Show measurement graph），然后在打开的测量图窗口中点击菜单「视图 ➤ 显示表格」（View ➤ Show table），打开测试数据表格的记录窗口。之后每当改变输入引脚的数据，图表中随之增加一步输入、输出数据的记录，如<a href="#fig-ds-rec">图 2</a>所示。</p>
 </div>
 <div id="fig-ds-rec" class="imageblock">
 <div class="content">
@@ -435,7 +441,7 @@
 <div class="title">图 2. 仿真结果记录</div>
 </div>
 <div class="paragraph">
-<p>当完成需要的验证后，点击图表窗口的菜单项“File/文件 ➤ Save Data / 保存数据”，窗口中记录的数据将被保存为CSV文件。
+<p>当完成需要的验证后，点击图表窗口的菜单项「文件 ➤ 保存数据」（File ➤ Save Data），窗口中记录的数据将被保存为CSV文件。
 该文件可通过WPS等办公软件打开，用于实验报告的实验结果分析。</p>
 </div>
 <div class="admonitionblock caution">
@@ -445,7 +451,7 @@
 <i class="fa icon-caution" title="注意"></i>
 </td>
 <td class="content">
-只有已命名的引脚（设置了“Label/标签”属性）才会出现在图表窗口。
+只有已命名的引脚（设置了「标签/Label」属性）才会出现在图表窗口。
 </td>
 </tr>
 </table>
@@ -458,39 +464,39 @@
 <div class="sect2">
 <h3 id="_保存电路文件"><a class="anchor" href="#_保存电路文件"></a>保存电路文件</h3>
 <div class="paragraph">
-<p>点击菜单项“File/文件 ➤ Save/保存” 或“File/文件 ➤ Save as / 另存为”将电路保存为磁盘文件（文件后缀名为 <em>dig</em>），以后可以用Digital仿真软件打开。</p>
+<p>点击菜单项「文件 ➤ 保存」（File ➤ Save）或「文件 ➤ 另存为」（File ➤ Save as）将电路保存为磁盘文件（文件后缀名为<em>dig</em>），以后可以用Digital仿真软件打开。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_导出电路图"><a class="anchor" href="#_导出电路图"></a>导出电路图</h3>
+<h3 id="_导出图片格式的电路图"><a class="anchor" href="#_导出图片格式的电路图"></a>导出图片格式的电路图</h3>
 <div class="paragraph">
-<p>上面保存的_.dig_ 文件只能用Digital仿真软件打开，如果想要在实验报告中插入电路图，可以使用Digital仿真软件的导出功能将电路保存为图片。
+<p>上面保存的<em>.dig</em>文件只能用Digital仿真软件打开，如果想要在实验报告中插入电路图，可以使用Digital仿真软件的导出功能将电路保存为图片。
 在导出之前，需要在电路图上添加电路名称和学号、姓名。</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">添加学号、姓名</dt>
 <dd>
-<p>点击菜单项“Components/组件 ➤ Misc./其他 ➤ Decoration ➤ Text”，添加一个Text组件，右键点击该组件可以输入一些文本，这里输入自己的学号和姓名，学号、姓名各占一行。</p>
+<p>点击菜单项「组件 ➤ 其他 ➤ Decoration ➤ Text」（Components ➤ Misc. ➤ Decoration ➤ Text），添加一个Text组件，右键点击该组件可以输入一些文本，这里输入自己的学号和姓名，学号、姓名各占一行。</p>
 </dd>
 <dt class="hdlist1">添加电路名称</dt>
 <dd>
-<p>点击菜单项“Components/组件 ➤ Misc./其他 ➤ Decoration ➤ Rectangle/矩形”，添加一个矩形虚线框，调整矩形框的大小使其将学号、姓名包含其中。右键点击该组件，在“Label/标签”属性中输入电路名称。</p>
+<p>点击菜单项「组件 ➤ 其他 ➤ Decoration ➤ 矩形」（Components ➤ Misc. ➤ Decoration ➤ Rectangle），添加一个矩形虚线框，调整矩形框的大小使其将学号、姓名包含其中。右键点击该组件，在「标签」（Label）属性中输入电路名称。</p>
 </dd>
 <dt class="hdlist1">保存为PNG图片</dt>
 <dd>
-<p>最后点击菜单项“File/文件 ➤ Export/导出 ➤ Export PNG / 导出PNG”。</p>
+<p>最后点击菜单项「文件 ➤ 导出 ➤ 导出PNG」（File ➤ Export ➤ Export PNG）。</p>
 </dd>
 </dl>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="提示"></i>
+<i class="fa icon-important" title="重要"></i>
 </td>
 <td class="content">
-如果希望导出的电路图标注了导线的宽度，如<a href="#fig-ds-bw">图 1</a>所示，可启动仿真并随即结束仿真，之后再导出电路图。
+实验报告中的电路图应标注导线的位数，如<a href="#fig-ds-bw">图 1</a>所示。即使已经在<a href="#bm-settings">设置对话框</a>中勾选了「在总线上显示导线数」，但在编辑状态下仍有可能未显示导线位数，此时可先启动仿真使电路显示导线位数，随即结束仿真回到编辑状态，此时导线位数仍保留在电路上，之后再导出PNG图。
 </td>
 </tr>
 </table>

@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.2</a>
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../1.1/index.html">1.1</a>
@@ -198,14 +201,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
-    <li>基本逻辑电路</li>
+    <li>逻辑电路基础</li>
     <li><a href="bl-multiplexer.html">多路选择器实验</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="bl-multiplexer.html">1.2</a>
+    <a class="version is-current" href="bl-multiplexer.html">1.3</a>
+    <a class="version" href="../1.2/lab/bl-multiplexer.html">1.2</a>
     <a class="version" href="../1.1/lab/bl-multiplexer.html">1.1</a>
     <a class="version" href="../1.0/lab/bl-multiplexer.html">1.0</a>
   </div>
@@ -233,11 +237,25 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_实验概述"><a class="anchor" href="#_实验概述"></a>实验概述</h2>
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>多路选择器（简称多路器）是一种常用的组合逻辑电路模块，可从多个输入中选择一个输出，在数字电路中有着非常广泛的应用。
-本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>、<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元实验</a>、<a href="dp-single_cycle_datapath.html" class="xref page">数据通路实验</a>等实验中都会用到多路器。</p>
+<p>多路选择器（multiplexer）简称多路器（MUX），是一种常用的组合逻辑电路模块，可从多个输入中选择一个输出，在数字电路中有着非常广泛的应用。</p>
+</div>
+<div class="paragraph">
+<p>在电路原理图中，通常用梯形符号表示多路器。
+2选1多路器的电路符号如<a href="#fig-mux-1">图 1</a>(a)所示，电路功能如<a href="#fig-mux-1">图 1</a>(b)所示。
+S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为输出。
+当选择信号S为0时，将通道0的输入A传输到输出Y，当选择信号S为1时，从Y输出的是通道1的输入B。</p>
+</div>
+<div id="fig-mux-1" class="imageblock">
+<div class="content">
+<img src="_images/bl-mux-1.png" alt="bl mux 1" width="414">
+</div>
+<div class="title">图 1. 多路选择器的电路符号和功能</div>
+</div>
+<div class="paragraph">
+<p>本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>、<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元实验</a>、<a href="dp-single_cycle_datapath.html" class="xref page">数据通路实验</a>等实验中都会用到多路器。</p>
 </div>
 </div>
 </div>
@@ -250,32 +268,69 @@
 <p>参照第一章Digital仿真软件使用指南的“<a href="../ds-getting-started.html" class="xref page">新手入门</a>”，熟悉Digital仿真软件的基本操作。</p>
 </li>
 <li>
-<p>使用多路选择器组件设计2选1多路器的功能验证电路图，要求数据位宽为4位，如<a href="#fig-mux-1">图 1</a>所示。
-多路器组件位于菜单项“Components/组件 ➤ Plexer/复用器 ➤ Multiplexer/复用器”。</p>
-<div id="fig-mux-1" class="imageblock">
+<p>使用多路选择器组件设计2选1多路器的功能验证电路图，要求数据位宽为4位，如<a href="#fig-mux-2">图 2</a>所示。</p>
+<div id="fig-mux-2" class="imageblock">
 <div class="content">
 <img src="_images/bl-mux.png" alt="bl mux">
 </div>
-<div class="title">图 1. 多路选择器的实验电路图</div>
+<div class="title">图 2. 多路选择器的实验电路图</div>
 </div>
 <div class="paragraph">
-<p>如果需要设计一个4选1多路器，应该如何设置多路器组件的“选择位”属性？</p>
+<p>多路器组件位于菜单项「组件 ➤ 复用器 ➤ 复用器」（Components ➤ Plexer ➤ Multiplexer）。
+添加组件后将其「数据位数」属性设置为4。
+输入组件A、B和输出组件Y的「数据位数」也应设置为4，即与多路器的数据位数一致。</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="警告"></i>
+</td>
+<td class="content">
+如果电气连通的导线所连接的各端口的数据位数不一致，启动仿真时会报错，并且用红色标出出错的位置。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>多路选择器组件还有另一个重要属性「选择位」，这个词翻译的有些含糊；英文界面是「Number of Selector Bits」，也许翻译为「选择位的位数」更清楚一些。
+「选择位」是<a href="#fig-mux-2">图 2</a>梯形符号侧边（腰）上的端口的位数，该端口与Sel输入组件相连，因此Sel输入组件的「数据位数」属性值应与多路器组件的「选择位」属性值相一致；对于2选1多路器来说，其值应为1。</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">提问</dt>
+<dd>
+<p>在后面的实验中还会用到4选1多路器，那时应该如何设置多路器组件的「选择位」属性？</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </li>
 <li>
 <p>通过仿真验证其功能，导出仿真数据为CSV文件。</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="注意"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>验证数据应有助于检验实验电路的功能和特性。
+例如，如果只是使用“1”作为多路器的输入数据，则无法测试电路的数据位数是不是4位；因为即使实验电路的数据位数是1位的，也能得到正确的结果。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>实验结果分析</p>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>对仿真数据进行分析并得出结论。</p>
-</li>
-<li>
-<p>概括多路选择器的功能。</p>
-</li>
-</ul>
 </div>
 </li>
 </ol>

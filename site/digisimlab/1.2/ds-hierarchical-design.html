@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>层次化设计 :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-compare.html">*比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">计算机组成原理实验指导</a></li>
+    <li>Digital仿真软件使用指南</li>
+    <li><a href="ds-hierarchical-design.html">层次化设计</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <div class="version-menu">
+    <a class="version" href="../ds-hierarchical-design.html">1.3</a>
+    <a class="version is-current" href="ds-hierarchical-design.html">1.2</a>
+    <a class="version" href="../1.1/ds-hierarchical-design.html">1.1</a>
+    <a class="version" href="../1.0/ds-hierarchical-design.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">层次化设计</h1>
+<div class="sect1">
+<h2 id="_概念"><a class="anchor" href="#_概念"></a>概念</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>用Digital仿真软件的内置组件设计更复杂的电路，本质上是一种层次化的设计。
+组件内部设计是底层，而使用组件的电路是上层。
+如果内置组件不能满足要求，则需要自己设计一个电路。
+那么自己设计的电路能不能作为组件用于构成更复杂的电路呢？答案是肯定的。
+在Digital仿真软件中，将嵌入到其他电路中的电路模块称作<strong>子电路（subcircuit）</strong>。
+一个项目中可以有多个层次，一个“上层”电路也可以作为另一个电路的子电路，项目最上层通常称作顶层（top level）。</p>
+</div>
+<div class="paragraph">
+<p>层次化设计可以采用自底向上或自顶向下的方法。
+自底向上即先设计下层的电路模块，而自顶向下则是先设计顶层模块。
+本课程实验的安排是自底向上的，前面实验完成的电路模块将作为后面实验电路的子电路。
+Digital仿真软件也支持自顶向下的设计方法。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_层次化设计的方法"><a class="anchor" href="#_层次化设计的方法"></a>层次化设计的方法</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>当一个电路设计保存到文件之后，便可以通过菜单“Components/组件 ➤ Custom/自定义 ➤ &#8230;&#8203;”将其作为子电路嵌入到另一个电路中。
+任何一个电路都可以作为子电路，并不需要额外的操作将电路封装为子电路，但是需要注意以下几点。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>子电路文件必须位于上层电路所在的文件夹或者子文件夹中</p>
+<div class="paragraph">
+<p>如果一个电路作为子电路嵌入到另一个电路中，Digital仿真软件并不是将子电路保存在上层电路中，只是保存了子电路的文件名，
+而且所保存的子电路文件名并不包含完整的文件路径。
+Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名，仿真时如果找不到则会报错。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>如果当前路径中没有搜索到其他电路文件，“Components/组件”菜单中不会出现“Custom/自定义”菜单项。
+因此，在添加子电路之前，首先要将当前电路（上层电路）保存到子电路所在的文件夹或其上层文件夹。</p>
+</div>
+<div class="paragraph">
+<p>如果采用自顶向下的设计方法，可在上层电路中通过点击菜单“File/文件 ➤ New embedded Circuit/新建子电路”打开一个新的电路设计窗口，在新窗口中设计子电路，并将其保存到上层电路所在的文件夹或其子文件夹中，然后才能嵌入到上层电路。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>子电路的文件名必须唯一</p>
+<div class="paragraph">
+<p>如果在当前文件夹及子文件夹中找到了多个同名的电路文件，Digital仿真软件也会报错。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+这并不意味着一个子电路只能被嵌入一次。相反，层次化设计的目的之一正是便于重复使用同一个子电路。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>只有已命名的输入和输出组件可以作为子电路的端口</p>
+<div class="paragraph">
+<p>如果一个电路没有输入输出组件，尽管它可以仿真，但是无法作为子电路与其他电路连接。例如，可以利用开关和LED代替输入、输出组件，虽然可以通过操控开关、观察LED进行仿真，但是这些开关和LED不能作为子电路的端口。</p>
+</div>
+<div class="paragraph">
+<p>此外，所有的输入、输出组件都必须命名，否则无法作为子电路添加到上层电路中。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>综上所述，一个比较合适的层次化设计做法是：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>为项目创建一个独立的文件夹存放顶层电路文件，所有的子电路文件必须位于该文件夹或者子文件夹中。</p>
+</li>
+<li>
+<p>所有的电路不能重名，即使位于不同的子文件夹内。</p>
+</li>
+<li>
+<p>除顶层外，所有的电路都必须包含输入、输出组件，且所有的输入、输出组件都必须命名。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>如果要在设计完成的电路中打开子电路，右键点击子电路的图形符号，点击“打开电路”按钮。</p>
+</li>
+<li>
+<p>子电路在嵌入到其他电路之前，应通过仿真验证其正确性。</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_子电路图形符号的外观"><a class="anchor" href="#_子电路图形符号的外观"></a>子电路图形符号的外观</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>默认情况下，子电路的图形符号是一个浅黄色背景的矩形框，宽度为3个栅格，高度视输入输出端口数量而定，输入端口在左边，输出端口在右边。
+下面说明几个改变子电路图形符号外观的方法。</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">调整输入输出端口的显示顺序</dt>
+<dd>
+<p>在子电路的设计窗口中，点击菜单“编辑 ➤ 排序输入信号”或者“编辑 ➤ 排序输出信号” ，在弹出的窗口中调整端口的位置。</p>
+</dd>
+<dt class="hdlist1">调整子电路图形符号的宽度</dt>
+<dd>
+<p>在子电路的设计窗口中，点击菜单“编辑 ➤ 设置当前电路”，在弹出窗口的“基础设置”页中，可以修改宽度、背景色等属性。</p>
+</dd>
+<dt class="hdlist1">改变子电路图形符号的形状</dt>
+<dd>
+<p>在子电路的设计窗口中，点击菜单“编辑 ➤ 设置当前电路”，在弹出窗口的“高级设置”页中，可以通过“形状”下拉列表选择不同的形状。
+也可以自定义形状，如表示ALU时。创建自定义形状的方法，见<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的“5. Custom Shapes/自定义外观”。</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+层次化设计的举例说明见<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的“1.4 Hierarchical Design/层次设计”。
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

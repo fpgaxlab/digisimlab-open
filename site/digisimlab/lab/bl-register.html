@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.2</a>
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../1.1/index.html">1.1</a>
@@ -198,14 +201,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
-    <li>基本逻辑电路</li>
+    <li>逻辑电路基础</li>
     <li><a href="bl-register.html">触发器和寄存器实验</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="bl-register.html">1.2</a>
+    <a class="version is-current" href="bl-register.html">1.3</a>
+    <a class="version" href="../1.2/lab/bl-register.html">1.2</a>
     <a class="version" href="../1.1/lab/bl-register.html">1.1</a>
     <a class="version is-missing" href="../1.0/index.html">1.0</a>
   </div>
@@ -233,11 +237,32 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_实验概述"><a class="anchor" href="#_实验概述"></a>实验概述</h2>
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>D触发器是一种基本的时序逻辑电路，它的输出仅在时钟触发沿到来时变化，通常用作记忆元件。
-在计算机中，用于保存数据的电路元件通常称为寄存器。一般而言，D触发器与寄存器没有本质区别，例如一个8位数据寄存器可由8个D触发器构成；在Digital仿真软件中，D触发器和寄存器是两种组件，端口略有不同。
+<p>触发器（Flip-Flop）是一种基本的时序逻辑电路，它具有两个稳定状态，可以存储1位二进制信息，并且在外部时钟信号的控制下，根据输入数据来改变其存储的状态。
+常见的触发器有SR触发器、JK触发器、D触发器等。其中D触发器（D type Flip-Flop）在计算机电路中最为常用。
+D触发器通常包含以下几个端口。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>数据输入端（D）：用于输入要存储的数据。“D”代表“Data”，是D触发器名称的由来。</p>
+</li>
+<li>
+<p>输出端（Q）：Q端输出存储的数据。通常还有一个反相输出端Q̅，输出Q端的反相值。</p>
+</li>
+<li>
+<p>时钟输入端（CLK）：时钟信号是控制D触发器存储数据的关键信号。
+只有当CLK信号发生跳变时，D触发器才会将D端的输入数据更新到Q端，并保持该状态直到下一个时钟信号的跳变沿到来。
+根据具体电路设计的不同，如果从0到1的跳变起作用，称为上升沿触发；如果从1到0的跳变起作用，称为下降沿触发。Digital仿真软件的触发器为<strong>上升沿触发</strong>。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>在计算机中，用于保存数据的电路元件通常称为<strong>寄存器</strong>。一般而言，D触发器与寄存器没有本质区别，例如一个8位数据寄存器可由8个D触发器构成；从应用的角度，“寄存器”这个名称更为普通。
+而在Digital仿真软件中，D触发器和寄存器是两种组件，端口略有不同。
+和D触发器组件相比，寄存器组件多了一个<code>en</code>端口，作为装入数据的使能（enable）控制。如果en为0，即使时钟上升沿到来，也不会将D输入端的数据保存在寄存器内；只有当en为1的时候，才允许保存数据。
 数据寄存器将应用于本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>。</p>
 </div>
 </div>
@@ -256,17 +281,16 @@
 <li>
 <p>设计一个4位寄存器组件的验证电路</p>
 <div class="paragraph">
-<p>寄存器组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Register/寄存器”。
-和D触发器组件相比，寄存器组件多了一个 <code>en</code> 端口，作为装入数据的使能（enable）控制。如果en为0，即使时钟上升沿到来，也不会将D输入端的数据保存在寄存器内；只有当en为1的时候，才允许保存数据。</p>
-</div>
-<div class="paragraph">
-<p>添加寄存器组件后将其“数据位数”属性设置为4。
-并将其所有的端口连接到输入输出组件，注意寄存器组件端口C应连接时钟输入组件，端口D、Q所连接的输入、输出组件的数据位数应与寄存器的数据位数一致。
-如果一根导线所连接的各端口的数据位数不一致，启动仿真时会报错，并且用红色标出出错的位置。</p>
+<p>寄存器组件位于菜单项「组件 ➤ 存储器 ➤ 寄存器」（Components ➤ Memory ➤ Register）。
+添加寄存器组件后将其「数据位数」属性设置为4。
+并将其所有的端口连接到输入输出组件，注意寄存器组件端口C应连接时钟输入组件，连接D、Q端口的输入、输出组件的数据位数应与寄存器的数据位数一致。</p>
 </div>
 </li>
 <li>
 <p>通过仿真熟悉寄存器的功能和用法，记录仿真过程。</p>
+<div class="paragraph">
+<p>尤其注意en的作用。</p>
+</div>
 </li>
 <li>
 <p>实验结果分析</p>

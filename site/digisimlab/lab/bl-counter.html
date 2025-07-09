@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.2</a>
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../1.1/index.html">1.1</a>
@@ -198,14 +201,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">计算机组成原理实验指导</a></li>
-    <li>基本逻辑电路</li>
+    <li>逻辑电路基础</li>
     <li><a href="bl-counter.html">计数器实验</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="bl-counter.html">1.2</a>
+    <a class="version is-current" href="bl-counter.html">1.3</a>
+    <a class="version" href="../1.2/lab/bl-counter.html">1.2</a>
     <a class="version" href="../1.1/lab/bl-counter.html">1.1</a>
     <a class="version" href="../1.0/lab/bl-counter.html">1.0</a>
   </div>
@@ -233,11 +237,51 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_实验概述"><a class="anchor" href="#_实验概述"></a>实验概述</h2>
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>计数器是一种常用的时序逻辑电路模块，在本课程最后的<a href="cu-hardwire_controller-1.html" class="xref page">硬布线控制实验</a>中，也将使用本实验学习的计数器组件作为程序计数器。
-Digital仿真软件提供了两种计数器组件，一个基本的计数器，一个是可预置数的双向计数器。</p>
+<p>计数器是一种能够对输入时钟脉冲进行计数的时序逻辑电路。
+Digital仿真软件提供了两种计数器组件，一个基本的二进制计数器，一个可预置数的双向计数器。
+在本课程最后的<a href="cu-hardwire_controller-1.html" class="xref page">硬布线控制实验</a>中，将使用本实验学习的计数器组件作为程序计数器。</p>
+</div>
+<div class="sect2">
+<h3 id="_基本的二进制计数器"><a class="anchor" href="#_基本的二进制计数器"></a>基本的二进制计数器</h3>
+<div class="paragraph">
+<p>二进制计数器的输出是一组二进制数，表示当前的计数值。其计数范围取决于其位数，一个n位的二进制计数器可以计数从0到2<sup>n</sup>-1。</p>
+</div>
+<div class="paragraph">
+<p>除了时钟输入端口，计数器组件还有两个非常重要的端口：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>en（使能）：用于控制计数器是否进行计数。当en为1时，计数器被使能，允许对输入的时钟脉冲进行计数。当en为0时，计数器被禁止，不会对输入的时钟脉冲进行计数，计数器的输出状态保持不变。</p>
+</li>
+<li>
+<p>clr（清零）：用于将计数器的输出清零，即所有输出位都被置为0。有同步清零和异步清零两种方式，Digital仿真软件的计数器组件只有同步清零方式。所谓同步清零，是指当clr变为1时，并不会立刻清零计数值，而是要等到下一个时钟触发沿到来时才会清零，即清零与时钟同步。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_可预置数的双向计数器"><a class="anchor" href="#_可预置数的双向计数器"></a>可预置数的双向计数器</h3>
+<div class="paragraph">
+<p>可预置数的双向计数器在基本的二进制计数器基础上，可以设置初始计数值，并且能够控制进行加法计数或减法计数。</p>
+</div>
+<div class="paragraph">
+<p>可预置数的计数器应具有数据输入端口和预置控制端口。
+预置数据输入端口用于输入预置数，在Digital仿真软件中端口的名称为<code>in</code>。
+预置控制端口用于控制是否将预置数加载到计数器中，在Digital仿真软件中该端口的名称为<code>ld</code>（load）。预置控制也有同步和异步两种方式，请读者自己通过实验了解Digital仿真软件的组件是哪种方式。</p>
+</div>
+<div class="paragraph">
+<p>加法计数（Up Counting）是指在每个时钟脉冲到来时，计数器的值增加1，即递增计数值。
+而减法计数（Down Counting）则是递减计数。
+既能够进行加法计数也能够进行减法计数的计数器称为双向计数器。
+在Digital仿真软件中控制计数的方向的端口名称为<code>dir</code>（direction）。</p>
+</div>
+<div class="paragraph">
+<p>在组件的属性窗口点击「帮助」按钮，可了解组件各端口的功能。</p>
+</div>
 </div>
 </div>
 </div>
@@ -249,19 +293,27 @@ Digital仿真软件提供了两种计数器组件，一个基本的计数器，�
 <li>
 <p>设计计数器组件的验证电路。</p>
 <div class="paragraph">
-<p>计数器组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Counter/计数器”。
-添加后将其“数据位数”属性设置为3。
-并将其所有的端口连接到输入输出组件。注意，连接计数器out端口的输出组件的数据位数应与计数器的数据位数一致。
-在组件的属性窗口点击“帮助”按钮，可了解该组件各端口的功能。</p>
+<p>计数器组件位于菜单项「组件 ➤ 存储器 ➤ 计数器」（Components ➤ Memory ➤ Counter）。
+添加后将其「数据位数」属性设置为3。
+并将其所有的端口连接到输入输出组件。注意计数器组件端口C应连接时钟输入组件，连接计数器out端口的输出组件的数据位数应与计数器的数据位数一致。</p>
 </div>
-<div class="paragraph">
-<p>时钟输入组件的用法见第一章Digital仿真软件使用指南的“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+时钟输入组件的用法见第一章Digital仿真软件使用指南的<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>。
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
 <p>仿真</p>
 <div class="paragraph">
-<p>通过仿真熟悉计数器的功能、用法，除了计数功能还应留意 <code>en</code> 和 <code>clr</code> 端口的作用。
+<p>通过仿真熟悉计数器的功能、用法，除了计数功能还应留意<code>en</code>和<code>clr</code>端口的作用。
 记录仿真过程并保存波形。</p>
 </div>
 </li>
@@ -274,7 +326,7 @@ Digital仿真软件提供了两种计数器组件，一个基本的计数器，�
 <li>
 <p>【选做】通过仿真熟悉可预置数的双向计数器组件的功能和用法。</p>
 <div class="paragraph">
-<p>可预置数的双向计数器组件位于菜单项“Components/组件 ➤ Memory/存储器 ➤ Counter with preset / 计数器(可预设)”。</p>
+<p>可预置数的双向计数器组件位于菜单项「组件 ➤ 存储器 ➤ 计数器(可预设)」（Components ➤ Memory ➤ Counter with preset）。</p>
 </div>
 <div class="paragraph">
 <p>由于计数器组件的功能比较丰富，为便于结果分析，仿真时可分为几个部分，分别保存仿真波形。</p>

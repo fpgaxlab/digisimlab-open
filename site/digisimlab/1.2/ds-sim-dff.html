@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>时序电路仿真 :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-compare.html">*比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">计算机组成原理实验指导</a></li>
+    <li>Digital仿真软件使用指南</li>
+    <li><a href="ds-sim-dff.html">时序电路仿真</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <div class="version-menu">
+    <a class="version" href="../ds-sim-dff.html">1.3</a>
+    <a class="version is-current" href="ds-sim-dff.html">1.2</a>
+    <a class="version" href="../1.1/ds-sim-dff.html">1.1</a>
+    <a class="version" href="../1.0/ds-sim-dff.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">时序电路仿真</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>时序电路由时钟驱动，在时钟边沿改变电路的状态。
+下面以典型的时序电路组件D触发器为例，说明时序电路的仿真。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_d触发器组件"><a class="anchor" href="#_d触发器组件"></a>D触发器组件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>添加以下组件并连接。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>添加“Components/组件 ➤ Flip-Flops/触发器 ➤ D-Flip-flop/D 触发器”。</p>
+</li>
+<li>
+<p>添加“Components/组件 ➤ IO/输入输出 ➤ Input/输入”，将其命名为In，并连接到D触发器的D端口。</p>
+</li>
+<li>
+<p>添加“Components/组件 ➤ IO/输入输出 ➤ Clock Input/时钟输入”，将其命名为Clk，并连接到D触发器的C端口。</p>
+</li>
+<li>
+<p>添加“Components/组件 ➤ IO/输入输出 ➤ Outpu/输出”，将其命名为Out，并连接到D触发器的Q端口。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>启动仿真，点击菜单项“Simulation/仿真 ➤ Show measurement value table / 显示测量图”，改变输入，观察输出变化。
+可以看出，仅当Clk由0变1的瞬间，输出Out才会变化，其值与输入In相同。
+因此称作“上升沿触发”。其他时间即使输入变化，输出也不会改变，体现了D触发器的记忆作用。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+为了在仿真时显示波形，也可以在启动仿真之前设置电路属性，点击菜单项“Edit/编辑 ➤ Circuit specific settings/设置当前电路”，在对话框的“Advanced/高级设置”页面下勾选“Show measurement graph at simulation start/仿真启动时显示测量图”。这样不仅在需要多次启动仿真时省去了每次点击菜单的操作，而且在下面使用实时时钟的情况下能够及时记录仿真开始时的测量图形和数据。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>仿真波形可以保存为图形文件。点击波形窗口的菜单项“File/文件 ➤ Export SVG / 导出SVG”，窗口中记录的波形将被保存为SVG图形文件。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_时序电路测试"><a class="anchor" href="#_时序电路测试"></a>时序电路测试</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在<a href="ds-test-circuit.html" class="xref page">电路测试</a>中，已经学习了组合逻辑电路的测试用例。对于时序电路，主要不同在于时钟输入。在测试用例中，可以用字母“C”表示Clk的变化，如<a href="#exa-sim-dff-1">例 1</a>所示。</p>
+</div>
+<div id="exa-sim-dff-1" class="exampleblock">
+<div class="title">例 1. D触发器的测试用例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>In  Clk Out
+1   C   1
+0   C   0
+1   C   0 <i class="conum" data-value="1"></i><b>(1)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>这里的输出有意写错。</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>测试时，Digital仿真软件首先施加输入In的激励数据，然后将Clk变化一个周期，之后比较电路输出与预期响应是否一致。
+测试波形如<a href="#img-sim-dff-1">图 1</a>所示。
+如果比较结果与预期一致，则以绿色显示；否则显示为红色。</p>
+</div>
+<div id="img-sim-dff-1" class="imageblock">
+<div class="content">
+<img src="_images/ds-dff-1.png" alt="ds dff 1">
+</div>
+<div class="title">图 1. D触发器的测试波形图</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实时时钟"><a class="anchor" href="#_实时时钟"></a>实时时钟</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>右键点击Clk引脚，在属性窗口中勾选“Start real time clock/使用实时时钟”，“Frequency/频率”设置为1Hz（赫兹）。</p>
+</div>
+<div class="paragraph">
+<p>断开D触发器的D输入端与输入引脚In的连接，将D触发器的反向输出端连接到D输入端，构成一个二分频器。如<a href="#fig-ds-dff">图 2</a>所示。</p>
+</div>
+<div id="fig-ds-dff" class="imageblock">
+<div class="content">
+<img src="_images/ds-dff_divid2.png" alt="ds dff divid2">
+</div>
+<div class="title">图 2. D触发器构成2分频器</div>
+</div>
+<div class="paragraph">
+<p>启动仿真，可以看到Clk自动地翻转。如果设置频率为2或3赫兹，可看到Clk以更高的速度翻转。</p>
+</div>
+<div class="paragraph">
+<p>从波形图可以看出，输出Out信号的周期是输入Clk信号的2倍，或者说输出信号的频率是输入信号的二分之一，即二分频。</p>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

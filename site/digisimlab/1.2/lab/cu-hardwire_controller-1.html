@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>硬布线控制实验（Ⅰ） :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">1.3</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>控制器</li>
+    <li><a href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../lab/cu-hardwire_controller-1.html">1.3</a>
+    <a class="version is-current" href="cu-hardwire_controller-1.html">1.2</a>
+    <a class="version" href="../../1.1/lab/cu-hardwire_controller-1.html">1.1</a>
+    <a class="version" href="../../1.0/lab/cu-hardwire_controller-1.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">硬布线控制实验（Ⅰ）</h1>
+<div class="sect1">
+<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解Ｉ型和R型整数运算指令的功能。</p>
+</li>
+<li>
+<p>理解单周期数据通路的组成结构及其信息加工过程。</p>
+</li>
+<li>
+<p>掌握单周期硬布线控制信号的产生原理和设计方法。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在前面数据通路的基础上，增加指令存储器、控制器等部件，构成一个可以完成R型和Ｉ型运算指令的计算机核心。原理框图如<a href="#fig-cu-arch-1">图 1</a>。寄存器堆和ALU连成的数据通路是<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>完成的，下面介绍指令部件和控制器。</p>
+</div>
+<div id="fig-cu-arch-1" class="imageblock">
+<div class="content">
+<img src="_images/cu-arch-1.png" alt="cu arch 1">
+</div>
+<div class="title">图 1. 运算指令数据通路及控制</div>
+</div>
+<div class="sect2">
+<h3 id="_指令部件"><a class="anchor" href="#_指令部件"></a>指令部件</h3>
+<div class="paragraph">
+<p>指令部件包括指令存储器和程序计数器。根据指令系统的设计，指令存储器的字长是14位。作为实验计算机，只需要存放简单的程序，所以指令存储器的容量只有16个存储单元，可以存放16条指令。因此指令存储器的地址需4位，由程序计数器PC提供。复位时PC值为0，即第一条指令的地址。在Clk上升沿到来时，PC值加1，即顺序执行。</p>
+</div>
+<div class="paragraph">
+<p>指令存储器是只读存储器，可以使用<a href="mem-rom.html" class="xref page">ROM实验</a>中学习的ROM组件，在初始化时写入要执行的指令编码。运行时只提供读访问，根据输入地址，输出该地址单元存储的指令。
+根据<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>设计，一条指令包含5个部分，opcode指定指令功能，连接到控制器的输入；rs1、rs2、rd连接到寄存器堆三个端口的地址；imm作为运算数经多路器连接到ALU的Y输入端。</p>
+</div>
+<div class="paragraph">
+<p>程序计数器PC可使用<a href="bl-counter.html" class="xref page">计数器</a>组件，其位数应与指令存储器的地址位数一致。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_控制器"><a class="anchor" href="#_控制器"></a>控制器</h3>
+<div class="paragraph">
+<p>控制器以指令opcode作为输入，为数据通路中所有单元产生控制信号。</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig-cu-arch-1">图 1</a>运算指令数据通路中，需要产生如下控制信号：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>多路器的选择信号Ysel：为0时，选择将寄存器堆的RD2输出数据送给ALU的Y输入端；为1时，ALU的Y操作数来自指令中的立即数imm。</p>
+</li>
+<li>
+<p>ALU的运算控制信号：根据前面ALU实验的设计，需要产生ALU的M、S1、S0控制信号。</p>
+</li>
+<li>
+<p>寄存器堆的写允许信号RegWr：为1时，当在CLK时钟上升沿到来，寄存器堆执行写入操作。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>因为指令系统的简单和规整，控制器的设计就是设计译码器来确定控制信号。对于指令系统中的R型和Ｉ型指令，控制器根据opcode的值，译码产生数据通路上的各个控制信号，实现指令功能。</p>
+</div>
+<div class="paragraph">
+<p>下面以“addi rd, rs1, imm”指令为例，分析指令的译码。该指令将rs1寄存器的值与立即数imm相加，结果存入rd寄存器。
+rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。为了将立即数imm送给ALU的Y输入端，需要使多路器的控制信号Ysel为1。ALUop应控制ALU进行加法运算，如果采用前面实验的ALU电路，控制信号M、S1、S0均为0。为了将运算结果写入寄存器堆，RegWr信号应为1。
+<a href="#fig-cu-flow-addi-1">图 2</a>数据通路图直观地反映了上述分析，绿色通路表示有效的信息流，控制信号用红色表示。</p>
+</div>
+<div id="fig-cu-flow-addi-1" class="imageblock">
+<div class="content">
+<img src="_images/cu-flow-addi-1.png" alt="cu flow addi 1">
+</div>
+<div class="title">图 2. addi指令的信息流及控制</div>
+</div>
+<div class="paragraph">
+<p>指令译码的真值表如<a href="#tab-cu-opdecode-1">表 1</a>所示。表中只给出了addi指令的控制信号取值，类似地可以分析出其他指令的控制信号取值。有了真值表，就可以进一步得到指令译码器的电路。</p>
+</div>
+<table id="tab-cu-opdecode-1" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. R型和Ｉ型指令opcode的译码</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">指令助记符</th>
+<th class="tableblock halign-left valign-top">opcode</th>
+<th class="tableblock halign-left valign-top">Ysel</th>
+<th class="tableblock halign-left valign-top">M</th>
+<th class="tableblock halign-left valign-top">S1</th>
+<th class="tableblock halign-left valign-top">S0</th>
+<th class="tableblock halign-left valign-top">RegWr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0001</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0010</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0011</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0100</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0101</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">andi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0111</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ori</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xori</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>设计控制器</p>
+<div class="paragraph">
+<p>根据各个指令的功能，设计<a href="#tab-cu-opdecode-1">表 1</a>的输出取值。使用真值表生成电路图，操作方法见<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
+</div>
+</li>
+<li>
+<p>设计实验电路</p>
+<div class="paragraph">
+<p>按照<a href="#fig-cu-arch-1">图 1</a>添加各个子电路以及Reset输入引脚和Clk时钟输入引脚，并将它们连接起来。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
+<div class="paragraph">
+<p>控制器的作用是控制指令的执行，所以需要通过执行指令来检验控制器的设计。<a href="#exa-cu-1">例 1</a>给出了一个测试程序的例子。</p>
+</div>
+<div id="exa-cu-1" class="exampleblock">
+<div class="title">例 1. 运算指令测试程序示例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>addi r1, r0, 10
+ori  r2, r0, 11
+sub  r3, r1, r2
+xor  r3, r1, r3
+and  r3, r3, r2</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>将<a href="#exa-cu-1">例 1</a>程序中的符号指令逐条翻译为机器指令，作为ROM的数据。</p>
+<div class="paragraph">
+<p>下面以第一条指令 <code>addi r1, r0, 10</code> 为例，说明翻译为机器指令的方法。
+查<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令编码表</a>可知 <code>addi</code> 的操作码为 <code>0110</code>，
+按照<a href="cu-overview.html#tab-cu-instr-filed" class="xref page">指令格式</a>，将 <code>0110</code> 填入位13～10。
+该指令的rd寄存器号为1，rs1寄存器号为0，立即数为10（十进制），将寄存器号和立即数以二进制形式填写到指令的对应字段，如下所示。
+该指令没有使用rs2寄存器，对应字段填0。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 7.0707%;">
+<col style="width: 12.1212%;">
+<col style="width: 12.1213%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">opcode</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs1</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rs2</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">rd</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">imm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">0110</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">00</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">00</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">01</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">1010</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>将上述二进制编码 <code>0b01100000011010</code> 或转换为十六进制的编码 <code>0x181A</code> 填入指令存储器（ROM组件）地址为0的单元。</p>
+</div>
+<div class="paragraph">
+<p>类似地，可将<a href="#exa-cu-1">例 1</a>中的所有符号指令翻译为机器指令，
+将其作为ROM组件的内容。
+下面给出前3条指令的机器码，还有两条留给读者翻译。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>0: 0x181a
+1: 0x202b
+2: 0x09b0
+3:
+4:</pre>
+</div>
+</div>
+</li>
+<li>
+<p>仿真运行程序，验证电路是否正确。</p>
+<div class="paragraph">
+<p>启动仿真后，第一条指令就在运行中。
+通过点击时钟输入引脚改变CLK的状态，在CLK的上升沿保存指令的执行结果，同时进入下一条指令。
+如果需要重新执行，点击Reset输入引脚，然后点击CLK，使PC为0，则程序回到第一条指令。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>为便于观察运行情况，可在电路中添加一些“Probe/探测器”（见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>）。如果需要记录在图表中，则需设置“Label/标签”属性。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>验证更多指令</p>
+<div class="paragraph">
+<p><a href="#exa-cu-1">例 1</a>测试程序只包含了部分运算指令，自己编写程序进行更全面的验证。</p>
+</div>
+</li>
+<li>
+<p>实验结果分析</p>
+<div class="paragraph">
+<p>对仿真结果进行分析。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

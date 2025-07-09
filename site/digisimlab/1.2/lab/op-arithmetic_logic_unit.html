@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>算术逻辑单元实验 :: 计算机组成原理实验指导</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">前言</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">基本逻辑电路</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">1.3</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>运算器</li>
+    <li><a href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../lab/op-arithmetic_logic_unit.html">1.3</a>
+    <a class="version is-current" href="op-arithmetic_logic_unit.html">1.2</a>
+    <a class="version" href="../../1.1/lab/op-arithmetic_logic_unit.html">1.1</a>
+    <a class="version" href="../../1.0/lab/op-arithmetic_logic_unit.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">算术逻辑单元实验</h1>
+<div class="sect1">
+<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解算术逻辑单元电路结构。</p>
+</li>
+<li>
+<p>理解零标志和符号标志的含义。</p>
+</li>
+<li>
+<p>掌握算术逻辑单元的功能特性和用法。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>计算机除了能够进行加减运算，还要能够进行逻辑运算。实现加减运算和逻辑运算的电路称为算术逻辑单元（ALU，Arithmetic Logic Unit）。<a href="#fig-23">图 1</a>是一个简单ALU的设计，虚线框内是前面实验完成的加减运算电路，只是简化了画法，将4位数据用一根较粗的信号线表示；增加了与（AND）、或（OR）、异或（XOR）逻辑运算，并通过一个四选一多路器选择运算的功能。</p>
+</div>
+<div id="fig-23" class="imageblock half-width">
+<div class="content">
+<img src="_images/op-alu_1.png" alt="op alu 1">
+</div>
+<div class="title">图 1. 简单ALU原理图</div>
+</div>
+<div class="paragraph">
+<p>该ALU电路没有用非门实现逻辑非（NOT）运算，这是因为异或1可以实现取反。通过使Y各位全为1，选择异或运算可以实现对X的非运算。</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig-23">图 1</a>电路还产生S、Z、O、C四个运算结果的特征标志，通常用于数值大小的比较判断，在后面的实验中将会用到。这四个标志的含义如下。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SF（Sign Flag）：符号标志。</p>
+<div class="paragraph">
+<p>SF＝1表示结果为负数，SF＝0表示结果非负。</p>
+</div>
+</li>
+<li>
+<p>ZF（Zero Flag）：零标志。</p>
+<div class="paragraph">
+<p>ZF＝1表示结果为零，ZF＝0表示结果非零。</p>
+</div>
+</li>
+<li>
+<p>OF（Overflow Flag）：溢出标志。</p>
+<div class="paragraph">
+<p>OF＝1表示结果溢出，OF＝0表示结果不溢出。</p>
+</div>
+</li>
+<li>
+<p>CF（Carry Flag）：进位标志。</p>
+<div class="paragraph">
+<p>CF＝1表示有进位，CF＝0表示没有进位。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OF和CF由加法器产生，在前面的实验中已经完成。这个实验还需要完成符号标志和零标志的检测电路。
+因为运算结果的最高位就是符号位，所以符号标志的生成逻辑非常简单，逻辑方程如下：</p>
+</div>
+<div id="formula-op-alu-1" class="paragraph text-center">
+<p>SF=F<sub>3</sub></p>
+</div>
+<div id="formula-op-alu-2" class="paragraph">
+<p>一种简单的零标志生成方法是，将运算结果的每一位进行或运算，如果结果为0，则零标志为1。以4位二进制为例，产生零标志的逻辑方程如下：</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/op-alu-zf.png" alt="ZF" width="218" height="34">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>进位标志和溢出标志必须由加法电路产生，而零标志和符号标志通常根据ALU的输出产生。
+所以，进位标志和溢出标志只有在加减运算时才有意义；而零标志和符号标志对加减运算和逻辑运算都有意义。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_设计任务"><a class="anchor" href="#_1_设计任务"></a>1.设计任务</h3>
+<div class="paragraph">
+<p>理解实验原理，按照<a href="#fig-23">图 1</a>设计电路。其中加减运算电路使用前面实验完成的，将其作为子电路。
+有关添加子电路的方法，请参考第一章Digital仿真软件使用指南的“<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>”。
+MUX多路器组件曾在<a href="bl-multiplexer.html" class="xref page">多路选择器实验</a>中使用过，这里要将选择位的位数设置为2，以构成4选1多路器。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_验证任务"><a class="anchor" href="#_2_验证任务"></a>2.验证任务</h3>
+<div class="paragraph">
+<p>验证数据应覆盖ALU的各项运算功能。算术运算可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>的验证任务，包括标志位的测试；逻辑运算除了测试与、或、异或运算外，也要测试逻辑非运算。</p>
+</div>
+<div class="paragraph">
+<p>保存验证结果数据，进行分析并给出结论。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+算术运算可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>的验证任务要求和记录表样式。
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

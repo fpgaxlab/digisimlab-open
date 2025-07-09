@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.2</a>
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../1.1/index.html">1.1</a>
@@ -203,9 +206,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="op-add_sub_operation.html">1.2</a>
+    <a class="version is-current" href="op-add_sub_operation.html">1.3</a>
+    <a class="version" href="../1.2/lab/op-add_sub_operation.html">1.2</a>
     <a class="version" href="../1.1/lab/op-add_sub_operation.html">1.1</a>
     <a class="version" href="../1.0/lab/op-add_sub_operation.html">1.0</a>
   </div>
@@ -285,9 +289,9 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 <p>也就是说可以利用二进制加法器进行补码加减运算，只需要在加法器的基础上增加求补电路就可以实现减法，无需为减法设计专门的电路。
 根据上述原理可以设计出补码加减运算电路如<a href="#fig-21">图 1</a>所示。</p>
 </div>
-<div id="fig-21" class="imageblock ">
+<div id="fig-21" class="imageblock">
 <div class="content">
-<img src="_images/op-add_sub.png" alt="op add sub">
+<img src="_images/op-add_sub.png" alt="op add sub" width="675">
 </div>
 <div class="title">图 1. 四位加减运算电路原理图</div>
 </div>
@@ -327,14 +331,14 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="paragraph">
 <p>当两个加数为负数（As=Bs=1），而结果为正数（Fs=0）时，或者当两个加数为正数（As=Bs=0），而结果为负数（Fs=1）时，OV＝1，即发生溢出。</p>
 </div>
-<div class="admonitionblock caution">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-caution" title="注意"></i>
+<i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-需要说明的是，上面的讨论是针对加法运算。同理不难找出补码减法运算的溢出检测方法。但实际上，因为减法是转换为加法运算的，只要检测时使用B的符号而不是Y的符号（见<a href="#fig-op-add_sub">图 2</a>），并不需要为减法运算另外设计溢出检测电路。
+需要说明的是，上面关于溢出检测的讨论是针对加法运算。同理不难找出补码减法运算的溢出检测方法。但实际上，因为减法是转换为加法运算的，只要检测时使用B的符号而不是Y的符号（见<a href="#fig-op-add_sub">图 2</a>），并不需要为减法运算另外设计溢出检测电路。
 </td>
 </tr>
 </table>
@@ -346,7 +350,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_1_设计加减运算电路"><a class="anchor" href="#_1_设计加减运算电路"></a>1. 设计加减运算电路</h3>
+<h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
 <p>理解实验原理，按照<a href="#fig-21">图 1</a>设计加减运算电路。
 参考电路如<a href="#fig-op-add_sub">图 2</a>所示。</p>
@@ -363,13 +367,13 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>加法器组件位于“Components/组件 ➤ Arithmetic/运算器 ➤ Adder/加法器”。</p>
+<p>加法器组件位于「组件 ➤ 运算器 ➤ 加法器」（Components ➤ Arithmetic ➤ Adder）。</p>
 </li>
 <li>
-<p><a href="#fig-21">图 1</a>原理图的X、Y都是4位的，所以异或运算用了4个1位的异或门；而<a href="#fig-op-add_sub">图 2</a>为了画图的简洁，使用1个4位的异或门。但控制信号M仍然是1位的，因此需要用“Sign extender/符号扩展器”组件扩展为4位。</p>
+<p><a href="#fig-21">图 1</a>原理图的X、Y都是4位的，所以异或运算用了4个1位的异或门；而<a href="#fig-op-add_sub">图 2</a>为了画图的简洁，使用1个4位的异或门。但控制信号M仍然是1位的，因此需要用「符号扩展器」（Sign extender）组件扩展为4位。</p>
 </li>
 <li>
-<p>为便于观察异或门输出的数据，添加了一个“Probe/探测器”组件（图中显示问号的那个）。</p>
+<p>为便于观察异或门输出的数据，添加了一个「探测器」（Probe）组件（图中显示问号的那个）。</p>
 </li>
 <li>
 <p><a href="#fig-op-add_sub">图 2</a>未给出溢出检测电路。根据上面介绍的溢出检测方法，可以在Digital仿真软件中用如下表达式生成溢出检测电路。</p>
@@ -380,7 +384,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </div>
 <div class="paragraph">
 <p>然后将生成的溢出检测电路作为子电路添加到加减电路中。
-<a href="#fig-op-add_sub">图 2</a>为了从4位数据中抽取最高位作为符号位，使用了3个“Splitter/分裂器”组件；将这3个组件的输出端与溢出检测电路的相应输入端连接。</p>
+<a href="#fig-op-add_sub">图 2</a>为了从4位数据中抽取最高位作为符号位，使用了3个「分裂器」（Splitter）组件；将这3个组件的输出端与溢出检测电路的相应输入端连接。</p>
 </div>
 </li>
 </ol>
@@ -411,7 +415,9 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_验证加法运算"><a class="anchor" href="#_2_验证加法运算"></a>2. 验证加法运算</h3>
+<h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
+<div class="sect3">
+<h4 id="_1_验证加法运算"><a class="anchor" href="#_1_验证加法运算"></a>1. 验证加法运算</h4>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -435,7 +441,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">行号</p></td>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">序号</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输入</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输出</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">结果分析<sup>[注]</sup></p></td>
@@ -452,7 +458,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-center valign-middle"><p class="tableblock">标志位</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">①</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1011</p></td>
@@ -464,7 +470,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"><p class="tableblock">有进位，溢出</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
@@ -476,7 +482,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
@@ -488,7 +494,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0001</p></td>
@@ -500,7 +506,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">⑤</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">5</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0001</p></td>
@@ -512,7 +518,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">⑥</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -524,7 +530,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">⑦</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">7</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -548,45 +554,8 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </td>
 <td class="content">
 <div class="paragraph">
-<p>为方便分析运算结果，可以事先列出负数的4位补码与真值的对应关系：</p>
+<p>为方便分析运算结果，可以在输出端F添加两个探测器组件，数字格式分别设置为“十进制”和“带符号十进制”。</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 12%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-<col style="width: 11%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">补码</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1001</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1010</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1011</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1101</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1110</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">真值</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−8</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−7</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−6</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−5</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−4</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−3</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−2</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">−1</p></td>
-</tr>
-</tbody>
-</table>
 </td>
 </tr>
 </table>
@@ -597,12 +566,24 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="paragraph">
 <p>分别针对无符号数和带符号数（补码），分析加法运算结果（包括标志位）。特别注意无符号数、带符号数加法溢出是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">提问</dt>
+<dd>
+<p>为什么不应该用“0+1=1”、“1+1=2”这类数据验证加法运算电路？</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 </li>
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_3_验证减法运算"><a class="anchor" href="#_3_验证减法运算"></a>3. 验证减法运算</h3>
+<div class="sect3">
+<h4 id="_2_验证减法运算"><a class="anchor" href="#_2_验证减法运算"></a>2. 验证减法运算</h4>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -626,7 +607,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">行号</p></td>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">序号</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输入</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">输出</p></td>
 <td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">结果分析</p></td>
@@ -643,7 +624,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-center valign-middle"><p class="tableblock">标志位</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">①</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
@@ -655,7 +636,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">②</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0011</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0101</p></td>
@@ -667,7 +648,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">③</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1001</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">0111</p></td>
@@ -679,7 +660,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">④</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -698,20 +679,14 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="paragraph">
 <p>注意观察减法运算是否产生借位和进位标志的关系；补码减法溢出是否与溢出标志相符。</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="提示"></i>
-</td>
-<td class="content">
-<div class="paragraph">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">思考与拓展</dt>
+<dd>
 <p>通过验证应能看出，进位标志的状态和运算是否产生借位恰好是相反的。
 如果希望是一致的，即减法运算有借位时C=1，无借位时C=0，应如何修改电路？</p>
-</div>
-</td>
-</tr>
-</table>
+</dd>
+</dl>
 </div>
 </li>
 </ol>
@@ -725,6 +700,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="paragraph">
 <p>作者：
 肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
 </div>
 </div>
 </div>

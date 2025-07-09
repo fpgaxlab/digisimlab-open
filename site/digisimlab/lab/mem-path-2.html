@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.2</a>
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../1.1/index.html">1.1</a>
@@ -203,9 +206,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="mem-path-2.html">1.2</a>
+    <a class="version is-current" href="mem-path-2.html">1.3</a>
+    <a class="version" href="../1.2/lab/mem-path-2.html">1.2</a>
     <a class="version is-missing" href="../1.1/index.html">1.1</a>
     <a class="version is-missing" href="../1.0/index.html">1.0</a>
   </div>
@@ -217,13 +221,20 @@
 </aside>
 <article class="doc">
 <h1 class="page">存储器数据通路实验</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>注：本项目与<a href="mem-path.html" class="xref page">存储器应用实验</a>二选一。</p>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>掌握存储器的工作特性和使用方法。</p>
+<p>掌握RAM和ROM存储器的工作特性和使用方法。</p>
 </li>
 <li>
 <p>理解实验电路的操作时序，掌握数据通路信息加工过程。</p>
@@ -248,40 +259,107 @@ ROM作为七段译码器，连接数码管显示WD端口的数值。</p>
 </div>
 <div id="fig-mem-path2-1" class="imageblock">
 <div class="content">
-<img src="_images/mem-datapath2-1.png" alt="存储器数据通路">
+<img src="_images/mem-path2-1.png" alt="存储器数据通路">
 </div>
 <div class="title">图 1. 存储器数据通路</div>
 </div>
 <div class="paragraph">
-<p>运算相关的信息加工过程在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>中已经熟悉。
-下面着重分析存储器相关的信息传递路径。</p>
+<p>该电路可以将外部数据存入寄存器堆，进行ALU运算，以及在RAM和寄存器堆之间相互传递数据，下面从几个方面阐述工作原理。</p>
 </div>
 <div class="sect2">
-<h3 id="_寄存器数据写入ram的信息传递路径"><a class="anchor" href="#_寄存器数据写入ram的信息传递路径"></a>寄存器数据写入RAM的信息传递路径</h3>
+<h3 id="_alu运算结果存入寄存器堆"><a class="anchor" href="#_alu运算结果存入寄存器堆"></a>ALU运算结果存入寄存器堆</h3>
 <div class="paragraph">
-<p>要将数据写入RAM，需准备要写入的数据并提供要写入单元的地址。
-RAM的数据输入DI来自寄存器堆的读端口2，所以只能将某一寄存器的值写入RAM的存储单元；换句话说，需要写入RAM的数据必须先存放于某一寄存器中。
-RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法运算）产生RAM地址。从<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>已经知道，ALU的运算数据可以来自RD1、RD2或立即数Imm；但这里RD2已用于提供要写入RAM的数据，所以只能用RD1加上立即数来指定RAM的地址。
-信息传递路径如<a href="#fig-mem-path2-2">图 2</a>绿色通路所示。</p>
+<p>在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>中已经熟悉了ALU运算的信息加工、传递路径，<a href="#fig-mem-path2-1">图 1</a>的不同之处在于写入寄存器堆的数据除了来自ALU的运算结果，还可以来自存储器读出的数据，因此增加了一个2选1多路器进行选择。</p>
+</div>
+<div class="paragraph">
+<p>信息加工、传递路径如<a href="#fig-mem-path2-5">图 2</a>所示。在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>中已经知道，ALU的运算数可以是两个寄存器的值，也可以是一个寄存器和立即数Imm，由Ys控制的多路器进行选择，<a href="#fig-mem-path2-5">图 2</a>的蓝色路径表示了这两种选择。</p>
+</div>
+<div id="fig-mem-path2-5" class="imageblock">
+<div class="content">
+<img src="_images/mem-path2-5.png" alt="mem path2 5">
+</div>
+<div class="title">图 2. 读出RAM数据写入寄存器的信息传递路径</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_存储器地址的产生"><a class="anchor" href="#_存储器地址的产生"></a>存储器地址的产生</h3>
+<div class="paragraph">
+<p>要对RAM读或写，必须要指定读写的RAM单元地址。
+从<a href="#fig-mem-path2-1">图 1</a>可知，RAM的地址A来自ALU的输出F，通常使用加法运算产生RAM地址。而加法的运算数据分别来自寄存器堆的RD1和立即数Imm，所以需要用RD1加上立即数来指定RAM的地址。从<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>可知，RD1即RA1指定的寄存器的值。即</p>
+</div>
+<div class="paragraph text-center">
+<p>A = RD1 + Imm = R[RA1] + Imm</p>
+</div>
+<div class="paragraph">
+<p>式中，R[n]表示编号为n的寄存器的值。</p>
+</div>
+<div class="paragraph">
+<p>生成地址的信息路径如<a href="#fig-mem-path2-2">图 3</a>红线所示。</p>
 </div>
 <div id="fig-mem-path2-2" class="imageblock">
 <div class="content">
 <img src="_images/mem-path2-2.png" alt="mem path2 2">
 </div>
-<div class="title">图 2. 寄存器数据写入RAM的信息传递路径</div>
+<div class="title">图 3. 存储器地址生成的信息路径</div>
+</div>
+<div class="paragraph">
+<p>特别地，如果RA1=0，即RD1为R0寄存器的值；根据<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>的设计，R0寄存器的值恒为0，则</p>
+</div>
+<div class="paragraph text-center">
+<p>A = R[0] + Imm = Imm</p>
+</div>
+<div class="paragraph">
+<p>同理，如果外部输入Imm=0，则</p>
+</div>
+<div class="paragraph text-center">
+<p>A = R[RA1]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_读出ram数据写入寄存器的信息传递路径"><a class="anchor" href="#_读出ram数据写入寄存器的信息传递路径"></a>读出RAM数据写入寄存器的信息传递路径</h3>
+<h3 id="_寄存器数据写入ram"><a class="anchor" href="#_寄存器数据写入ram"></a>寄存器数据写入RAM</h3>
 <div class="paragraph">
-<p>RAM的地址仍然由ALU产生，RAM输出数据DO要传送到寄存器堆的写端口WD需要经过多路器的选择。
-信息传递路径如<a href="#fig-mem-path2-3">图 3</a>绿色通路所示。</p>
+<p>要将数据写入RAM，不仅要提供RAM地址，还需提供要写入的数据。
+RAM的数据输入DI来自寄存器堆的读端口2，所以只能将某一寄存器的值写入RAM的存储单元。即</p>
+</div>
+<div class="paragraph text-center">
+<p>DI = RD2 = R[RA2]</p>
+</div>
+<div class="paragraph">
+<p>数据信息传递路径如<a href="#fig-mem-path2-3">图 4</a>绿色通路所示。</p>
 </div>
 <div id="fig-mem-path2-3" class="imageblock">
 <div class="content">
 <img src="_images/mem-path2-3.png" alt="mem path2 3">
 </div>
-<div class="title">图 3. 读出RAM数据写入寄存器的信息传递路径</div>
+<div class="title">图 4. 寄存器数据写入RAM的信息传递路径</div>
+</div>
+<div class="paragraph">
+<p>准备好地址和数据后，便可使用<a href="mem-ram.html" class="xref page">RAM实验</a>中学习的方法写入存储器。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_读出ram数据写入寄存器"><a class="anchor" href="#_读出ram数据写入寄存器"></a>读出RAM数据写入寄存器</h3>
+<div class="paragraph">
+<p>从RAM读出的数据通过DO端口输出，要将DO数据传送到寄存器堆的写端口WD，中间还经过了一个多路选择器，DO与多路器的输入通道1连接。
+WDs是该多路器的选择信号，同时它也是RAM的输出使能控制信号。当WDs=1时，允许RAM输出数据，同时多路器选择通道1，将DO传递到WD。即</p>
+</div>
+<div class="paragraph text-center">
+<p>当WDs=1，WD = DO = RAM[A]</p>
+</div>
+<div class="paragraph">
+<p>式中，RAM[A]表示以A为地址的RAM单元内容。</p>
+</div>
+<div class="paragraph">
+<p>信息传递路径如<a href="#fig-mem-path2-4">图 5</a>绿色通路所示。</p>
+</div>
+<div id="fig-mem-path2-4" class="imageblock">
+<div class="content">
+<img src="_images/mem-path2-4.png" alt="mem path2 4">
+</div>
+<div class="title">图 5. 读出RAM数据写入寄存器的信息传递路径</div>
+</div>
+<div class="paragraph">
+<p>从RAM读出的数据到达WD端口后，根据<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>中学过方法，可将数据写入寄存器堆中的某个寄存器。</p>
 </div>
 </div>
 </div>
@@ -319,44 +397,31 @@ RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法
 <div class="sect2">
 <h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
 <div class="paragraph">
-<p>通过仿真验证数据通路，并保存仿真过程数据文件。</p>
+<p>依次完成以下验证任务，分析实验数据，判断结果的正确性。
+若结果与预期不符，尝试分析故障现象并排除故障，提升分析问题与解决问题的能力。
+最后保存仿真过程数据文件。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>常数写入寄存器堆</p>
 <div class="paragraph">
-<p>将2个非零常数存入R2、R3寄存器。
-信息传递路径与<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>基本相同，不同之处是寄存器堆写端口WD增加了一个多路选择器，写入数据来自ALU的运算结果时，WDsel应为0。</p>
-</div>
-</li>
-<li>
-<p>ALU运算结果存入寄存器</p>
-<div class="ulist">
-<ul>
-<li>
-<p>以寄存器R2、R3作为运算数，执行某种ALU运算，运算结果存入R1寄存器;</p>
-</li>
-<li>
-<p>以寄存器R2和立即数（ImmediateData）作为运算数，运算结果存入R3;</p>
-</li>
-</ul>
+<p>从前面实验原理可知，RAM的地址需要寄存器参与运算后产生，写入RAM的数据也是来自寄存器堆。所以首先将2个不同的非零常数分别存入2个寄存器。</p>
 </div>
 </li>
 <li>
 <p>寄存器数据写入RAM</p>
 <div class="paragraph">
-<p>理解<a href="#fig-mem-path2-2">图 2</a>信息传递路径，完成以下验证。</p>
+<p>将前面已存入数据的2个寄存器的内容，一个与Imm相加作为RAM地址，另一个作为写入RAM的数据，完成RAM的写操作。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>以R2作为RAM的地址，将R1的内容写入该地址单元;</p>
 </li>
 <li>
-<p>以立即数Imm作为RAM的地址，将R3的内容写入该地址单元。</p>
+<p>读出RAM数据并写入寄存器</p>
 <div class="paragraph">
-<p>注意立即数应与R2的值不相同，以免覆盖上面写入的单元。</p>
+<p>将上面已经存入RAM的数据读出并写入空闲的其他寄存器。</p>
+</div>
+</li>
+</ol>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -365,46 +430,18 @@ RAM的地址A来自ALU的输出F，因此只能通过ALU运算（通常用加法
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>RAM地址A=RD1+Imm。
-若要以R2作为RAM的地址，则RA1=2，同时使Imm=0。
-若要以立即数Imm作为RAM的地址，则应使用R0的值（恒为0）作为RD1，即RA1=0。</p>
-</div>
+分析结果时还应检查ROM输出的七段数据和数码管显示是否正确。
 </td>
 </tr>
 </table>
 </div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>读出RAM数据并写入寄存器</p>
-<div class="paragraph">
-<p>理解<a href="#fig-mem-path2-3">图 3</a>信息传递路径，先后将上面写入RAM两个存储单元的内容读出，分别存入R3和R1寄存器。即：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>以立即数Imm作为RAM的地址，读出该地址单元的内容并写入R1寄存器；</p>
-</li>
-<li>
-<p>以R2作为RAM的地址，读出该地址单元的内容并写入R3寄存器。</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_实验结果分析"><a class="anchor" href="#_实验结果分析"></a>实验结果分析</h3>
-<div class="paragraph">
-<p>对上述验证任务的实验数据进行分析，判断结果的正确性。
-此外还应检查ROM输出和数码管显示是否正确，ROM的输出（Seg）为数码管的段值，数码管显示的数字应与WD相同。</p>
-</div>
-<div class="paragraph">
-<p>若结果与预期不符，尝试独立分析故障现象并排除故障，锻炼分析问题与解决问题的能力。</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">思考与拓展</dt>
+<dd>
+<p>如果需要将ALU运算结果存入RAM存储器，如何操作？</p>
+</dd>
+</dl>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">

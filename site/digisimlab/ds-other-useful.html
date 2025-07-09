@@ -84,7 +84,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">基本逻辑电路</span>
+    <span class="nav-text">逻辑电路基础</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
@@ -114,7 +114,7 @@
     <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/op-compare.html">*比较运算电路实验</a>
+    <a class="nav-link" href="lab/op-compare.html">比较运算电路实验</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
@@ -151,13 +151,13 @@
     <a class="nav-link" href="lab/cu-overview.html">概述（指令系统）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（Ⅰ）</a>
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（Ⅱ）</a>
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（Ⅲ）</a>
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
   </li>
 </ul>
   </li>
@@ -169,14 +169,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.2</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">1.2</a>
+          <a href="index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="1.1/index.html">1.1</a>
@@ -203,9 +206,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="ds-other-useful.html">1.2</a>
+    <a class="version is-current" href="ds-other-useful.html">1.3</a>
+    <a class="version" href="1.2/ds-other-useful.html">1.2</a>
     <a class="version" href="1.1/ds-other-useful.html">1.1</a>
     <a class="version" href="1.0/ds-other-useful.html">1.0</a>
   </div>
@@ -221,7 +225,7 @@
 <h2 id="bm-const"><a class="anchor" href="#bm-const"></a>常量（Constant value）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>该组件位于“Components/组件 ➤ Wire/导线 ➤ Constant value/常量”，用于提供一个常数。可以通过属性修改位宽和值。</p>
+<p>该组件位于菜单「组件 ➤ 导线 ➤ 常量」（Components ➤ Wire ➤ Constant value），用于提供一个常数。可以通过属性修改位宽和值。</p>
 </div>
 </div>
 </div>
@@ -229,11 +233,11 @@
 <h2 id="bm-probe"><a class="anchor" href="#bm-probe"></a>探测器（Probe）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>组件位置：“Components/组件 ➤ IO/输入输出 ➤ Probe/探测器”。
-该组件用于读取探测点的数值。<a href="#fig-ds-splitter">图 1</a>中有两个该组件的例子。</p>
+<p>该组件位于菜单「组件 ➤ 输入输出 ➤ 探测器」（Components ➤ IO ➤ Probe）。
+用于读取探测点的数值。</p>
 </div>
 <div class="paragraph">
-<p>如果设置了“Label/标签”属性，那么仿真时其值可以显示在测量图表中。</p>
+<p>如果设置了「标签」（Label）属性，那么仿真时其值可以显示在测量图表中。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -242,7 +246,7 @@
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-即使“Probe/探测器”组件位于子电路中，测量图表中仍然可以显示其值，这对于观察子电路中的状态是非常有用的。
+即使「探测器」（Probe）组件位于子电路中，测量图表中仍然可以显示其值，这对于观察子电路中的状态是非常有用的。
 </td>
 </tr>
 </table>
@@ -253,21 +257,41 @@
 <h2 id="bm-splitter"><a class="anchor" href="#bm-splitter"></a>分线器/并线器（Splitter/Merger）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>组件位置：“Components/组件 ➤ Wire/导线 ➤ Splitter/Merger（分线器/并线器）”。该组件用于将一根多位的导线分成几个部分，或者反之将几个部分合并为一个整体。<a href="#fig-ds-splitter">图 1</a>给出了一个示例，4位二进制数 <code>1001</code> 拆分为 <code>10</code> 和 <code>01</code> 两部分，然后交换位置并添加2位常数重新组合为6位二进制数。拆分、合并时各部分的顺序可以在属性中指定，例如<a href="#fig-ds-splitter">图 1</a>合并时将原4位的高2位与低2两位交换位置，并且高位用常数补充 <code>11</code>，结果为 <code>110110</code>。</p>
+<p>该组件位于菜单「组件 ➤ 导线 ➤ 分裂器/合并器」（Components ➤ Wire ➤ Splitter/Merger）。</p>
 </div>
-<div id="fig-ds-splitter" class="imageblock">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+本书将「Splitter」译为「分线器」，「Merger」译为「并线器」，与软件翻译略有不同。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>分线器是指将一根多位的导线分成几个部分，如<a href="#fig-ds-splitter-1">图 1</a>(a)所示，输入是一根6位的导线，输出是三根2位的导线。
+并线器是指将几根导线合并为一根，如<a href="#fig-ds-splitter-1">图 1</a>(b)所示，输入是两根3位的导线，输出是一根6位的导线。
+更为灵活的是，输入、输出可以同时有多根导线，如<a href="#fig-ds-splitter-1">图 1</a>(c)所示，输入是两根3位的导线，输出是三根2位的导线。</p>
+</div>
+<div id="fig-ds-splitter-1" class="imageblock">
 <div class="content">
-<img src="_images/ds-splitter.png" alt="ds splitter">
+<img src="_images/ds-splitter-1.png" alt="ds splitter 1">
 </div>
 <div class="title">图 1. 分线器/并线器示例</div>
 </div>
 <div class="paragraph">
-<p>该组件需要设置“Input Splitting/输入分割”和“Output splitting/输出分割”两个属性。<a href="#fig-ds-splitter">图 1</a>两个组件的属性设置见<a href="#tab-ds-other-1">表 1</a>。
-属性值可以是位数，也可以用位号。以Splitter为例，输入分割属性值为“4”，表示输入导线没有分割，是4位的；输出分割属性值为“2,2”，表示输出导线分割为两部分，每部分2位，按顺序排列下来就是“0-1”位和“2-3”位。也可以直接用位号设置输出分割属性值为“0-1,2-3”。
-分割属性值用位数表示，就只能是按顺序显示。如果需要指定显示顺序，必须用位号表示，如<a href="#fig-ds-splitter">图 1</a>的Merger组件，导线的显示顺序依次为2-3，0-1，4-5。</p>
+<p>该组件有两个重要的属性：「输入分割」（Input Splitting）和「输出分割」（Output splitting）。输入、输出如何分割，完全取决于这两个属性值的设置。分割属性的表示方法非常灵活，总体上可以分为两类，下面分别介绍。</p>
 </div>
-<table id="tab-ds-other-1" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. <a href="#fig-ds-splitter">图 1</a>示例的分线器、并线器属性设置</caption>
+<div class="sect2">
+<h3 id="_以位数表示分割"><a class="anchor" href="#_以位数表示分割"></a>以位数表示分割</h3>
+<div class="paragraph">
+<p>以<a href="#fig-ds-splitter-1">图 1</a>为例，分割属性的设置如<a href="#tab-ds-splitter-1">表 1</a>所示。</p>
+</div>
+<table id="tab-ds-splitter-1" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. <a href="#fig-ds-splitter-1">图 1</a>示例的分割属性设置</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -276,25 +300,103 @@
 <thead>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<th class="tableblock halign-center valign-top">Splitter</th>
-<th class="tableblock halign-center valign-top">Merger</th>
+<th class="tableblock halign-center valign-top">输入分割（Input Splitting）</th>
+<th class="tableblock halign-center valign-top">输出分割（Output splitting）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">Input Splitting/输入分割</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">2-3,0-1,4-5</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(a)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2,2,2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">Output splitting/输出分割</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">2,2 或 0-1,2-3</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(b)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3,3</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(c)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3,3</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2,2,2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>输入分割和输出分割的总位数可以不相等，也就是可以只抽取其中一部分导线。例如从4位导线中只抽取最高位，输出分割属性值可以设为“3-3”。</p>
+<p>对于多个相同导线数的情况，可以用乘号简化；如<code>2,2,2</code>可以表示为<code>2*3</code>，<code>3,3</code>可以表示为<code>3*2</code>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_以位号表示分割"><a class="anchor" href="#_以位号表示分割"></a>以位号表示分割</h3>
+<div class="paragraph">
+<p>可以通过指定每一根导线的位号来决定输入或输出的分割。
+以<a href="#fig-ds-splitter-1">图 1</a>(a)为例，用位号表示的分割属性设置如<a href="#tab-ds-splitter-2">表 2</a>所示。<a href="#fig-ds-splitter-1">图 1</a>(b)(c)也类似。</p>
+</div>
+<table id="tab-ds-splitter-2" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. <a href="#fig-ds-splitter-1">图 1</a>示例的分割属性设置</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top">输入分割（Input Splitting）</th>
+<th class="tableblock halign-center valign-top">输出分割（Output splitting）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(a)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0-5</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0-1,2-3,4-5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>位号表示比位数表示更为灵活，可以适应更多特殊的需求，如<a href="#fig-ds-splitter-2">图 2</a>所示。</p>
+</div>
+<div id="fig-ds-splitter-2" class="imageblock">
+<div class="content">
+<img src="_images/ds-splitter-2.png" alt="ds splitter 2" width="560">
+</div>
+<div class="title">图 2. 分线器/并线器的灵活分割</div>
+</div>
+<div class="paragraph">
+<p>仔细对比<a href="#fig-ds-splitter-1">图 1</a>(a)和<a href="#fig-ds-splitter-2">图 2</a>(a)，<a href="#fig-ds-splitter-2">图 2</a>(a)的特殊之处在于输出分割的排列顺序为<code>0-1,4-5,2-3</code>，这只有用位号表示才能实现。
+<a href="#fig-ds-splitter-2">图 2</a>(b)的特殊之处在于位号为2的导线并没有出现在输出中，也就是说输入分割和输出分割的总位数可以不相等，可以只抽取其中一部分导线。
+<a href="#fig-ds-splitter-2">图 2</a>的分割属性设置如<a href="#tab-ds-splitter-3">表 3</a>所示。</p>
+</div>
+<table id="tab-ds-splitter-3" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. <a href="#fig-ds-splitter-2">图 2</a>示例的分割属性设置</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top">输入分割（Input Splitting）</th>
+<th class="tableblock halign-center valign-top">输出分割（Output splitting）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-2">图 2</a>(a)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0-1,4-5,2-3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-2">图 2</a>(b)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3-3,0-1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>特别需要说明的是，<a href="#fig-ds-splitter-2">图 2</a>(b)位号为3的导线是1位的输出，其分割属性值为<code>3-3</code>。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -303,10 +405,11 @@
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-更多用法可点击属性窗口内的“帮助”按钮。
+更多用法可点击属性窗口内的「帮助」按钮。
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 </div>
@@ -314,11 +417,11 @@
 <h2 id="bm-extender"><a class="anchor" href="#bm-extender"></a>符号扩展器（Sign extender）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>组件位置：“Components/组件 ➤ Arithmetic/运算器 ➤ Sign extender/符号扩展器”。
-如果需要将位宽较小的导线扩展为更大的位宽，并且保持符号位不变，就需要“Sign extender/符号扩展器”组件。该组件需要设置“输入位宽”和“输出位宽”两个属性，且输入位宽必须小于输出位宽。</p>
+<p>该组件位于菜单「组件 ➤ 运算器 ➤ 符号扩展器」（Components ➤ Arithmetic ➤ Sign extender）。
+如果需要将位宽较小的导线扩展为更大的位宽，并且保持符号位不变，就需要「符号扩展器」（Sign extender）组件。该组件需要设置「输入位宽」和「输出位宽」两个属性，且输入位宽必须小于输出位宽。</p>
 </div>
 <div class="paragraph">
-<p>虽然“Splitter/Merger”组件也可以扩展导线的位宽（见<a href="#fig-ds-splitter">图 1</a>示例），但是只能扩展固定的常数。而符号扩展器则是根据电路工作时的实际数据进行扩展，如果输入数据的最高位为“0”，扩展0；为“1”则扩展1。在计算机中，最高位表示带符号数的符号，故称为符号扩展。</p>
+<p>虽然「Splitter/Merger」组件也可以扩展导线的位宽，但是只能扩展固定的常数。而符号扩展器则是根据电路工作时的实际数据进行扩展，如果输入数据的最高位为“0”，扩展0；为“1”则扩展1。在计算机中，最高位表示带符号数的符号，故称为符号扩展。</p>
 </div>
 </div>
 </div>
@@ -326,19 +429,19 @@
 <h2 id="bm-tunnel"><a class="anchor" href="#bm-tunnel"></a>隧道（Tunnel）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>组件位置：“Components/组件 ➤ Wire/导线 ➤ Tunnel/隧道”。</p>
+<p>该组件位于菜单「组件 ➤ 导线 ➤ 隧道」（Components ➤ Wire ➤ Tunnel）。</p>
 </div>
 <div class="paragraph">
-<p><a href="#fig-ds-tunnel">图 2</a>中两个三角形的组件就是隧道组件，这两个组件之间并没有导线连接，但是由于它们的名称相同，则意味着它们之间是连通的，只是表面看不见，就像有一条隧道把他们连接起来。</p>
+<p><a href="#fig-ds-tunnel">图 3</a>中两个三角形的组件就是隧道组件，这两个组件之间并没有导线连接，但是由于它们的名称相同，则意味着它们之间是连通的，只是表面看不见，就像有一条隧道把他们连接起来。</p>
 </div>
 <div id="fig-ds-tunnel" class="imageblock">
 <div class="content">
 <img src="_images/ds-tunnel.png" alt="ds tunnel">
 </div>
-<div class="title">图 2. 隧道示例</div>
+<div class="title">图 3. 隧道示例</div>
 </div>
 <div class="paragraph">
-<p>隧道的名称通过“Net name/网络名称”属性设置。在一张图中可以有多个同名的隧道，它们之间都是导通的。</p>
+<p>隧道的名称通过「网络名称」（Net name）属性设置。在一张图中可以有多个同名的隧道，它们之间都是电气连通的。</p>
 </div>
 <div class="admonitionblock note">
 <table>
