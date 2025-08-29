@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>单周期数据通路实验（Ⅱ） :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +41,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -245,8 +235,8 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="#fig-dp-2">图 1</a>是本实验的单周期数据通路，该数据通路使用了前面实验中的ALU、三端口寄存器堆和RAM存储器。
-和<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>相比，增加了存储器。
+<p><a href="#fig-dp-2">图 1</a>是本实验的单周期数据通路，该数据通路使用了前面实验完成的<a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>、<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>和<a href="mem-ram.html" class="xref page">RAM存储器</a>。
+和<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>相比，增加了存储器。
 ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入端Y的运算数据可以来自寄存器堆的RD2读端口，或者来自立即数；ALU的运算结果F可以作为寄存器堆的写数据WD，也可以作为存储器的地址A。
 DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的RD2读端口提供。
 寄存器堆写端口WD的数据除了可以来自ALU的运算结果，也可以来自存储器的读出数据DO。
@@ -267,8 +257,8 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 <h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
 <p>用Digital仿真软件按照<a href="#fig-dp-2">图 1</a>绘制电路图。
-<a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>和<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>使用前面实验完成的。
-存储器使用<a href="mem-ram.html" class="xref page">存储器实验</a>中已经熟悉的RAM组件。</p>
+ALU和三端口寄存器堆使用前面实验完成的。
+存储器使用<a href="mem-ram.html" class="xref page">随机存取存储器（RAM）实验</a>中已经熟悉的RAM组件。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -308,7 +298,7 @@ DI是存储器的数据输入端口，写入存储器的数据由寄存器堆的
 </td>
 <td class="content">
 <div class="paragraph">
-<p>存入的常数应有助于判别下面将要验证的各种运算结果是否正确，可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路实验</a>。</p>
+<p>存入的常数应有助于判别下面将要验证的各种运算结果是否正确，可参考<a href="op-add_sub_operation.html" class="xref page">加减运算电路</a>实验。</p>
 </div>
 </td>
 </tr>

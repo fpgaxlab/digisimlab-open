@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>硬布线控制实验（RIM） :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="cu-hardwire_controller-1.html">
+    <link rel="next" href="cu-hardwire_controller.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -272,7 +264,7 @@
 <p>下面分析存储器访问指令的执行。</p>
 </div>
 <div class="paragraph">
-<p>根据<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令功能表</a>中关于load、store指令的功能描述，load指令将指定存储单元的内容装入指定寄存器，store将指定寄存器内容写入指定存储单元。
+<p>根据<a href="cu-overview.html#tab-cu-instr-code" class="xref page">指令编码表</a>中关于load、store指令的功能描述，load指令将指定存储单元的内容装入指定寄存器，store将指定寄存器内容写入指定存储单元。
 存储器的寻址采用变址寻址，变址寄存器号由rs1字段给出，偏移量由imm给出，所以有效地址EA=(rs1)+imm，即rs1指定的寄存器内容加上imm字段给出的偏移量作为有效地址。</p>
 </div>
 <div class="paragraph">
@@ -322,7 +314,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>可以在前面<a href="mem-path-2.html" class="xref page">存储器数据通路实验</a>电路图的基础上扩充。</p>
+<p>可以在前面<a href="mem-path-2.html" class="xref page">存储器数据通路</a>实验电路图的基础上扩充。</p>
 </div>
 </td>
 </tr>
@@ -361,7 +353,7 @@
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-符号指令翻译为机器指令的方法见<a href="cu-hardwire_controller-1.html#bm-cu-hdc1-trans" class="xref page">用测试程序初始化指令存储器</a>。
+符号指令翻译为机器指令的方法见<a href="cu-hardwire_controller-1.html" class="xref page">硬布线控制实验（RI）</a> <a href="cu-hardwire_controller-1.html#bm-cu-hc1-trans" class="xref page">用测试程序初始化指令存储器</a>。
 </td>
 </tr>
 </table>
@@ -395,6 +387,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a></span>
+  <span class="next"><a href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a></span>
+</nav>
 </article>
   </div>
 </main>

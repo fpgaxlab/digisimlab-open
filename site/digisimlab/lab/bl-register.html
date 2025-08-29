@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>触发器和寄存器实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="bl-decoder.html">
+    <link rel="next" href="bl-counter.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -263,7 +255,7 @@ D触发器通常包含以下几个端口。</p>
 <p>在计算机中，用于保存数据的电路元件通常称为<strong>寄存器</strong>。一般而言，D触发器与寄存器没有本质区别，例如一个8位数据寄存器可由8个D触发器构成；从应用的角度，“寄存器”这个名称更为普通。
 而在Digital仿真软件中，D触发器和寄存器是两种组件，端口略有不同。
 和D触发器组件相比，寄存器组件多了一个<code>en</code>端口，作为装入数据的使能（enable）控制。如果en为0，即使时钟上升沿到来，也不会将D输入端的数据保存在寄存器内；只有当en为1的时候，才允许保存数据。
-数据寄存器将应用于本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>。</p>
+数据寄存器将应用于后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>。</p>
 </div>
 </div>
 </div>
@@ -275,7 +267,7 @@ D触发器通常包含以下几个端口。</p>
 <li>
 <p>熟悉时序电路仿真</p>
 <div class="paragraph">
-<p>阅读第一章Digital仿真软件使用指南的“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”，熟悉D触发器的功能特性和时序电路的仿真方法。</p>
+<p>阅读<a href="../ds-digital-sim-guide.html" class="xref page">Digital仿真软件使用指南</a>的<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>，熟悉D触发器的功能特性和时序电路的仿真方法。</p>
 </div>
 </li>
 <li>
@@ -283,7 +275,7 @@ D触发器通常包含以下几个端口。</p>
 <div class="paragraph">
 <p>寄存器组件位于菜单项「组件 ➤ 存储器 ➤ 寄存器」（Components ➤ Memory ➤ Register）。
 添加寄存器组件后将其「数据位数」属性设置为4。
-并将其所有的端口连接到输入输出组件，注意寄存器组件端口C应连接时钟输入组件，连接D、Q端口的输入、输出组件的数据位数应与寄存器的数据位数一致。</p>
+并将其所有的端口连接到输入、输出组件，注意寄存器组件端口C应连接时钟输入组件，连接D、Q端口的输入、输出组件的数据位数应与寄存器的数据位数一致。</p>
 </div>
 </li>
 <li>
@@ -314,6 +306,10 @@ D触发器通常包含以下几个端口。</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="bl-decoder.html">译码器实验</a></span>
+  <span class="next"><a href="bl-counter.html">计数器实验</a></span>
+</nav>
 </article>
   </div>
 </main>

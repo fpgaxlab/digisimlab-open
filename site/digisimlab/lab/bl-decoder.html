@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>译码器实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="bl-multiplexer.html">
+    <link rel="next" href="bl-register.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -247,7 +239,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>译码器是一种常用的组合逻辑电路模块，在计算机电路中常用作地址译码器。Digital仿真软件中提供了一个简单的译码器组件，但是在后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>中，需要具有使能控制的译码器，所以本实验不使用Digital仿真软件内置的译码器组件，而是根据真值表创建一个译码器电路。
-2-4译码器的电路符号和真值表见第一章Digital仿真软件使用指南的“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”。</p>
+2-4译码器的电路符号和真值表见<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
 </div>
 </div>
 </div>
@@ -257,22 +249,22 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>学习第一章Digital仿真软件使用指南的“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”，使用真值表生成带使能端的2-4译码器电路。</p>
+<p>学习<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>，使用真值表生成带使能端的2-4译码器电路。</p>
 </li>
 <li>
-<p>学习第一章Digital仿真软件使用指南的“<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>”,使用上面生成的2-4译码器作为子电路，构建如<a href="#fig-bl-decoder-1">图 1</a>所示电路。</p>
+<p>学习<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>，使用上面生成的2-4译码器作为子电路，构建如<a href="#fig-bl-decoder-1">图 1</a>所示电路。</p>
 <div id="fig-bl-decoder-1" class="imageblock">
 <div class="content">
-<img src="_images/bl-decoder-1.png" alt="bl decoder 1">
+<img src="_images/bl-decoder-1.png" alt="bl decoder 1" width="443">
 </div>
-<div class="title">图 1. 包含子电路的上层电路</div>
+<div class="title">图 1. 包含子电路的译码器实验电路</div>
 </div>
 <div class="paragraph">
-<p><a href="#fig-bl-decoder-1">图 1</a>的Address使用一个2位的输入组件，而生成的2-4译码器的A1、A0是两个1位的输入端口，因此用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的Addrress拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见第一章Digital仿真软件使用指南“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+<p><a href="#fig-bl-decoder-1">图 1</a>的Address端口使用一个2位的输入组件，而生成的2-4译码器的A1、A0是两个1位的输入端口，因此用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的Addrress拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
 </div>
 </li>
 <li>
-<p>学习第一章Digital仿真软件使用指南的“<a href="../ds-test-circuit.html" class="xref page">电路测试</a>”，使用<a href="#exa-test-decoder2-4">例 1</a>作为测试用例，对<a href="#fig-bl-decoder-1">图 1</a>电路进行测试，保存测试结果为CSV文件。</p>
+<p>学习<a href="../ds-test-circuit.html" class="xref page">电路测试</a>，使用<a href="#exa-test-decoder2-4">例 1</a>作为测试用例，对<a href="#fig-bl-decoder-1">图 1</a>电路进行测试，保存测试结果为CSV文件。</p>
 <div id="exa-test-decoder2-4" class="exampleblock">
 <div class="title">例 1. 2-4译码器测试用例</div>
 <div class="content">
@@ -309,6 +301,10 @@ repeat(4)  1  (n)  bits(4, 1&lt;&lt;n)</code></pre>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="bl-multiplexer.html">多路选择器实验</a></span>
+  <span class="next"><a href="bl-register.html">触发器和寄存器实验</a></span>
+</nav>
 </article>
   </div>
 </main>

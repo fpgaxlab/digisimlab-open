@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>加减运算电路实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="dp-register_file.html">
+    <link rel="next" href="op-arithmetic_logic_unit.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -233,7 +225,7 @@
 <p>掌握溢出判断方法。</p>
 </li>
 <li>
-<p>学会使用Digital仿真软件的符号扩展器等<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
+<p>学会使用Digital仿真软件的符号扩展器等<a href="../ds-other-useful.html" class="xref page">组件</a>。</p>
 </li>
 <li>
 <p>学会使用表达式生成电路图。</p>
@@ -300,8 +292,8 @@ Digital仿真软件无法精确仿真加法运算的电路延迟，所以实验�
 </div>
 <div class="paragraph">
 <p>当M=0时，b<sub>i</sub>=y<sub>i</sub>⊕0=y<sub>i</sub>，C0=0，所以F=X+Y；
-当M=1时，<span class="image"><img src="_images/op-add_sub-bi.png" alt="op add sub bi" width="140" height="34"></span>，
-C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op add sub sub" width="228" height="34"></span> 。</p>
+当M=1时，<span class="image"><img src="_images/op-add_sub-bi.png" alt="op add sub bi" width="126"></span>，
+C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op add sub sub" width="202"></span> 。</p>
 </div>
 <div class="paragraph">
 <p>可见，M用来控制是将Y送到加法器运算，还是将Y求相反数后再相加。
@@ -325,7 +317,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="_images/op-add_sub-ov.png" alt="OV" width="276" height="34">
+<img src="_images/op-add_sub-ov.png" alt="OV" width="249">
 </div>
 </div>
 <div class="paragraph">
@@ -399,13 +391,13 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="ulist">
 <ul>
 <li>
-<p>符号扩展器、探测器、分线器等组件的介绍见第一章Digital仿真软件使用指南的“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+<p>符号扩展器、探测器、分线器等组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
 </li>
 <li>
-<p>用表达式生成电路图的介绍见“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”。</p>
+<p>用表达式生成电路图的介绍见<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
 </li>
 <li>
-<p>添加子电路的方法，见“<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>”。</p>
+<p>添加子电路的方法，见<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>。</p>
 </li>
 </ul>
 </div>
@@ -570,7 +562,7 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1">提问</dt>
+<dt class="hdlist1">思考</dt>
 <dd>
 <p>为什么不应该用“0+1=1”、“1+1=2”这类数据验证加法运算电路？</p>
 </dd>
@@ -707,6 +699,10 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="dp-register_file.html">寄存器堆实验</a></span>
+  <span class="next"><a href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a></span>
+</nav>
 </article>
   </div>
 </main>

@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Digital仿真软件入门 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="introduce-digitalsim.html">
+    <link rel="next" href="ds-generate-circuit.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -236,7 +228,7 @@
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的「1.2 起步」（1.2 First Steps）包含了该使用指南的更详细图文。
+<a href="introduce-digitalsim.html#help-docu" class="xref page">软件帮助文档</a>的「1.2 起步」（1.2 First Steps）包含了该使用指南的更详细图文。
 </td>
 </tr>
 </table>
@@ -268,7 +260,7 @@
 </td>
 <td class="content">
 必须使导线的端点连接到组件的端口（红点或蓝点），才能将导线与组件相连。
-如果一条导线的中间经过（覆盖）了组件的端口，虽然视觉上相连，但电气上该组件和导线并未连接。
+如果一条导线只是中间经过（覆盖）了组件的端口，虽然视觉上与端口相连，但电气上该组件和导线并未连接。
 </td>
 </tr>
 </table>
@@ -368,7 +360,7 @@
 <div class="sect2">
 <h3 id="_数据位数属性"><a class="anchor" href="#_数据位数属性"></a>「数据位数」属性</h3>
 <div class="paragraph">
-<p>每个组件都有一些可以设置的属性，可以通过在组件上点击鼠标右键打开属性窗口。在前面的<a href="#bm-first-steps">构建电路及仿真</a>操作中，已经通过属性窗口设置了引脚组件的标签。
+<p>每个组件都有一些可以设置的属性，可以通过在组件上点击鼠标右键打开属性窗口。在前面的<a href="#bm-first-steps"><em>构建电路及仿真</em></a>操作中，已经通过属性窗口设置了输入组件和输出组件的标签。
 现在右键点击异或门组件，在弹出的属性窗口中将「数据位数」（Data Bits）设置为4位，使异或门能够同时处理4位数据。
 然后将连接异或门的两个输入组件和一个输出组件的数据位数均设置为4位，否则仿真时会报错。</p>
 </div>
@@ -399,7 +391,7 @@
 <div class="sect3">
 <h4 id="_输入数据"><a class="anchor" href="#_输入数据"></a>输入数据</h4>
 <div class="paragraph">
-<p>和1位的输入引脚不同，仿真时点击多位的输入引脚，并不是直接翻转引脚值，而是会弹出一个输入窗口，在窗口中输入想要施加在该引脚的数值。</p>
+<p>和1位的输入组件不同，仿真时点击多位的输入组件，并不是直接翻转输入值，而是会弹出一个输入窗口，在窗口中输入想要施加在该端口的数值。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -408,7 +400,7 @@
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-点击「应用」（Apply）按钮而不是「确定」（OK）按钮，这样就可以同时保持打开多个引脚的输入窗口，方便交替输入多组数据。
+点击「应用」（Apply）按钮而不是「确定」（OK）按钮，这样就可以同时保持打开多个组件的输入窗口，方便交替输入多组数据。
 </td>
 </tr>
 </table>
@@ -432,7 +424,7 @@
 <h2 id="bm-show-measure"><a class="anchor" href="#bm-show-measure"></a>仿真结果记录及导出</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>仿真状态下点击菜单项「仿真 ➤ 显示测量图」（Simulation ➤ Show measurement graph），然后在打开的测量图窗口中点击菜单「视图 ➤ 显示表格」（View ➤ Show table），打开测试数据表格的记录窗口。之后每当改变输入引脚的数据，图表中随之增加一步输入、输出数据的记录，如<a href="#fig-ds-rec">图 2</a>所示。</p>
+<p>仿真状态下点击菜单项「仿真 ➤ 显示测量图」（Simulation ➤ Show measurement graph），然后在打开的测量图窗口中点击菜单「视图 ➤ 显示表格」（View ➤ Show table），打开测试数据表格的记录窗口。之后每当改变输入端口的数据，图表中随之增加一步输入、输出数据的记录，如<a href="#fig-ds-rec">图 2</a>所示。</p>
 </div>
 <div id="fig-ds-rec" class="imageblock">
 <div class="content">
@@ -451,7 +443,7 @@
 <i class="fa icon-caution" title="注意"></i>
 </td>
 <td class="content">
-只有已命名的引脚（设置了「标签/Label」属性）才会出现在图表窗口。
+只有已命名的组件（设置了「标签/Label」属性）才会出现在图表窗口。
 </td>
 </tr>
 </table>
@@ -485,7 +477,7 @@
 </dd>
 <dt class="hdlist1">保存为PNG图片</dt>
 <dd>
-<p>最后点击菜单项「文件 ➤ 导出 ➤ 导出PNG」（File ➤ Export ➤ Export PNG）。</p>
+<p>最后点击菜单项「文件 ➤ 导出 ➤ 导出PNG」（File ➤ Export ➤ Export PNG）将电路图保存为PNG图片。</p>
 </dd>
 </dl>
 </div>
@@ -516,6 +508,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="introduce-digitalsim.html">概述</a></span>
+  <span class="next"><a href="ds-generate-circuit.html">电路生成</a></span>
+</nav>
 </article>
   </div>
 </main>

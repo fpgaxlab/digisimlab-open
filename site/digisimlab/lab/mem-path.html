@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>存储器应用实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="mem-ram.html">
+    <link rel="next" href="mem-path-2.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -224,7 +216,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>注：本项目与<a href="mem-path-2.html" class="xref page">存储器数据通路实验</a>二选一。</p>
+<p>注：本项目与<a href="mem-path-2.html" class="xref page">存储器数据通路</a>实验二选一。</p>
 </div>
 </div>
 </div>
@@ -250,7 +242,7 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>实验电路如<a href="#fig-mem-path-1">图 1</a>所示。该电路将静态随机存取存储器RAM、只读存储器ROM和寄存器堆组织到一起，构成了一个应用电路。</p>
+<p>实验电路如<a href="#fig-mem-path-1">图 1</a>所示。该电路将静态随机存取存储器<a href="mem-ram.html" class="xref page">RAM</a>、只读存储器<a href="mem-rom.html" class="xref page">ROM</a>和<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>组织到一起，构成了一个应用电路。</p>
 </div>
 <div id="fig-mem-path-1" class="imageblock">
 <div class="content">
@@ -278,7 +270,7 @@
 </div>
 <div id="fig-mem-path1-2" class="imageblock">
 <div class="content">
-<img src="_images/mem-path1-2.png" alt="mem path1 2" width="734">
+<img src="_images/mem-path1-2.png" alt="mem path1 2" width="600">
 </div>
 <div class="title">图 2. 存储器地址生成的信息路径</div>
 </div>
@@ -296,7 +288,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_寄存器数据写入ram"><a class="anchor" href="#_寄存器数据写入ram"></a>寄存器数据写入RAM</h3>
+<h3 id="bm-reg-mem"><a class="anchor" href="#bm-reg-mem"></a>寄存器数据写入RAM</h3>
 <div class="paragraph">
 <p>要将数据写入RAM，不仅要提供RAM地址，还需提供要写入的数据。
 RAM的数据输入DI来自寄存器堆的读端口2，所以只能将某一寄存器的值写入RAM的存储单元。即</p>
@@ -321,7 +313,7 @@ RAM的数据输入DI来自寄存器堆的读端口2，所以只能将某一寄�
 </div>
 <div id="fig-mem-path1-3" class="imageblock">
 <div class="content">
-<img src="_images/mem-path1-3.png" alt="mem path1 3" width="734">
+<img src="_images/mem-path1-3.png" alt="mem path1 3" width="600">
 </div>
 <div class="title">图 3. 寄存器数据写入RAM的数据传递路径</div>
 </div>
@@ -346,7 +338,7 @@ WDs是该多路器的选择信号，同时它也是RAM的输出使能控制信�
 </div>
 <div id="fig-mem-path1-4" class="imageblock">
 <div class="content">
-<img src="_images/mem-path1-4.png" alt="mem path1 4" width="734">
+<img src="_images/mem-path1-4.png" alt="mem path1 4" width="600">
 </div>
 <div class="title">图 4. RAM数据写入寄存器的数据传递路径</div>
 </div>
@@ -357,11 +349,11 @@ WDs是该多路器的选择信号，同时它也是RAM的输出使能控制信�
 <div class="sect2">
 <h3 id="bm-mem-path1-5"><a class="anchor" href="#bm-mem-path1-5"></a>常数存入寄存器</h3>
 <div class="paragraph">
-<p>从前面<a href="#_寄存器数据写入ram">寄存器数据写入RAM</a>已经知道，写入RAM的数据只能来自于寄存器堆，也就是说，需要写入RAM的数据必须事先存放于某一寄存器中。</p>
+<p>从前面<a href="#bm-reg-mem">寄存器数据写入RAM</a>已经知道，写入RAM的数据只能来自于寄存器堆，也就是说，需要写入RAM的数据必须事先存放于某一寄存器中。</p>
 </div>
 <div id="fig-mem-path1-5" class="imageblock">
 <div class="content">
-<img src="_images/mem-path1-5.png" alt="mem path1 5" width="734">
+<img src="_images/mem-path1-5.png" alt="mem path1 5" width="600">
 </div>
 <div class="title">图 5. 常数写入寄存器的信息传递路径</div>
 </div>
@@ -382,7 +374,7 @@ Imm送到了加法器的B输入端，所以要将Imm送到寄存器堆的写端�
 <p>当WDs=0 且 RA1=0，WD = S = Imm</p>
 </div>
 <div class="paragraph">
-<p>Imm给出的常数到达WD端口后，根据<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>中学过方法，可将常数存入寄存器堆中的某个寄存器。</p>
+<p>Imm给出的常数到达WD端口后，根据<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>学过的方法，可将常数存入寄存器堆中的某个寄存器。</p>
 </div>
 </div>
 <div class="sect2">
@@ -400,8 +392,8 @@ Imm送到了加法器的B输入端，所以要将Imm送到寄存器堆的写端�
 <h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
 <p>按照<a href="#fig-mem-path-1">图 1</a>绘制电路图。
-其中<a href="mem-rom.html" class="xref page">ROM</a>充当了七段译码器，其容量为16×8位，需初始化其数据为七段译码。
-<a href="mem-ram.html" class="xref page">RAM</a>容量为16×4位；<a href="dp-register_file.html" class="xref page">寄存器堆</a>为4×4位，其中R0恒为0；<a href="op-add_sub_operation.html" class="xref page">加法器</a>组件的数据位数为4位。</p>
+其中ROM充当了七段译码器，其容量为16×8位，需初始化其数据为七段译码。
+RAM容量为16×4位；寄存器堆为4×4位，其中R0恒为0；加法器组件的数据位数为4位。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -474,6 +466,10 @@ Imm送到了加法器的B输入端，所以要将Imm送到寄存器堆的写端�
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="mem-ram.html">RAM实验</a></span>
+  <span class="next"><a href="mem-path-2.html">存储器数据通路实验</a></span>
+</nav>
 </article>
   </div>
 </main>

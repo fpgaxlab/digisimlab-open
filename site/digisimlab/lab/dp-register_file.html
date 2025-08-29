@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>寄存器堆实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <title>三端口寄存器堆实验 :: 计算机组成原理实验指导</title>
+    <link rel="prev" href="bl-counter.html">
+    <link rel="next" href="op-add_sub_operation.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -220,7 +212,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">寄存器堆实验</h1>
+<h1 class="page">三端口寄存器堆实验</h1>
 <div class="sect1">
 <h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
 <div class="sectionbody">
@@ -284,7 +276,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>为便于观察寄存器的值，在寄存器的Q输出端放置了<a href="../ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>，该组件的介绍见第一章Digital仿真软件使用指南“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+<p>为便于观察寄存器的值，在寄存器的Q输出端放置了<a href="../ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>，该组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
 </div>
 </td>
 </tr>
@@ -295,7 +287,7 @@
 <p>2-4译码器</p>
 <div class="paragraph">
 <p>使用<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。
-有关添加子电路的方法，请参考第一章Digital仿真软件使用指南“<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>”。</p>
+有关添加子电路的方法，请参考<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -305,7 +297,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p><a href="#fig-rf-2port-sim">图 2</a>写端口地址WA使用一个2位的输入组件，需要用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的WA拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见第一章Digital仿真软件使用指南“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+<p><a href="#fig-rf-2port-sim">图 2</a>写端口地址WA使用一个2位的输入组件，需要用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的WA拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
 </div>
 </td>
 </tr>
@@ -321,7 +313,7 @@
 <li>
 <p>使用时钟输入组件作为Clk输入</p>
 <div class="paragraph">
-<p>时钟输入组件及其用法见第一章Digital仿真软件使用指南“<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>”。</p>
+<p>时钟输入组件及其用法见<a href="../ds-sim-dff.html" class="xref page">时序电路的仿真</a>。</p>
 </div>
 </li>
 </ol>
@@ -405,7 +397,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>常数“0”可以用<a href="../ds-other-useful.html#bm-const" class="xref page">常量组件</a>产生，位数与寄存器的字长相同，即4位。常量组件的介绍见“<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>”。</p>
+<p>常数“0”可以用<a href="../ds-other-useful.html#bm-const" class="xref page">常量组件</a>产生，位数与寄存器的字长相同，即4位。常量组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
 </div>
 </td>
 </tr>
@@ -476,6 +468,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="bl-counter.html">计数器实验</a></span>
+  <span class="next"><a href="op-add_sub_operation.html">加减运算电路实验</a></span>
+</nav>
 </article>
   </div>
 </main>

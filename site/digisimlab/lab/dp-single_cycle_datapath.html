@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>运算器数据通路实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="op-compare.html">
+    <link rel="next" href="mem-rom.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -225,13 +217,9 @@
 <h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>1．理解单周期数据通路的组成结构。</p>
-</div>
-<div class="paragraph">
-<p>2．掌握单周期数据通路信息加工过程。</p>
-</div>
-<div class="paragraph">
-<p>3．锻炼分析问题与解决问题的能力。</p>
+<p>．理解单周期数据通路的组成结构。
+．掌握单周期数据通路信息加工过程。
+．锻炼分析问题与解决问题的能力。</p>
 </div>
 </div>
 </div>
@@ -263,7 +251,7 @@
 单周期数据通路更有利于演变为流水线结构，所以本实验只考虑单周期数据通路。</p>
 </div>
 <div class="paragraph">
-<p><a href="#fig-dp-1">图 2</a>使用了前面实验中的ALU和三端口寄存器堆。
+<p><a href="#fig-dp-1">图 2</a>使用了前面实验完成的<a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>和<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>。
 ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入端Y的运算数据可以来自寄存器堆的RD2读端口，或者来自立即数。
 寄存器堆写端口WD的数据来自ALU的运算结果F。
 该数据通路可以在一个周期内完成从寄存器堆读数据、ALU运算、运算结果保存到寄存器堆。</p>
@@ -375,7 +363,7 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>因为电路图上无法直接观察到写入寄存器堆内部的数值，仿真时应开启「显示测量图」，以便通过测量图表观察寄存器堆内部的Q1、Q2、Q3值。开启方法见<a href="../ds-getting-started.html#bm-show-measure" class="xref page">显示测量图</a>。</p>
+<p>因为电路图上无法直接观察到写入寄存器堆内部的数值，仿真时应开启「<a href="../ds-getting-started.html#bm-show-measure" class="xref page">显示测量图</a>」，以便通过测量图表观察寄存器堆内部的Q1、Q2、Q3值。开启方法见<a href="../ds-getting-started.html" class="xref page">新手入门</a>。</p>
 </div>
 </td>
 </tr>
@@ -387,7 +375,7 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 <p>将非零常数存入寄存器</p>
 <div class="paragraph">
 <p>开始仿真后所有寄存器的值均为0，需要先向寄存器写入非零数据，才能进行后续的运算。
-例如，假设要将常数9存入R2寄存器，则可将常数9通过Imm输入，与R0进行加法运算后结果存入R2寄存器，即完成<code>R[2] = R[0] + 9 = 9</code>。运算过程参考实验原理部分<a href="#bm-dp1-ri">寄存器和立即数之间的运算</a>的特例。</p>
+例如，假设要将常数9存入R2寄存器，则可将常数9通过Imm输入，与R0进行加法运算后结果存入R2寄存器，即完成<code>R[2]=R[0]+9=9</code>。运算过程参考实验原理部分<a href="#bm-dp1-ri">寄存器和立即数之间运算</a>的特例。</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -409,14 +397,14 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 <p>完成寄存器和立即数之间的运算并保存运算结果。</p>
 <div class="paragraph">
 <p>将前面已存入数据的寄存器的内容，通过ALU与Imm给出的常数进行算术、逻辑运算，结果存入另一寄存器。
-例如，假设前面已将R2存入数据，将其与Imm进行加法运算后结果存入R3寄存器，即完成<code>R[3] = R[2] + Imm</code>。运算过程参考实验原理部分<a href="#bm-dp1-ri">寄存器和立即数之间的运算</a>。</p>
+例如，假设前面已将R2存入数据，将其与Imm进行加法运算后结果存入R3寄存器，即完成<code>R[3]=R[2]+Imm</code>。运算过程参考实验原理部分<a href="#bm-dp1-ri">寄存器和立即数之间的运算</a>。</p>
 </div>
 </li>
 <li>
 <p>完成两个寄存器之间的各种运算并保存运算结果。</p>
 <div class="paragraph">
 <p>将前面已存入数据的2个寄存器的内容，通过ALU进行各种运算，结果存入另一寄存器。
-例如，假设R2、R3已经存有数据，进行加法运算后结果存入R1寄存器，即完成<code>R[1] = R[2] + R[3]</code>。运算过程参考实验原理部分<a href="#bm-dp1-rr">两个寄存器之间的运算</a>。</p>
+例如，假设R2、R3已经存有数据，进行加法运算后结果存入R1寄存器，即完成<code>R[1]=R[2]+R[3]</code>。运算过程参考实验原理部分<a href="#bm-dp1-rr">两个寄存器之间的运算</a>。</p>
 </div>
 </li>
 </ol>
@@ -436,6 +424,10 @@ ALU和三端口寄存器堆使用前面实验完成的。</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="op-compare.html">比较运算电路实验</a></span>
+  <span class="next"><a href="mem-rom.html">ROM实验</a></span>
+</nav>
 </article>
   </div>
 </main>

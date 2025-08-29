@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>RAM实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <title>随机存取存储器（RAM）实验 :: 计算机组成原理实验指导</title>
+    <link rel="prev" href="mem-rom.html">
+    <link rel="next" href="mem-path.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -220,7 +212,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">RAM实验</h1>
+<h1 class="page">随机存取存储器（RAM）实验</h1>
 <div class="sect1">
 <h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
 <div class="sectionbody">
@@ -271,9 +263,13 @@
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-<div class="title">有效电平</div>
-<div class="paragraph">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">有效电平</dt>
+<dd>
 <p>上面WE、OE和CE引脚都提到了“有效”，但并未说明是高电平有效、还是低电平有效。对于物理RAM芯片引脚通常是低电平有效，但芯片内部逻辑一般是高电平有效。Digital仿真软件采用高电平有效。</p>
+</dd>
+</dl>
 </div>
 </td>
 </tr>
@@ -295,9 +291,9 @@ RAM组件端口名称与实验原理中常规RAM芯片引脚名称的对应如<a
 <table id="tab-mem-ram-1" class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. 端口名称对照</caption>
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
+<col style="width: 21%;">
+<col style="width: 21%;">
+<col style="width: 58%;">
 </colgroup>
 <thead>
 <tr>
@@ -376,6 +372,10 @@ RAM组件端口名称与实验原理中常规RAM芯片引脚名称的对应如<a
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="mem-rom.html">ROM实验</a></span>
+  <span class="next"><a href="mem-path.html">存储器应用实验</a></span>
+</nav>
 </article>
   </div>
 </main>

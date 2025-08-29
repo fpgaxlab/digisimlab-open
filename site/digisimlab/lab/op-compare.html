@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>比较运算电路实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="op-arithmetic_logic_unit.html">
+    <link rel="next" href="dp-single_cycle_datapath.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -249,7 +241,7 @@
 <div class="paragraph">
 <p>在计算机软件程序设计中，常常需要比较两个变量的数值大小。实现两个数大小比较的最直接的做法就是将这两个数相减，根据减法的结果判断两者的大小。例如，若X&lt;Y，则X-Y的结果一定为负，因此依据符号标志就可以判断；但是若运算结果溢出，则恰恰相反。<a href="#tab-3">表 1</a>给出了两个带符号数依据减法运算结果的标志位比较大小的判断条件。而两个无符号数的相减，则可依据是否有借位来判断两个数的大小。<a href="#tab-4">表 2</a>给出了无符号数比较大小的判断条件。</p>
 </div>
-<table id="tab-3" class="tableblock frame-all grid-all" style="width: 50%;">
+<table id="tab-3" class="tableblock frame-all grid-all center" style="width: 50%;">
 <caption class="title">表 1. 两个带符号数比较大小的判定条件</caption>
 <colgroup>
 <col style="width: 40%;">
@@ -288,7 +280,7 @@
 </tr>
 </tbody>
 </table>
-<table id="tab-4" class="tableblock frame-all grid-all" style="width: 50%;">
+<table id="tab-4" class="tableblock frame-all grid-all center" style="width: 50%;">
 <caption class="title">表 2. 两个无符号数比较大小的判定条件</caption>
 <colgroup>
 <col style="width: 40%;">
@@ -341,7 +333,7 @@
 <p>设计</p>
 <div class="paragraph">
 <p>依据S、Z、O标志位，产生带符号数相等、不等、小于、大于等于的比较结果。
-可使用Digital仿真软件的电路生成功能，输入表达式自动生成电路图，具体用法参考第一章Digital仿真软件使用指南的“<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>”。</p>
+可使用Digital仿真软件的电路生成功能，输入表达式自动生成电路图，具体用法参考<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
 </div>
 </li>
 <li>
@@ -366,6 +358,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a></span>
+  <span class="next"><a href="dp-single_cycle_datapath.html">运算器数据通路实验</a></span>
+</nav>
 </article>
   </div>
 </main>

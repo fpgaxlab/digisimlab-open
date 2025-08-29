@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>硬布线控制实验（RI） :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="cu-overview.html">
+    <link rel="next" href="cu-hardwire_controller-3.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -254,7 +246,7 @@
 </div>
 <div id="fig-cu-arch-1" class="imageblock">
 <div class="content">
-<img src="_images/cu-arch-1.png" alt="cu arch 1">
+<img src="_images/cu-arch-1.png" alt="cu arch 1" width="588">
 </div>
 <div class="title">图 1. 运算指令数据通路及控制</div>
 </div>
@@ -267,7 +259,7 @@
 <p>程序计数器PC可使用<a href="bl-counter.html" class="xref page">计数器</a>组件。复位时PC值为0，即第一条指令的地址。在Clk上升沿到来时，PC值加1，即顺序执行。</p>
 </div>
 <div class="paragraph">
-<p>指令存储器是只读存储器，可以使用<a href="mem-rom.html" class="xref page">ROM实验</a>中学习的ROM组件，在初始化时写入要执行的指令编码。运行时只提供读访问，根据输入地址，输出该地址单元存储的指令。
+<p>指令存储器是只读存储器，可以使用<a href="mem-rom.html" class="xref page">只读存储器（ROM）实验</a>中学习的ROM组件，在初始化时写入要执行的指令编码。运行时只提供读访问，根据输入地址，输出该地址单元存储的指令。
 根据<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>设计，一条指令包含5个部分，opcode指定指令功能，连接到控制器的输入；rs1、rs2、rd连接到寄存器堆三个端口的地址；imm作为运算数经多路器连接到ALU的Y输入端。</p>
 </div>
 </div>
@@ -302,14 +294,14 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 </div>
 <div id="fig-cu-flow-addi-1" class="imageblock">
 <div class="content">
-<img src="_images/cu-flow-addi-1.png" alt="cu flow addi 1">
+<img src="_images/cu-flow-addi-1.png" alt="cu flow addi 1" width="588">
 </div>
 <div class="title">图 2. addi指令的信息流及控制</div>
 </div>
 <div class="paragraph">
 <p>指令译码的真值表如<a href="#tab-cu-opdecode-1">表 1</a>所示。表中只给出了addi指令的控制信号取值，类似地可以分析出其他指令的控制信号取值。有了真值表，就可以进一步得到指令译码器的电路。</p>
 </div>
-<table id="tab-cu-opdecode-1" class="tableblock frame-all grid-all stretch">
+<table id="tab-cu-opdecode-1" class="tableblock frame-all grid-all center" style="width: 85%;">
 <caption class="title">表 1. opcode译码的真值表</caption>
 <colgroup>
 <col style="width: 14.2857%;">
@@ -437,7 +429,7 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <p>设计实验电路</p>
 <div class="paragraph">
 <p>按照<a href="#fig-cu-arch-1">图 1</a>设计实验电路。
-可以在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>电路图的基础上扩充。
+可以在<a href="dp-single_cycle_datapath.html" class="xref page">单周期数据通路实验</a>电路图的基础上扩充。
 将上面生成的控制器作为子电路添加进来。
 程序计数器PC和指令存储器采用的组件见实验原理部分的<a href="#bm-cu-hc1-1">指令部件</a>。</p>
 </div>
@@ -464,7 +456,7 @@ and  r3, r3, r1</pre>
 </div>
 </div>
 </div>
-<div id="bm-cu-hdc1-trans" class="olist arabic">
+<div id="bm-cu-hc1-trans" class="olist arabic">
 <ol class="arabic">
 <li>
 <p>用测试程序初始化指令存储器。</p>
@@ -539,7 +531,7 @@ and  r3, r3, r1</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>将翻译好的机器指令依次填入指令存储器相应地址的存储单元，即初始化ROM组件的内容。操作方法见<a href="mem-rom.html" class="xref page">ROM实验</a>。</p>
+<p>将翻译好的机器指令依次填入指令存储器相应地址的存储单元，即初始化ROM组件的内容。操作方法见<a href="mem-rom.html" class="xref page">只读存储器（ROM）实验</a>。</p>
 </div>
 </li>
 <li>
@@ -590,6 +582,10 @@ and  r3, r3, r1</pre>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="cu-overview.html">概述（指令系统）</a></span>
+  <span class="next"><a href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a></span>
+</nav>
 </article>
   </div>
 </main>

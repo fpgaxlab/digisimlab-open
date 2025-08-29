@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>概述（指令系统） :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="mem-path-2.html">
+    <link rel="next" href="cu-hardwire_controller-1.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -288,13 +280,13 @@
 <div class="paragraph">
 <p>B型指令根据rs1和rs2的大小关系决定是顺序执行下一条指令，还是跳转去执行地址为imm的指令。</p>
 </div>
-<table id="tab-cu-instr-code" class="tableblock frame-all grid-all" style="width: 99%;">
+<table id="tab-cu-instr-code" class="tableblock frame-all grid-all stretch">
 <caption class="title">表 2. 指令助记符、操作码编码及功能</caption>
 <colgroup>
-<col style="width: 19%;">
-<col style="width: 35%;">
-<col style="width: 17%;">
-<col style="width: 29%;">
+<col style="width: 18%;">
+<col style="width: 32%;">
+<col style="width: 18%;">
+<col style="width: 32%;">
 </colgroup>
 <thead>
 <tr>
@@ -433,7 +425,7 @@ loop:
 <div class="sectionbody">
 <div class="paragraph">
 <p>硬布线控制一共安排了三个实验项目。
-本书1.0～1.2版本用罗马数字Ⅰ、Ⅱ、Ⅲ区分三个项目，为了使项目名称更容易反映其内涵，改为用控制器支持的指令类型来表示。
+本书1.0～1.2版本用罗马数字Ⅰ、Ⅱ、Ⅲ区分三个项目，为了使项目名称更容易反映其内涵，1.3版改为用控制器支持的指令类型来表示。
 “RI”表示支持R型和I型运算指令（原项目Ⅰ），“RIM”表示支持R型和I型运算指令以及M型访存指令（原项目Ⅲ），“RIB”表示支持R型和I型运算指令以及B型分支指令（原项目Ⅱ）。
 在编写上，“RIM”是在“RI”的基础上增加M型访存指令的控制，而“RIB”是独立的，不依赖“RI”。
 在教学实施上，对于少学时的课程，如果没有安排存储器实验，可以选择“RI”或“RIB”；如果已经完成了存储器实验，可以选择“RI”和“RIM”。</p>
@@ -452,6 +444,10 @@ loop:
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="mem-path-2.html">存储器数据通路实验</a></span>
+  <span class="next"><a href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a></span>
+</nav>
 </article>
   </div>
 </main>

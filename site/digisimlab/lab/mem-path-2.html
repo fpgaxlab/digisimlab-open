@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>存储器数据通路实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="mem-path.html">
+    <link rel="next" href="cu-overview.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -224,7 +216,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>注：本项目与<a href="mem-path.html" class="xref page">存储器应用实验</a>二选一。</p>
+<p>注：本项目与<a href="mem-path.html" class="xref page">存储器应用</a>实验二选一。</p>
 </div>
 </div>
 </div>
@@ -250,8 +242,8 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="#fig-mem-path2-1">图 1</a>是本实验的存储器数据通路，该数据通路使用了前面实验中的ALU、三端口寄存器堆和RAM、ROM存储器。
-和<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>相比，运算部分基本没有变化，新增加了存储器。
+<p><a href="#fig-mem-path2-1">图 1</a>是本实验的存储器数据通路，该数据通路使用了前面实验中的<a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>、<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>和<a href="mem-ram.html" class="xref page">RAM</a>、<a href="mem-rom.html" class="xref page">ROM</a>存储器。
+和<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>相比，运算部分基本没有变化，新增加了存储器。
 DI是RAM的数据输入端口，写入RAM的数据由寄存器堆的RD2读端口提供。
 RAM的地址A来自ALU运算结果F。
 RAM的读出数据DO通过多路器连接到寄存器堆的写端口WD，可以写入寄存器堆。
@@ -269,14 +261,14 @@ ROM作为七段译码器，连接数码管显示WD端口的数值。</p>
 <div class="sect2">
 <h3 id="_alu运算结果存入寄存器堆"><a class="anchor" href="#_alu运算结果存入寄存器堆"></a>ALU运算结果存入寄存器堆</h3>
 <div class="paragraph">
-<p>在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>中已经熟悉了ALU运算的信息加工、传递路径，<a href="#fig-mem-path2-1">图 1</a>的不同之处在于写入寄存器堆的数据除了来自ALU的运算结果，还可以来自存储器读出的数据，因此增加了一个2选1多路器进行选择。</p>
+<p>在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>实验中已经熟悉了ALU运算的信息加工、传递路径，<a href="#fig-mem-path2-1">图 1</a>的不同之处在于写入寄存器堆的数据除了来自ALU的运算结果，还可以来自存储器读出的数据，因此增加了一个2选1多路器进行选择。</p>
 </div>
 <div class="paragraph">
-<p>信息加工、传递路径如<a href="#fig-mem-path2-5">图 2</a>所示。在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>中已经知道，ALU的运算数可以是两个寄存器的值，也可以是一个寄存器和立即数Imm，由Ys控制的多路器进行选择，<a href="#fig-mem-path2-5">图 2</a>的蓝色路径表示了这两种选择。</p>
+<p>信息加工、传递路径如<a href="#fig-mem-path2-5">图 2</a>所示。在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>实验中已经知道，ALU的运算数可以是两个寄存器的值，也可以是一个寄存器和立即数Imm，由Ys控制的多路器进行选择，<a href="#fig-mem-path2-5">图 2</a>的蓝色路径表示了这两种选择。</p>
 </div>
 <div id="fig-mem-path2-5" class="imageblock">
 <div class="content">
-<img src="_images/mem-path2-5.png" alt="mem path2 5">
+<img src="_images/mem-path2-5.png" alt="mem path2 5" width="635">
 </div>
 <div class="title">图 2. 读出RAM数据写入寄存器的信息传递路径</div>
 </div>
@@ -298,7 +290,7 @@ ROM作为七段译码器，连接数码管显示WD端口的数值。</p>
 </div>
 <div id="fig-mem-path2-2" class="imageblock">
 <div class="content">
-<img src="_images/mem-path2-2.png" alt="mem path2 2">
+<img src="_images/mem-path2-2.png" alt="mem path2 2" width="635">
 </div>
 <div class="title">图 3. 存储器地址生成的信息路径</div>
 </div>
@@ -329,7 +321,7 @@ RAM的数据输入DI来自寄存器堆的读端口2，所以只能将某一寄�
 </div>
 <div id="fig-mem-path2-3" class="imageblock">
 <div class="content">
-<img src="_images/mem-path2-3.png" alt="mem path2 3">
+<img src="_images/mem-path2-3.png" alt="mem path2 3" width="635">
 </div>
 <div class="title">图 4. 寄存器数据写入RAM的信息传递路径</div>
 </div>
@@ -354,12 +346,12 @@ WDs是该多路器的选择信号，同时它也是RAM的输出使能控制信�
 </div>
 <div id="fig-mem-path2-4" class="imageblock">
 <div class="content">
-<img src="_images/mem-path2-4.png" alt="mem path2 4">
+<img src="_images/mem-path2-4.png" alt="mem path2 4" width="635">
 </div>
 <div class="title">图 5. 读出RAM数据写入寄存器的信息传递路径</div>
 </div>
 <div class="paragraph">
-<p>从RAM读出的数据到达WD端口后，根据<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>中学过方法，可将数据写入寄存器堆中的某个寄存器。</p>
+<p>从RAM读出的数据到达WD端口后，根据<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>学过的方法，可将数据写入寄存器堆中的某个寄存器。</p>
 </div>
 </div>
 </div>
@@ -382,7 +374,7 @@ WDs是该多路器的选择信号，同时它也是RAM的输出使能控制信�
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>可以在前面<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>电路图的基础上扩充。</p>
+<p>可以在前面<a href="dp-single_cycle_datapath.html" class="xref page">单周期数据通路实验</a>电路图的基础上扩充。</p>
 </li>
 <li>
 <p>ROM和数码管电路可以直接复制<a href="mem-rom.html" class="xref page">ROM实验</a>中完成的电路。</p>
@@ -458,6 +450,10 @@ WDs是该多路器的选择信号，同时它也是RAM的输出使能控制信�
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="mem-path.html">存储器应用实验</a></span>
+  <span class="next"><a href="cu-overview.html">概述（指令系统）</a></span>
+</nav>
 </article>
   </div>
 </main>

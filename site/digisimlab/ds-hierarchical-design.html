@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>层次化设计 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="ds-other-useful.html">
+    <link rel="next" href="ds-parametric-design.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -252,7 +244,7 @@ Digital仿真软件也支持自顶向下的设计方法。</p>
 <li>
 <p>子电路文件必须位于上层电路所在的文件夹或者子文件夹中</p>
 <div class="paragraph">
-<p>如果一个电路作为子电路嵌入到另一个电路中，Digital仿真软件并不是将子电路保存在上层电路中，只是保存了子电路的文件名，
+<p>如果一个电路作为子电路嵌入到另一个电路中，Digital仿真软件并不是将子电路保存在上层电路中，他只是在上层电路中保存了子电路的文件名，
 而且所保存的子电路文件名并不包含完整的文件路径。
 Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名，仿真时如果找不到则会报错。</p>
 </div>
@@ -296,7 +288,7 @@ Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名�
 <li>
 <p>只有已命名的输入和输出组件可以作为子电路的端口</p>
 <div class="paragraph">
-<p>如果一个电路没有输入输出组件，尽管它可以仿真，但是无法作为子电路与其他电路连接。例如，可以利用开关和LED代替输入、输出组件，虽然可以通过操控开关、观察LED进行仿真，但是这些开关和LED不能作为子电路的端口。</p>
+<p>如果一个电路没有输入输出组件，尽管它可以仿真，但是无法作为子电路与其他电路连接。例如，可以使用开关和LED代替输入、输出组件，虽然可以通过操控开关、观察LED进行仿真，但是这些开关和LED不能作为子电路的端口。</p>
 </div>
 <div class="paragraph">
 <p>此外，所有的输入、输出组件都必须命名，否则无法作为子电路添加到上层电路中。</p>
@@ -347,7 +339,7 @@ Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名�
 <h2 id="_子电路图形符号的外观"><a class="anchor" href="#_子电路图形符号的外观"></a>子电路图形符号的外观</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>默认情况下，子电路的图形符号是一个浅黄色背景的矩形框，宽度为3个栅格，高度视输入输出端口数量而定，输入端口在左边，输出端口在右边。
+<p>默认情况下，子电路的图形符号是一个浅黄色背景的矩形框，宽度为3个栅格，高度视输入输出端口数量而定，输入端口在矩形框的左边，输出端口在右边。
 下面说明几个改变子电路图形符号外观的方法。</p>
 </div>
 <div class="dlist">
@@ -363,7 +355,7 @@ Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名�
 <dt class="hdlist1">改变子电路图形符号的形状</dt>
 <dd>
 <p>在子电路的设计窗口中，点击菜单「编辑 ➤ 设置当前电路」，在弹出窗口的「高级设置」页中，可以通过「形状」下拉列表选择不同的形状。
-也可以自定义形状，如表示ALU时。创建自定义形状的方法，见<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的「5. 自定义外观」（5. Custom Shapes）。</p>
+也可以自定义形状，如表示ALU时。创建自定义形状的方法，见<a href="introduce-digitalsim.html#help-docu" class="xref page">软件帮助文档</a>的「5. 自定义外观」（5. Custom Shapes）。</p>
 </dd>
 </dl>
 </div>
@@ -374,7 +366,7 @@ Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名�
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-层次化设计的举例说明见<a href="introduce-digitalsim.html#help-docu" class="xref page">帮助文档</a>的「1.4 层次设计」（1.4 Hierarchical Design）。
+层次化设计的举例说明见<a href="introduce-digitalsim.html#help-docu" class="xref page">软件帮助文档</a>的「1.4 层次设计」（1.4 Hierarchical Design）。
 </td>
 </tr>
 </table>
@@ -393,6 +385,10 @@ Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名�
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="ds-other-useful.html">几个有用的组件</a></span>
+  <span class="next"><a href="ds-parametric-design.html">参数化设计</a></span>
+</nav>
 </article>
   </div>
 </main>

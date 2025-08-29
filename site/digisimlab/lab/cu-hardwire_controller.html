@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>硬布线控制实验（RIB） :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="cu-hardwire_controller-3.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +42,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -250,11 +241,11 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在前面<a href="dp-single_cycle_datapath.html" class="xref page">数据通路实验</a>的基础上，增加指令存储器、控制器等部件，可以看成是一个简单的计算机主机。原理框图如<a href="#fig-cu-arch-2">图 1</a>。</p>
+<p>在前面<a href="dp-single_cycle_datapath.html" class="xref page">单周期数据通路实验</a>的基础上，增加指令存储器、控制器等部件，可以看成是一个简单的计算机主机。原理框图如<a href="#fig-cu-arch-2">图 1</a>。</p>
 </div>
 <div id="fig-cu-arch-2" class="imageblock">
 <div class="content">
-<img src="_images/cu-arch-2.png" alt="cu arch 2">
+<img src="_images/cu-arch-2.png" alt="cu arch 2" width="588">
 </div>
 <div class="title">图 1. 支持分支指令的单周期数据通路及控制</div>
 </div>
@@ -264,11 +255,11 @@
 <p>指令部件包括指令存储器和程序计数器。根据指令系统的设计，指令存储器的字长是14位。作为实验计算机，只需要存放简单的程序，所以指令存储器的容量只有16个存储单元，可以存放16条指令。因此指令存储器的地址需4位，由程序计数器PC提供。复位时PC值为0，即第一条指令的地址。在Clk上升沿到来时，如果Load为1，则将imm装入PC，实现程序转移；否则PC值加1，即顺序执行。</p>
 </div>
 <div class="paragraph">
-<p>因为程序转移需要修改程序计数器，所以程序计数器PC需使用可预置数的计数器，该组件见<a href="bl-counter.html" class="xref page">计数器实验</a>的选做任务。
+<p>因为程序转移需要修改程序计数器，所以程序计数器PC需使用可预置数的计数器，该组件见<a href="bl-counter.html" class="xref page">计数器</a>实验的选做任务。
 在需要转移时，用控制信号LoadPC将转移地址作为预置数装入计数器。</p>
 </div>
 <div class="paragraph">
-<p>指令存储器是只读存储器，可以使用<a href="mem-rom.html" class="xref page">ROM实验</a>中学习的ROM模块，在初始化时写入要执行的指令编码。运行时只提供读访问，根据输入地址，输出该地址单元存储的指令。
+<p>指令存储器是只读存储器，可以使用<a href="mem-rom.html" class="xref page">只读存储器（ROM）实验</a>中学习的ROM模块，在初始化时写入要执行的指令编码。运行时只提供读访问，根据输入地址，输出该地址单元存储的指令。
 根据<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>设计，一条指令包含5个部分，opcode指定指令功能，连接到控制器的输入；rs1、rs2、rd连接到寄存器堆三个端口的地址；imm作为运算数经多路器连接到ALU的Y输入端，也可以作为转移地址送给PC。</p>
 </div>
 </div>
@@ -308,7 +299,7 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 </div>
 <div id="fig-cu-flow-addi" class="imageblock">
 <div class="content">
-<img src="_images/cu-flow-addi.png" alt="cu flow addi">
+<img src="_images/cu-flow-addi.png" alt="cu flow addi" width="588">
 </div>
 <div class="title">图 2. addi指令的信息流及控制</div>
 </div>
@@ -318,16 +309,16 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <table id="tab-cu-opdecode-1" class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. R型和I型指令的译码</caption>
 <colgroup>
-<col style="width: 14%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 14%;">
+<col style="width: 13.7254%;">
+<col style="width: 9.8039%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 10.7843%;">
+<col style="width: 10.7843%;">
+<col style="width: 11.7647%;">
+<col style="width: 11.7647%;">
+<col style="width: 13.7258%;">
 </colgroup>
 <tbody>
 <tr>
@@ -516,7 +507,7 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 </div>
 <div id="fig-cu-flow-branch" class="imageblock">
 <div class="content">
-<img src="_images/cu-flow-branch.png" alt="cu flow branch">
+<img src="_images/cu-flow-branch.png" alt="cu flow branch" width="588">
 </div>
 <div class="title">图 3. 转移发生时的分支指令信息流</div>
 </div>
@@ -533,7 +524,7 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 </div>
 <div id="fig-cu-branch" class="imageblock">
 <div class="content">
-<img src="_images/cu-branch.png" alt="cu branch" width="585">
+<img src="_images/cu-branch.png" alt="cu branch" width="520">
 </div>
 <div class="title">图 4. 转移信号的产生</div>
 </div>
@@ -543,16 +534,16 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 <table id="tab-cu-opdecode-2" class="tableblock frame-all grid-all stretch">
 <caption class="title">表 2. 分支指令的译码</caption>
 <colgroup>
-<col style="width: 14%;">
-<col style="width: 14%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
-<col style="width: 9%;">
+<col style="width: 14.4329%;">
+<col style="width: 14.4329%;">
+<col style="width: 9.2783%;">
+<col style="width: 6.1855%;">
+<col style="width: 6.1855%;">
+<col style="width: 6.1855%;">
+<col style="width: 10.3092%;">
+<col style="width: 10.3092%;">
+<col style="width: 11.3402%;">
+<col style="width: 11.3408%;">
 </colgroup>
 <thead>
 <tr>
@@ -653,7 +644,7 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 <p>设计实验电路</p>
 <div class="paragraph">
 <p>按照<a href="#fig-cu-arch-2">图 1</a>设计实验电路。
-可以在<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路实验</a>电路图的基础上扩充。
+可以在<a href="dp-single_cycle_datapath.html" class="xref page">单周期数据通路实验</a>电路图的基础上扩充。
 将上面生成的控制器作为子电路添加进来。
 程序计数器PC和指令存储器采用的组件见实验原理部分的<a href="#bm-cu-hc2-1">指令部件</a>。</p>
 </div>
@@ -675,11 +666,11 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>地址：机器指令  符号指令
- 0:  0x1815  addi r1, r0, 5
- 1:  0x202a  ori  r2, r0, 10
- 2:  0x09b0  sub  r3, r1, r2
- 3:  0x2ec0  bne  r2, r3, 0</pre>
+<pre>地址: 机器指令  符号指令
+  0:   0x1815   addi r1, r0, 5
+  1:   0x202a   ori  r2, r0, 10
+  2:   0x09b0   sub  r3, r1, r2
+  3:   0x2ec0   bne  r2, r3, 0</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -689,7 +680,7 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-符号指令翻译为机器指令的方法见<a href="cu-hardwire_controller-1.html#bm-cu-hc1-trans" class="xref page">用测试程序初始化指令存储器</a>。
+符号指令翻译为机器指令的方法见<a href="cu-hardwire_controller-1.html" class="xref page">硬布线控制实验（RI）</a> <a href="cu-hardwire_controller-1.html#bm-cu-hc1-trans" class="xref page">用测试程序初始化指令存储器</a>。
 </td>
 </tr>
 </table>
@@ -706,7 +697,7 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 <li>
 <p>运行斐波那契数列计算程序（选做）</p>
 <div class="paragraph">
-<p>将概述中<a href="cu-overview.html#exa-cu-isa" class="xref page">斐波那契数列计算程序</a>的机器码作为ROM的数据。
+<p>将<a href="cu-overview.html" class="xref page">概述（指令系统）</a>中<a href="cu-overview.html#exa-cu-isa" class="xref page">斐波那契数列计算程序</a>的机器码作为ROM的数据。
 仿真运行程序，验证结果是否正确。</p>
 </div>
 </li>
@@ -735,6 +726,9 @@ opcode只能分辨是不是分支指令以及比较的类型，还需要与比�
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a></span>
+</nav>
 </article>
   </div>
 </main>

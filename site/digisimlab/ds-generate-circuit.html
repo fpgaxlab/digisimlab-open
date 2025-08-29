@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>电路生成 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="ds-getting-started.html">
+    <link rel="next" href="ds-test-circuit.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -240,7 +232,7 @@
 </div>
 <div class="title">图 1. 带有使能控制的2-4译码器</div>
 </div>
-<table id="tab-ds-decoder2-4" class="tableblock frame-all grid-all stretch">
+<table id="tab-ds-decoder2-4" class="tableblock frame-all grid-all center" style="width: 67%;">
 <caption class="title">表 1. 带有使能控制的2-4译码器真值表</caption>
 <colgroup>
 <col style="width: 14.2857%;">
@@ -322,7 +314,7 @@
 <p>在真值表窗口中点击菜单项「新建 ➤ 组合电路 ➤ 3变量」（New ➤ Combinatorial ➤ 3 variables），窗口中显示有3个输入、1个输出的真值表，并且3个输入的数据也已经按穷举法生成，输出则全部为0。</p>
 </li>
 <li>
-<p>右键点击第一列的标题行A，将其改为“En”，接着将第2列、第3列的标题分别改为“A1”、“A0”。</p>
+<p>右键点击第一列的标题，将“A”改为“En”，接着将第二列、第三列的标题分别改为“A1”、“A0”。</p>
 </li>
 <li>
 <p>点击菜单项「编辑 ➤ 添加输出列」（Edit ➤ Add Output Column）三次，然后将4列输出的标题行分别改为“Y0”、“Y1”、“Y2”、“Y3”。</p>
@@ -367,7 +359,7 @@
 </div>
 <div class="paragraph">
 <p>和常规一样，与运算优先级高于或运算和异或运算。
-多个表达式可以用“，”或“;”分隔。
+多个表达式可以用逗号“,”或分号“;”分隔。
 如果需要命名表达式，可以使用<code>let</code>命令，如</p>
 </div>
 <div class="listingblock">
@@ -397,6 +389,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="ds-getting-started.html">新手入门</a></span>
+  <span class="next"><a href="ds-test-circuit.html">电路测试</a></span>
+</nav>
 </article>
   </div>
 </main>

@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>电路测试 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="ds-generate-circuit.html">
+    <link rel="next" href="ds-sim-dff.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -257,17 +249,17 @@
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#exa-test-vec">例 1</a>中第一行是电路的输入输出引脚的名称（即「标签/Label」属性），后面各行是测试数据，每一列与第一行的引脚对应。</p>
+<p><a href="#exa-test-vec">例 1</a>中第一行是电路的输入输出组件的名称（即「标签/Label」属性），后面各行是测试数据，每一列与第一行的名称对应。</p>
 </div>
 <div class="paragraph">
 <p>在测试时，Digital仿真软件将激励数据施加到电路的输入端口，然后将电路输出与预期响应值进行比较。
 激励和预期响应值除了“0”、“1”之外，还可以用 “X”表示不关心，“Z”表示高阻态。
-对于时钟输入，可以使用字母“C”表示一个时钟周期。Digital仿真软件在测试时首先施加其他激励数据，之后施加一个时钟脉冲，然后将电路输出与预期响应比较。</p>
+对于时钟输入，可以使用字母“C”表示一个时钟周期；Digital仿真软件在测试时首先施加其他激励数据，之后施加一个时钟脉冲，然后将电路输出与预期响应比较。</p>
 </div>
 </dd>
 <dt class="hdlist1">运行测试并分析测试结果</dt>
 <dd>
-<p>点击菜单项「仿真 ➤ 运行测试用例」（Simulation ➤ Run Tests）或对应工具条按钮，弹出「测试结果」（Test result）窗口。输出引脚的数据如果与预期相符，则以绿底色显示；如果不相符，则以红底色显示，并且同时给出预期值和测试值的对比。</p>
+<p>点击菜单项「仿真 ➤ 运行测试用例」（Simulation ➤ Run Tests）或对应工具条按钮，弹出「测试结果」（Test result）窗口。输出端的数据如果与预期相符，则以绿底色显示；如果不相符，则以红底色显示，并且同时给出预期值和测试值的对比。</p>
 <div class="paragraph">
 <p>在仿真状态下，点击测试结果窗口的某行数据，会在电路图上显示该行数据，便于进行结果分析。</p>
 </div>
@@ -355,6 +347,10 @@ repeat(4)  1  bits(2, n) bits(4, 1&lt;&lt;n)</code></pre>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="ds-generate-circuit.html">电路生成</a></span>
+  <span class="next"><a href="ds-sim-dff.html">时序电路仿真</a></span>
+</nav>
 </article>
   </div>
 </main>

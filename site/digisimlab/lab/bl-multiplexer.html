@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>多路选择器实验 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="../ds-parametric-design.html">
+    <link rel="next" href="bl-decoder.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
@@ -250,12 +242,12 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 </div>
 <div id="fig-mux-1" class="imageblock">
 <div class="content">
-<img src="_images/bl-mux-1.png" alt="bl mux 1" width="414">
+<img src="_images/bl-mux-1.png" alt="bl mux 1" width="362">
 </div>
 <div class="title">图 1. 多路选择器的电路符号和功能</div>
 </div>
 <div class="paragraph">
-<p>本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>、<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元实验</a>、<a href="dp-single_cycle_datapath.html" class="xref page">数据通路实验</a>等实验中都会用到多路器。</p>
+<p>本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆</a>、<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元</a>、<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>等实验中都会用到多路器。</p>
 </div>
 </div>
 </div>
@@ -265,7 +257,7 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>参照第一章Digital仿真软件使用指南的“<a href="../ds-getting-started.html" class="xref page">新手入门</a>”，熟悉Digital仿真软件的基本操作。</p>
+<p>参照<a href="../ds-digital-sim-guide.html" class="xref page">Digital仿真软件使用指南</a>的<a href="../ds-getting-started.html" class="xref page">新手入门</a>，熟悉Digital仿真软件的基本操作。</p>
 </li>
 <li>
 <p>使用多路选择器组件设计2选1多路器的功能验证电路图，要求数据位宽为4位，如<a href="#fig-mux-2">图 2</a>所示。</p>
@@ -287,7 +279,7 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 <i class="fa icon-warning" title="警告"></i>
 </td>
 <td class="content">
-如果电气连通的导线所连接的各端口的数据位数不一致，启动仿真时会报错，并且用红色标出出错的位置。
+如果电气连通的导线所连接的各端口的数据位数不一致，启动仿真时会报错，并且用红色标出错误位置。
 </td>
 </tr>
 </table>
@@ -300,7 +292,7 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1">提问</dt>
+<dt class="hdlist1">思考</dt>
 <dd>
 <p>在后面的实验中还会用到4选1多路器，那时应该如何设置多路器组件的「选择位」属性？</p>
 </dd>
@@ -349,6 +341,10 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="../ds-parametric-design.html">参数化设计</a></span>
+  <span class="next"><a href="bl-decoder.html">译码器实验</a></span>
+</nav>
 </article>
   </div>
 </main>

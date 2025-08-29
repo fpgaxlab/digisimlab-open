@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>几个有用的组件 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <link rel="prev" href="ds-sim-dff.html">
+    <link rel="next" href="ds-hierarchical-design.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -222,18 +214,18 @@
 <article class="doc">
 <h1 class="page">几个有用的组件</h1>
 <div class="sect1">
-<h2 id="bm-const"><a class="anchor" href="#bm-const"></a>常量（Constant value）</h2>
+<h2 id="bm-const"><a class="anchor" href="#bm-const"></a>常量</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>该组件位于菜单「组件 ➤ 导线 ➤ 常量」（Components ➤ Wire ➤ Constant value），用于提供一个常数。可以通过属性修改位宽和值。</p>
+<p>常量组件位于菜单「组件 ➤ 导线 ➤ 常量」（Components ➤ Wire ➤ Constant value），用于提供一个常数。可以通过属性修改位宽和值。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="bm-probe"><a class="anchor" href="#bm-probe"></a>探测器（Probe）</h2>
+<h2 id="bm-probe"><a class="anchor" href="#bm-probe"></a>探测器</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>该组件位于菜单「组件 ➤ 输入输出 ➤ 探测器」（Components ➤ IO ➤ Probe）。
+<p>探测器组件位于菜单「组件 ➤ 输入输出 ➤ 探测器」（Components ➤ IO ➤ Probe）。
 用于读取探测点的数值。</p>
 </div>
 <div class="paragraph">
@@ -254,7 +246,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="bm-splitter"><a class="anchor" href="#bm-splitter"></a>分线器/并线器（Splitter/Merger）</h2>
+<h2 id="bm-splitter"><a class="anchor" href="#bm-splitter"></a>分线器/并线器</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>该组件位于菜单「组件 ➤ 导线 ➤ 分裂器/合并器」（Components ➤ Wire ➤ Splitter/Merger）。</p>
@@ -266,7 +258,7 @@
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-本书将「Splitter」译为「分线器」，「Merger」译为「并线器」，与软件翻译略有不同。
+本书将“Splitter”译为「分线器」，“Merger”译为「并线器」，与Digital仿真软件的翻译略有不同。
 </td>
 </tr>
 </table>
@@ -283,7 +275,7 @@
 <div class="title">图 1. 分线器/并线器示例</div>
 </div>
 <div class="paragraph">
-<p>该组件有两个重要的属性：「输入分割」（Input Splitting）和「输出分割」（Output splitting）。输入、输出如何分割，完全取决于这两个属性值的设置。分割属性的表示方法非常灵活，总体上可以分为两类，下面分别介绍。</p>
+<p>该组件有两个重要的属性：「输入分割」（Input Splitting）和「输出分割」（Output splitting）。这两个属性值决定了输入、输出如何分割。分割属性的表示方法非常灵活，总体上可以分为两类，下面分别介绍。</p>
 </div>
 <div class="sect2">
 <h3 id="_以位数表示分割"><a class="anchor" href="#_以位数表示分割"></a>以位数表示分割</h3>
@@ -323,7 +315,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>对于多个相同导线数的情况，可以用乘号简化；如<code>2,2,2</code>可以表示为<code>2*3</code>，<code>3,3</code>可以表示为<code>3*2</code>。</p>
+<p>对于多个相同导线数的情况，可以用乘号简化表达；如“2,2,2”可以表示为“2*3”，“3,3”可以表示为“3*2”。</p>
 </div>
 </div>
 <div class="sect2">
@@ -364,8 +356,8 @@
 <div class="title">图 2. 分线器/并线器的灵活分割</div>
 </div>
 <div class="paragraph">
-<p>仔细对比<a href="#fig-ds-splitter-1">图 1</a>(a)和<a href="#fig-ds-splitter-2">图 2</a>(a)，<a href="#fig-ds-splitter-2">图 2</a>(a)的特殊之处在于输出分割的排列顺序为<code>0-1,4-5,2-3</code>，这只有用位号表示才能实现。
-<a href="#fig-ds-splitter-2">图 2</a>(b)的特殊之处在于位号为2的导线并没有出现在输出中，也就是说输入分割和输出分割的总位数可以不相等，可以只抽取其中一部分导线。
+<p>仔细对比<a href="#fig-ds-splitter-1">图 1</a>(a)和<a href="#fig-ds-splitter-2">图 2</a>(a)，<a href="#fig-ds-splitter-2">图 2</a>(a)的特殊之处在于输出分割的排列顺序为“0-1,4-5,2-3”，这种情况只有用位号表示才能实现。
+<a href="#fig-ds-splitter-2">图 2</a>(b)的特殊之处在于位号为2的导线并没有出现在输出中，也就是说输出分割的总位数可以少于输入分割的总位数，只抽取其中一部分导线。
 <a href="#fig-ds-splitter-2">图 2</a>的分割属性设置如<a href="#tab-ds-splitter-3">表 3</a>所示。</p>
 </div>
 <table id="tab-ds-splitter-3" class="tableblock frame-all grid-all stretch">
@@ -396,7 +388,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>特别需要说明的是，<a href="#fig-ds-splitter-2">图 2</a>(b)位号为3的导线是1位的输出，其分割属性值为<code>3-3</code>。</p>
+<p>特别需要说明的是，<a href="#fig-ds-splitter-2">图 2</a>(b)位号为3的导线是1位的输出，其分割属性值为“3-3”。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -414,19 +406,19 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="bm-extender"><a class="anchor" href="#bm-extender"></a>符号扩展器（Sign extender）</h2>
+<h2 id="bm-extender"><a class="anchor" href="#bm-extender"></a>符号扩展器</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>该组件位于菜单「组件 ➤ 运算器 ➤ 符号扩展器」（Components ➤ Arithmetic ➤ Sign extender）。
-如果需要将位宽较小的导线扩展为更大的位宽，并且保持符号位不变，就需要「符号扩展器」（Sign extender）组件。该组件需要设置「输入位宽」和「输出位宽」两个属性，且输入位宽必须小于输出位宽。</p>
+如果需要将位宽较小的导线扩展为更大的位宽，并且保持符号位不变，就需要「符号扩展器」组件。该组件需要设置「输入位宽」和「输出位宽」两个属性，且输入位宽必须小于输出位宽。</p>
 </div>
 <div class="paragraph">
-<p>虽然「Splitter/Merger」组件也可以扩展导线的位宽，但是只能扩展固定的常数。而符号扩展器则是根据电路工作时的实际数据进行扩展，如果输入数据的最高位为“0”，扩展0；为“1”则扩展1。在计算机中，最高位表示带符号数的符号，故称为符号扩展。</p>
+<p>虽然「分线器/并线器」组件也可以扩展导线的位宽，但是只能扩展固定的常数。而符号扩展器则是根据电路工作时的实际数据进行扩展，如果输入数据的最高位为“0”，扩展0；为“1”则扩展1。在计算机中，最高位表示带符号数的符号，故称为符号扩展。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="bm-tunnel"><a class="anchor" href="#bm-tunnel"></a>隧道（Tunnel）</h2>
+<h2 id="bm-tunnel"><a class="anchor" href="#bm-tunnel"></a>隧道</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>该组件位于菜单「组件 ➤ 导线 ➤ 隧道」（Components ➤ Wire ➤ Tunnel）。</p>
@@ -469,6 +461,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="ds-sim-dff.html">时序电路仿真</a></span>
+  <span class="next"><a href="ds-hierarchical-design.html">层次化设计</a></span>
+</nav>
 </article>
   </div>
 </main>

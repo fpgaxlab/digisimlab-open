@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>时序电路仿真 :: 计算机组成原理实验指导</title>
-    <meta name="generator" content="Antora 3.1.10">
+    <title>时序电路的仿真 :: 计算机组成原理实验指导</title>
+    <link rel="prev" href="ds-test-circuit.html">
+    <link rel="next" href="ds-other-useful.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
     <link rel="stylesheet" href="../_/css/site.css">
 <!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
   </head>
@@ -41,21 +43,11 @@
     <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">前言</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Digital仿真软件使用指南</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="ds-brief-introduction.html">简介</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="introduce-digitalsim.html">下载、安装及启动</a>
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="ds-getting-started.html">新手入门</a>
@@ -220,7 +212,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">时序电路仿真</h1>
+<h1 class="page">时序电路的仿真</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -314,10 +306,10 @@
 <h2 id="_实时时钟"><a class="anchor" href="#_实时时钟"></a>实时时钟</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>右键点击Clk引脚，在属性窗口中勾选「使用实时时钟」（Start real time clock），「频率」（Frequency）设置为1Hz（赫兹）。</p>
+<p>右键点击Clk输入组件，在属性窗口中勾选「使用实时时钟」（Start real time clock），「频率」（Frequency）设置为1Hz（赫兹）。</p>
 </div>
 <div class="paragraph">
-<p>断开D触发器的D输入端与输入引脚In的连接，将D触发器的反向输出端连接到D输入端，构成一个二分频器。如<a href="#fig-ds-dff">图 2</a>所示。</p>
+<p>断开D触发器的D输入端与输入端口In的连接，将D触发器的反向输出端连接到D输入端，构成一个二分频器。如<a href="#fig-ds-dff">图 2</a>所示。</p>
 </div>
 <div id="fig-ds-dff" class="imageblock">
 <div class="content">
@@ -345,6 +337,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="ds-test-circuit.html">电路测试</a></span>
+  <span class="next"><a href="ds-other-useful.html">几个有用的组件</a></span>
+</nav>
 </article>
   </div>
 </main>
