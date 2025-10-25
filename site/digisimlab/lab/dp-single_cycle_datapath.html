@@ -216,10 +216,18 @@
 <div class="sect1">
 <h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>．理解单周期数据通路的组成结构。
-．掌握单周期数据通路信息加工过程。
-．锻炼分析问题与解决问题的能力。</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解单周期数据通路的组成结构。</p>
+</li>
+<li>
+<p>掌握单周期数据通路信息加工过程。</p>
+</li>
+<li>
+<p>锻炼分析问题与解决问题的能力。</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -229,29 +237,15 @@
 <div class="paragraph">
 <p>计算机本质上是一个加工处理二进制信息的电路，包括ALU、寄存器、存储器等部件，这些部件通过信号线以某种方式连接起来，并且在控制器的控制下，使信息按照一定的规则在各个部件之间有序流动，完成信息的加工处理。这些信息加工部件及信息传递路径的总和就称为<strong>数据通路</strong>。</p>
 </div>
-<div class="sect2">
-<h3 id="_单总线多周期数据通路"><a class="anchor" href="#_单总线多周期数据通路"></a>单总线（多周期）数据通路</h3>
 <div class="paragraph">
 <p>不同结构的数据通路在成本、速度及工作方式上有着较大差异。
-<a href="#fig-9">图 1</a>是一个<strong>单总线数据通路</strong>的例子，在这个数据通路上完成一次加法运算需要3个时钟周期。</p>
-</div>
-<div id="fig-9" class="imageblock">
-<div class="content">
-<img src="_images/image9.png" alt="多周期数据通路" width="407" height="392">
-</div>
-<div class="title">图 1. 单总线数据通路示例</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_单周期数据通路"><a class="anchor" href="#_单周期数据通路"></a>单周期数据通路</h3>
-<div class="paragraph">
-<p><a href="#fig-dp-1">图 2</a>是另一种数据通路的结构，它只需要一个时钟周期就可以完成一次运算处理，称为<strong>单周期数据通路</strong>。
+总体来说可以分为两种类型：多周期数据通路和单周期数据通路。多周期数据通路完成一次加法运算需要多个时钟周期（如3个周期），而单周期数据通路只需要一个时钟周期就可以完成一次运算处理。
 虽然不能单纯以时钟个数的多少来评价性能的优劣，但从发展历史来看，单总线数据通路是早期技术的产物，当时的主要考量是减少连接线的数量、降低成本。
 而现代处理器更关注性能，普遍采用流水线结构。
 单周期数据通路更有利于演变为流水线结构，所以本实验只考虑单周期数据通路。</p>
 </div>
 <div class="paragraph">
-<p><a href="#fig-dp-1">图 2</a>使用了前面实验完成的<a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>和<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>。
+<p><a href="#fig-dp-1">图 1</a>是一个单周期数据通路的实例，使用了前面实验完成的<a href="op-arithmetic_logic_unit.html" class="xref page">ALU</a>和<a href="dp-register_file.html" class="xref page">三端口寄存器堆</a>。
 ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入端Y的运算数据可以来自寄存器堆的RD2读端口，或者来自立即数。
 寄存器堆写端口WD的数据来自ALU的运算结果F。
 该数据通路可以在一个周期内完成从寄存器堆读数据、ALU运算、运算结果保存到寄存器堆。</p>
@@ -260,10 +254,10 @@ ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入�
 <div class="content">
 <img src="_images/dp-datapath-1.png" alt="单周期数据通路" width="487" height="350">
 </div>
-<div class="title">图 2. 单周期数据通路</div>
+<div class="title">图 1. 单周期数据通路</div>
 </div>
-<div class="sect3">
-<h4 id="bm-dp1-rr"><a class="anchor" href="#bm-dp1-rr"></a>两个寄存器之间的运算</h4>
+<div class="sect2">
+<h3 id="bm-dp1-rr"><a class="anchor" href="#bm-dp1-rr"></a>两个寄存器之间的运算</h3>
 <div class="paragraph">
 <p>下面以两个寄存器间的运算为例，说明数据通路的信息加工过程。
 两个寄存器间的运算关系可用下式表示。</p>
@@ -275,7 +269,7 @@ ALU输入端X的运算数据来自寄存器堆的RD1读端口，另一个输入�
 <p>式中，R[n]表示编号为n的寄存器的值，op表示ALU进行的运算。</p>
 </div>
 <div class="paragraph">
-<p>信息传递路径如<a href="#fig-dp-2">图 3</a>绿线所示。
+<p>信息传递路径如<a href="#fig-dp-2">图 2</a>绿线所示。
 两个寄存器的值分别从RD1和RD2读出，为此需要通过RA1和RA2提供寄存器号。
 RD1直接连到了ALU的X输入端，但RD2和ALU的Y输入端之间还插入了一个2选1多路器。
 因为RD2连接的多路器通道0，为了将RD2送到Y端，需要控制Ys为0，使2选1多路器选择通道0的RD2。
@@ -286,13 +280,13 @@ ALU的运算功能由M、S1、S0控制。运算结果F直接作为寄存器堆�
 <div class="content">
 <img src="_images/dp-datapath-1-3.png" alt="寄存器之间的运算通路" width="487" height="350">
 </div>
-<div class="title">图 3. 两个寄存器之间的运算通路</div>
+<div class="title">图 2. 两个寄存器之间的运算通路</div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="bm-dp1-ri"><a class="anchor" href="#bm-dp1-ri"></a>寄存器和立即数之间的运算</h4>
+<div class="sect2">
+<h3 id="bm-dp1-ri"><a class="anchor" href="#bm-dp1-ri"></a>寄存器和立即数之间的运算</h3>
 <div class="paragraph">
-<p>一个寄存器和立即数Imm进行运算的信息传递路径如<a href="#fig-dp-3">图 4</a>所示，其运算关系为</p>
+<p>一个寄存器和立即数Imm进行运算的信息传递路径如<a href="#fig-dp-3">图 3</a>所示，其运算关系为</p>
 </div>
 <div class="paragraph text-center">
 <p>R[WA] = R[RA1] op Imm</p>
@@ -304,7 +298,7 @@ ALU的运算功能由M、S1、S0控制。运算结果F直接作为寄存器堆�
 <div class="content">
 <img src="_images/dp-datapath-1-4.png" alt="寄存器和立即数的运算通路" width="487" height="350">
 </div>
-<div class="title">图 4. 寄存器和立即数之间的运算通路</div>
+<div class="title">图 3. 寄存器和立即数之间的运算通路</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -313,7 +307,7 @@ ALU的运算功能由M、S1、S0控制。运算结果F直接作为寄存器堆�
 <i class="fa icon-note" title="注"></i>
 </td>
 <td class="content">
-和Digital仿真软件不同，<a href="#fig-dp-2">图 3</a>、<a href="#fig-dp-3">图 4</a>绿色导线的深浅并不代表其电平状态，只是为了更直观地表达互不相连的交叉线。
+和Digital仿真软件不同，<a href="#fig-dp-2">图 2</a>、<a href="#fig-dp-3">图 3</a>绿色导线的深浅并不代表其电平状态，只是为了更直观地表达互不相连的交叉线。
 </td>
 </tr>
 </table>
@@ -336,16 +330,29 @@ ALU的运算功能由M、S1、S0控制。运算结果F直接作为寄存器堆�
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
 <h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
-<p>用Digital仿真软件按照<a href="#fig-dp-1">图 2</a>绘制电路图。
+<p>用Digital仿真软件按照<a href="#fig-dp-1">图 1</a>绘制电路图。
 数据通路的数据位数为4位。
 ALU和三端口寄存器堆使用前面实验完成的。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>必要时可调整子电路符号的宽度和端口顺序。相关操作参考<a href="../ds-hierarchical-design.html#bm-ds-hier-1" class="xref page">层次化设计 - 子电路图形符号的外观</a>。</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
