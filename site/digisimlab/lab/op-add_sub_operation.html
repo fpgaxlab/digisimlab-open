@@ -546,8 +546,48 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </td>
 <td class="content">
 <div class="paragraph">
-<p>为方便分析运算结果，可以在输出端F添加两个探测器组件，数字格式分别设置为“十进制”和“带符号十进制”。</p>
+<p>为方便分析运算结果，可以在输出端F添加两个探测器组件，「数字格式」属性分别设置为“Decimal”和“带符号十进制”。</p>
 </div>
+<div class="paragraph">
+<p>或者事先列出负数的4位补码与真值的对应关系：</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+<col style="width: 11%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">补码</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1001</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1010</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1101</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1110</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1111</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">真值</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−8</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−7</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−6</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−5</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−4</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−3</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−2</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">−1</p></td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
 </table>
