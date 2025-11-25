@@ -161,14 +161,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.31</span>
+    <span class="version">1.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.31</a>
+          <a href="../index.html">1.3</a>
         </li>
         <li class="version">
           <a href="../1.2/index.html">1.2</a>
@@ -198,9 +198,9 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.31</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
   <div class="version-menu">
-    <a class="version is-current" href="op-arithmetic_logic_unit.html">1.31</a>
+    <a class="version is-current" href="op-arithmetic_logic_unit.html">1.3</a>
     <a class="version" href="../1.2/lab/op-arithmetic_logic_unit.html">1.2</a>
     <a class="version" href="../1.1/lab/op-arithmetic_logic_unit.html">1.1</a>
     <a class="version" href="../1.0/lab/op-arithmetic_logic_unit.html">1.0</a>
@@ -243,6 +243,58 @@
 </div>
 <div class="title">图 1. 简单ALU原理图</div>
 </div>
+<div class="paragraph">
+<p>由<a href="#fig-23">图 1</a>可知运算功能与控制端的对应关系如<a href="#tab-op-alu-1">表 1</a>所示。</p>
+</div>
+<table id="tab-op-alu-1" class="tableblock frame-all grid-all" style="width: 40%;">
+<caption class="title">表 1. ALU运算功能</caption>
+<colgroup>
+<col style="width: 18%;">
+<col style="width: 18%;">
+<col style="width: 18%;">
+<col style="width: 46%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">M</th>
+<th class="tableblock halign-left valign-top">S1</th>
+<th class="tableblock halign-left valign-top">S0</th>
+<th class="tableblock halign-left valign-top">运算功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F=X＋Y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F=X−Y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F=X∧Y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F=X∨Y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F=X⊕Y</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>该ALU电路没有用非门实现逻辑非（NOT）运算，这是因为异或1可以实现取反。通过使Y各位全为1，选择异或运算可以实现对X的非运算。</p>
 </div>
