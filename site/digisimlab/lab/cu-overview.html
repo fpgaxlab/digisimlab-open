@@ -161,14 +161,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.3</span>
+    <span class="version">1.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.3</a>
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../1.3/index.html">1.3</a>
         </li>
         <li class="version">
           <a href="../1.2/index.html">1.2</a>
@@ -198,9 +201,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.4</button>
   <div class="version-menu">
-    <a class="version is-current" href="cu-overview.html">1.3</a>
+    <a class="version is-current" href="cu-overview.html">1.4</a>
+    <a class="version" href="../1.3/lab/cu-overview.html">1.3</a>
     <a class="version" href="../1.2/lab/cu-overview.html">1.2</a>
     <a class="version" href="../1.1/lab/cu-overview.html">1.1</a>
     <a class="version" href="../1.0/lab/cu-overview.html">1.0</a>
@@ -240,16 +244,32 @@
 <div class="title">图 1. 指令格式</div>
 </div>
 <div class="paragraph">
-<p>实验计算机设计了R型和I型运算指令、B型分支指令以及M型访存指令，指令功能及操作码编码见<a href="#tab-cu-instr-code">表 1</a>。</p>
+<p>实验计算机设计了R型和I型运算指令、B型分支指令以及M型访存指令。</p>
 </div>
 <div class="paragraph">
-<p>R型指令的两个源操作数均来自寄存器，分别由rs1和rs2给出寄存器号。I型指令的一个源操作数来自寄存器，由rs1给出寄存器号；另一个源操作数是立即数，由指令的imm字段提供。运算结果存入由rd指定的寄存器中。</p>
+<p>R型运算指令的两个源操作数均来自寄存器，分别由rs1和rs2给出寄存器号；运算结果存入由rd指定的寄存器中。R型指令助记符形式如下：</p>
+</div>
+<div class="paragraph text-center">
+<p>op rd, rs1, rs2</p>
 </div>
 <div class="paragraph">
-<p>B型指令根据rs1和rs2的大小关系决定是顺序执行下一条指令，还是跳转去执行地址为imm的指令。</p>
+<p>I型运算指令的一个源操作数来自寄存器，由rs1给出寄存器号；另一个源操作数是立即数，由指令的imm字段提供；运算结果存入由rd指定的寄存器中。I型指令助记符形式如下：</p>
+</div>
+<div class="paragraph text-center">
+<p>op rd, rs1, imm</p>
+</div>
+<div class="paragraph">
+<p>B型分支指令根据rs1和rs2的大小关系决定是顺序执行下一条指令，还是跳转去执行地址为imm的指令。指令助记符形式见<a href="#tab-cu-instr-code">表 1</a>。</p>
+</div>
+<div class="paragraph">
+<p>M型访存指令完成数据存储器和通用寄存器之间的数据传送。
+load指令将指定存储单元的内容装入指定寄存器，store将指定寄存器内容写入指定存储单元。指令助记符形式见<a href="#tab-cu-instr-code">表 1</a>。</p>
+</div>
+<div class="paragraph">
+<p><a href="#tab-cu-instr-code">表 1</a>汇总了四种类型的指令助记符、操作码编码及指令功能的符号描述。</p>
 </div>
 <table id="tab-cu-instr-code" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. 指令助记符、操作码编码及功能</caption>
+<caption class="title">表 1. 指令助记符、操作码编码及功能描述</caption>
 <colgroup>
 <col style="width: 18%;">
 <col style="width: 32%;">
@@ -348,7 +368,8 @@
 </table>
 <div class="paragraph">
 <p>下面给出一个例子，使用上述指令系统，编写一个计算斐波那契数列的程序。
-斐波那契数列（Fibonacci sequence）是指这样一个数列：{1,1,2,3,5,8,13,21&#8230;&#8203;}，它的首项为1，第2项也为1，且从第3项起,每一项都等于它前两项之和。用符号定义如下：F(1)=1，F(2)=1， F(n)=F(n-1)+F(n-2)（n ≥ 3，n ∈ N*）。</p>
+斐波那契数列（Fibonacci sequence）是指这样一个数列：{1,1,2,3,5,8,13,21&#8230;&#8203;}，它的首项为1，第2项也为1，且从第3项起,每一项都等于它前两项之和。用符号定义如下：F(1)=1，F(2)=1， F(n)=F(n-1)+F(n-2)（n ≥ 3，n ∈ N*）。
+计算斐波那契数列的汇编语言和机器指令程序见<a href="#exa-cu-isa">例 1</a>。</p>
 </div>
 <div id="exa-cu-isa" class="exampleblock">
 <div class="title">例 1. 计算斐波那契数列的程序</div>

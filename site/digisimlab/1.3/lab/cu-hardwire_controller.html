@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>硬布线控制实验（RIB） :: 计算机组成原理实验指导</title>
+    <link rel="prev" href="cu-hardwire_controller-3.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduce-digitalsim.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">逻辑电路基础</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="op-compare.html">比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">1.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">计算机组成原理实验指导</a></li>
+    <li>控制器</li>
+    <li><a href="cu-hardwire_controller.html">硬布线控制实验（RIB）</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <div class="version-menu">
+    <a class="version" href="../../lab/cu-hardwire_controller.html">1.4</a>
+    <a class="version is-current" href="cu-hardwire_controller.html">1.3</a>
+    <a class="version" href="../../1.2/lab/cu-hardwire_controller.html">1.2</a>
+    <a class="version" href="../../1.1/lab/cu-hardwire_controller.html">1.1</a>
+    <a class="version" href="../../1.0/lab/cu-hardwire_controller.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">硬布线控制实验（RIB）</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>注：“RIB”表示控制器支持R型和I型运算指令以及B型分支指令。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验目的"><a class="anchor" href="#_实验目的"></a>实验目的</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>理解R型和I型整数运算指令以及B型分支指令的功能。</p>
+</li>
+<li>
+<p>理解单周期数据通路的组成结构及其信息加工过程。</p>
+</li>
+<li>
+<p>掌握单周期硬布线控制信号的产生原理和设计方法。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>本项目是在<a href="cu-hardwire_controller-1.html" class="xref page">支持运算指令的硬布线控制实验</a>的基础上增加对分支指令指令的支持。原理框图如<a href="#fig-cu-arch-2">图 1</a>。</p>
+</div>
+<div id="fig-cu-arch-2" class="imageblock">
+<div class="content">
+<img src="_images/cu-arch-2.png" alt="cu arch 2" width="588">
+</div>
+<div class="title">图 1. 支持分支指令的单周期数据通路及控制</div>
+</div>
+<div class="paragraph">
+<p>由于程序转移需要修改程序计数器，和仅<a href="cu-hardwire_controller-1.html" class="xref page">支持运算指令的硬布线控制实验</a>的原理图相比，<a href="#fig-cu-arch-2">图 1</a>的主要变化如下。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>立即数传递路径</p>
+<div class="paragraph">
+<p>根据<a href="cu-overview.html#bookmark-cu-isa" class="xref page">指令系统</a>设计，转移地址由立即数imm提供。
+所以，imm不仅可以作为运算数经多路器连接到ALU的Y输入端，也可作为转移地址送给PC。</p>
+</div>
+</li>
+<li>
+<p>程序计数器PC</p>
+<div class="paragraph">
+<p>程序计数器PC具有装数功能，由装数使能端口Load控制；在Clk上升沿到来时，如果Load为1，则将imm装入PC，实现程序转移；否则PC值加1，即顺序执行。</p>
+</div>
+</li>
+<li>
+<p>控制器</p>
+<div class="paragraph">
+<p>控制器输出增加了装数使能信号LoadPC，连接到PC的Load端口。LoadPC为1时，PC装载来自指令中的立即数imm；为0时，PC加1。
+控制器的输入增加了ALU运算结果的特征标志，用于比较运算。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>在<a href="cu-hardwire_controller-1.html" class="xref page">硬布线控制实验（RI）</a>中，已经练习了实现R型和I型运算指令的控制器的设计，基本方法是根据opcode译码产生数据通路上的各个控制信号，实现指令功能。对于B型分支指令，不仅要进行指令译码，还需要依据来自ALU的标志位判断是否产生转移控制信号。
+下面举例说明支持分支指令的控制器设计方法。</p>
+</div>
+<div class="paragraph">
+<p>以<code>beq rs1, rs2, imm</code>指令为例，该指令比较rs1和rs2寄存器的值是否相等，如果相等，则程序转移，下一条指令的地址由imm给出；如果不相等，则顺序执行。
+转移发生时分支指令的信息流如<a href="#fig-cu-flow-branch">图 2</a>所示，绿色通路表示有效的信息流，红色表示控制信号。</p>
+</div>
+<div id="fig-cu-flow-branch" class="imageblock">
+<div class="content">
+<img src="_images/cu-flow-branch.png" alt="cu flow branch" width="588">
+</div>
+<div class="title">图 2. 转移发生时的分支指令信息流</div>
+</div>
+<div class="paragraph">
+<p>当转移发生时，控制信号LoadPC=1，将转移地址装入PC；如果不发生转移，LoadPC=0，PC加1。
+可见，LoadPC并不是固定为1或为0，而是要根据比较运算的结果决定程序是否转移。所以，LoadPC不能单纯根据opcode产生。
+opcode只能分辨是不是分支指令以及比较的类型，还需要与比较运算配合，才能产生控制信号。</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig-cu-branch">图 3</a>给出了转移信号的生成方法。
+其中比较器可以采用前面<a href="op-compare.html" class="xref page">比较运算实验</a>的电路，SF、ZF、OF、CF是来自ALU的运算结果特征标志，EQ、NE、LT、GE是比较的结果，分别表示相等、不等、小于、大于等于。
+4选1多路器用来从4种比较结果中选择一个。2位的选择信号brType由指令译码根据分支指令的类型产生。
+但是多路选择器MUX输出的信号并不能直接作为LoadPC信号，还要判断当前指令是不是转移指令。所以MUX的输出经过一个与门，由branch信号控制与门，如果不是分支指令，branch为0，则LoadPC为0；若是分支指令，branch为1，则将多路选择器的输出传递到与门输出作为LoadPC，也就是根据指令类型和比较结果决定程序是否转移。</p>
+</div>
+<div id="fig-cu-branch" class="imageblock">
+<div class="content">
+<img src="_images/cu-branch.png" alt="cu branch" width="560">
+</div>
+<div class="title">图 3. 转移信号的产生</div>
+</div>
+<div class="paragraph">
+<p><a href="#tab-cu-opdecode-2">表 1</a>给出了beq指令的控制信号取值。</p>
+</div>
+<table id="tab-cu-opdecode-2" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. 分支指令的译码</caption>
+<colgroup>
+<col style="width: 14.4329%;">
+<col style="width: 14.4329%;">
+<col style="width: 9.2783%;">
+<col style="width: 6.1855%;">
+<col style="width: 6.1855%;">
+<col style="width: 6.1855%;">
+<col style="width: 10.3092%;">
+<col style="width: 10.3092%;">
+<col style="width: 11.3402%;">
+<col style="width: 11.3408%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">指令助记符</th>
+<th class="tableblock halign-left valign-top">opcode</th>
+<th class="tableblock halign-left valign-top">Ysel</th>
+<th class="tableblock halign-left valign-top">M</th>
+<th class="tableblock halign-left valign-top">S1</th>
+<th class="tableblock halign-left valign-top">S0</th>
+<th class="tableblock halign-left valign-top">RegWr</th>
+<th class="tableblock halign-left valign-top">branch</th>
+<th class="tableblock halign-left valign-top">brType1</th>
+<th class="tableblock halign-left valign-top">brType0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bne</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">blt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1101</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>依据标志位比较数的大小，ALU应进行减法运算。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>设计控制器</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>opcode译码</p>
+<div class="paragraph">
+<p>根据各个指令的功能，设计真值表的输出取值。使用真值表生成电路图，操作方法见<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。
+注意， <a href="#tab-cu-opdecode-2">表 1</a>只列出了4条分支指令，完整的真值表应包含运算指令。</p>
+</div>
+</li>
+<li>
+<p>分支判断</p>
+<div class="paragraph">
+<p>根据<a href="#fig-cu-branch">图 3</a>产生转移控制信号LoadPC。</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>设计实验电路</p>
+<div class="paragraph">
+<p>按照<a href="#fig-cu-arch-2">图 1</a>设计实验电路。
+可以在<a href="dp-single_cycle_datapath.html" class="xref page">单周期数据通路实验</a>电路图的基础上扩充。
+将上面生成的控制器作为子电路添加进来。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>程序计数器PC需使用可预置数的计数器，该组件见<a href="bl-counter.html" class="xref page">计数器</a>实验的选做任务，添加后将其「数据位数」属性设置为4。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>仿真验证</p>
+<div class="paragraph">
+<p>因为控制器的作用是控制指令的执行，所以需要通过执行指令来检验控制器的设计。<a href="#exa-cu-2">例 1</a>给出了一个测试程序的例子。</p>
+</div>
+<div id="exa-cu-2" class="exampleblock">
+<div class="title">例 1. 分支指令测试程序示例</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>地址: 机器指令  符号指令
+  0:   0x1815   addi r1, r0, 5
+  1:   0x202a   ori  r2, r0, 10
+  2:   0x09b0   sub  r3, r1, r2
+  3:   0x2ec0   bne  r2, r3, 0</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+符号指令翻译为机器指令的方法见<a href="cu-hardwire_controller-1.html" class="xref page">硬布线控制实验（RI）</a> <a href="cu-hardwire_controller-1.html#bm-cu-hc1-trans" class="xref page">用测试程序初始化指令存储器</a>。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>上面测试程序使用的指令种类有限，自己编写程序进行更全面的验证。</p>
+</div>
+<div class="paragraph">
+<p>根据指令功能对每条指令的仿真结果进行分析。如果运行结果与预期不符，应分析查找故障原因，例如控制器产生的控制信号是否正确。</p>
+</div>
+</li>
+<li>
+<p>运行斐波那契数列计算程序（选做）</p>
+<div class="paragraph">
+<p>将<a href="cu-overview.html" class="xref page">概述（指令系统）</a>中<a href="cu-overview.html#exa-cu-isa" class="xref page">斐波那契数列计算程序</a>的机器码作为ROM的数据。
+仿真运行程序，验证结果是否正确。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_思考与拓展"><a class="anchor" href="#_思考与拓展"></a>思考与拓展</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>本实验的转移指令的目的地址是由立即数给出的，即直接寻址。如果改为相对寻址，即目的地址=(PC)+imm，数据通路应做何种变化？</p>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

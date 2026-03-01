@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>几个有用的组件 :: 计算机组成原理实验指导</title>
+    <link rel="prev" href="ds-sim-dff.html">
+    <link rel="next" href="ds-hierarchical-design.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">逻辑电路基础</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-compare.html">比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">计算机组成原理实验指导</a></li>
+    <li>Digital仿真软件使用指南</li>
+    <li><a href="ds-other-useful.html">几个有用的组件</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <div class="version-menu">
+    <a class="version" href="../ds-other-useful.html">1.4</a>
+    <a class="version is-current" href="ds-other-useful.html">1.3</a>
+    <a class="version" href="../1.2/ds-other-useful.html">1.2</a>
+    <a class="version" href="../1.1/ds-other-useful.html">1.1</a>
+    <a class="version" href="../1.0/ds-other-useful.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">几个有用的组件</h1>
+<div class="sect1">
+<h2 id="bm-const"><a class="anchor" href="#bm-const"></a>常量</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>常量组件位于菜单「组件 ➤ 导线 ➤ 常量」（Components ➤ Wire ➤ Constant value），用于提供一个常数。可以通过属性修改位宽和值。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bm-probe"><a class="anchor" href="#bm-probe"></a>探测器</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>探测器组件位于菜单「组件 ➤ 输入输出 ➤ 探测器」（Components ➤ IO ➤ Probe）。
+用于读取探测点的数值。</p>
+</div>
+<div class="paragraph">
+<p>如果设置了「标签」（Label）属性，那么仿真时其值可以显示在测量图表中。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+即使「探测器」（Probe）组件位于子电路中，测量图表中仍然可以显示其值，这对于观察子电路中的状态是非常有用的。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bm-splitter"><a class="anchor" href="#bm-splitter"></a>分线器/并线器</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>该组件位于菜单「组件 ➤ 导线 ➤ 分裂器/合并器」（Components ➤ Wire ➤ Splitter/Merger）。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+本书将“Splitter”译为「分线器」，“Merger”译为「并线器」，与Digital仿真软件的翻译略有不同。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>分线器是指将一根多位的导线分成几个部分，如<a href="#fig-ds-splitter-1">图 1</a>(a)所示，输入是一根6位的导线，输出是三根2位的导线。
+并线器是指将几根导线合并为一根，如<a href="#fig-ds-splitter-1">图 1</a>(b)所示，输入是两根3位的导线，输出是一根6位的导线。
+更为灵活的是，输入、输出可以同时有多根导线，如<a href="#fig-ds-splitter-1">图 1</a>(c)所示，输入是两根3位的导线，输出是三根2位的导线。</p>
+</div>
+<div id="fig-ds-splitter-1" class="imageblock">
+<div class="content">
+<img src="_images/ds-splitter-1.png" alt="ds splitter 1">
+</div>
+<div class="title">图 1. 分线器/并线器示例</div>
+</div>
+<div class="paragraph">
+<p>该组件有两个重要的属性：「输入分割」（Input Splitting）和「输出分割」（Output splitting）。这两个属性值决定了输入、输出如何分割。分割属性的表示方法非常灵活，总体上可以分为两类，下面分别介绍。</p>
+</div>
+<div class="sect2">
+<h3 id="_以位数表示分割"><a class="anchor" href="#_以位数表示分割"></a>以位数表示分割</h3>
+<div class="paragraph">
+<p>以<a href="#fig-ds-splitter-1">图 1</a>为例，分割属性的设置如<a href="#tab-ds-splitter-1">表 1</a>所示。</p>
+</div>
+<table id="tab-ds-splitter-1" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. <a href="#fig-ds-splitter-1">图 1</a>示例的分割属性设置</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top">输入分割（Input Splitting）</th>
+<th class="tableblock halign-center valign-top">输出分割（Output splitting）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(a)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2,2,2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(b)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3,3</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(c)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3,3</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2,2,2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>对于多个相同导线数的情况，可以用乘号简化表达；如“2,2,2”可以表示为“2*3”，“3,3”可以表示为“3*2”。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_以位号表示分割"><a class="anchor" href="#_以位号表示分割"></a>以位号表示分割</h3>
+<div class="paragraph">
+<p>可以通过指定每一根导线的位号来决定输入或输出的分割。
+以<a href="#fig-ds-splitter-1">图 1</a>(a)为例，用位号表示的分割属性设置如<a href="#tab-ds-splitter-2">表 2</a>所示。<a href="#fig-ds-splitter-1">图 1</a>(b)(c)也类似。</p>
+</div>
+<table id="tab-ds-splitter-2" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. <a href="#fig-ds-splitter-1">图 1</a>示例的分割属性设置</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top">输入分割（Input Splitting）</th>
+<th class="tableblock halign-center valign-top">输出分割（Output splitting）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-1">图 1</a>(a)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0-5</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0-1,2-3,4-5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>位号表示比位数表示更为灵活，可以适应更多特殊的需求，如<a href="#fig-ds-splitter-2">图 2</a>所示。</p>
+</div>
+<div id="fig-ds-splitter-2" class="imageblock">
+<div class="content">
+<img src="_images/ds-splitter-2.png" alt="ds splitter 2" width="560">
+</div>
+<div class="title">图 2. 分线器/并线器的灵活分割</div>
+</div>
+<div class="paragraph">
+<p>仔细对比<a href="#fig-ds-splitter-1">图 1</a>(a)和<a href="#fig-ds-splitter-2">图 2</a>(a)，<a href="#fig-ds-splitter-2">图 2</a>(a)的特殊之处在于输出分割的排列顺序为“0-1,4-5,2-3”，这种情况只有用位号表示才能实现。
+<a href="#fig-ds-splitter-2">图 2</a>(b)的特殊之处在于位号为2的导线并没有出现在输出中，也就是说输出分割的总位数可以少于输入分割的总位数，只抽取其中一部分导线。
+<a href="#fig-ds-splitter-2">图 2</a>的分割属性设置如<a href="#tab-ds-splitter-3">表 3</a>所示。</p>
+</div>
+<table id="tab-ds-splitter-3" class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. <a href="#fig-ds-splitter-2">图 2</a>示例的分割属性设置</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top">输入分割（Input Splitting）</th>
+<th class="tableblock halign-center valign-top">输出分割（Output splitting）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-2">图 2</a>(a)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0-1,4-5,2-3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#fig-ds-splitter-2">图 2</a>(b)</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3-3,0-1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>特别需要说明的是，<a href="#fig-ds-splitter-2">图 2</a>(b)位号为3的导线是1位的输出，其分割属性值为“3-3”。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+更多用法可点击属性窗口内的「帮助」按钮。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bm-extender"><a class="anchor" href="#bm-extender"></a>符号扩展器</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>该组件位于菜单「组件 ➤ 运算器 ➤ 符号扩展器」（Components ➤ Arithmetic ➤ Sign extender）。
+如果需要将位宽较小的导线扩展为更大的位宽，并且保持符号位不变，就需要「符号扩展器」组件。该组件需要设置「输入位宽」和「输出位宽」两个属性，且输入位宽必须小于输出位宽。</p>
+</div>
+<div class="paragraph">
+<p>虽然「分线器/并线器」组件也可以扩展导线的位宽，但是只能扩展固定的常数。而符号扩展器则是根据电路工作时的实际数据进行扩展，如果输入数据的最高位为“0”，扩展0；为“1”则扩展1。在计算机中，最高位表示带符号数的符号，故称为符号扩展。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bm-tunnel"><a class="anchor" href="#bm-tunnel"></a>隧道</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>该组件位于菜单「组件 ➤ 导线 ➤ 隧道」（Components ➤ Wire ➤ Tunnel）。</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig-ds-tunnel">图 3</a>中两个三角形的组件就是隧道组件，这两个组件之间并没有导线连接，但是由于它们的名称相同，则意味着它们之间是连通的，只是表面看不见，就像有一条隧道把他们连接起来。</p>
+</div>
+<div id="fig-ds-tunnel" class="imageblock">
+<div class="content">
+<img src="_images/ds-tunnel.png" alt="ds tunnel">
+</div>
+<div class="title">图 3. 隧道示例</div>
+</div>
+<div class="paragraph">
+<p>隧道的名称通过「网络名称」（Net name）属性设置。在一张图中可以有多个同名的隧道，它们之间都是电气连通的。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注"></i>
+</td>
+<td class="content">
+隧道可以减少复杂电路图的连线，使外观更整洁；但是也给读图和检查电路带来不便，不应过度使用。
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock text-center">
+<div class="content">
+<div class="title">许可 | License</div>
+<div class="paragraph">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></p>
+</div>
+<div class="paragraph">
+<p>作者：
+肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="ds-sim-dff.html">时序电路仿真</a></span>
+  <span class="next"><a href="ds-hierarchical-design.html">层次化设计</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

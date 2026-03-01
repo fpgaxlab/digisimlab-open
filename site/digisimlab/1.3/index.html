@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前言 :: 计算机组成原理实验指导</title>
+    <link rel="next" href="introduce-digitalsim.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.8">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!--    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">计算机组成原理实验指导</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://gitee.com/fpga-lab/digisimlab-open" target="_blank">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="digisimlab" data-version="1.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">计算机组成原理实验指导</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Digital仿真软件使用指南</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduce-digitalsim.html">概述</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-getting-started.html">新手入门</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-generate-circuit.html">电路生成</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-test-circuit.html">电路测试</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-sim-dff.html">时序电路仿真</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-other-useful.html">几个有用的组件</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-hierarchical-design.html">层次化设计</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ds-parametric-design.html">参数化设计</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">逻辑电路基础</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-multiplexer.html">多路选择器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-decoder.html">译码器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-register.html">触发器和寄存器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/bl-counter.html">计数器实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-register_file.html">寄存器堆实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">运算器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-add_sub_operation.html">加减运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-arithmetic_logic_unit.html">算术逻辑单元实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/op-compare.html">比较运算电路实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/dp-single_cycle_datapath.html">运算器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">存储器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-rom.html">ROM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-ram.html">RAM实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path.html">存储器应用实验</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/mem-path-2.html">存储器数据通路实验</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">控制器</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-overview.html">概述（指令系统）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-1.html">硬布线控制实验（RI）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller-3.html">硬布线控制实验（RIM）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab/cu-hardwire_controller.html">硬布线控制实验（RIB）</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">计算机组成原理实验指导</span>
+    <span class="version">1.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">计算机组成原理实验指导</a></li>
+    <li><a href="index.html">前言</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <div class="version-menu">
+    <a class="version" href="../index.html">1.4</a>
+    <a class="version is-current" href="index.html">1.3</a>
+    <a class="version" href="../1.2/index.html">1.2</a>
+    <a class="version" href="../1.1/index.html">1.1</a>
+    <a class="version" href="../1.0/index.html">1.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="页内目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">前言</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>本书实验是基于<a href="introduce-digitalsim.html" class="xref page">“Digital”仿真软件</a>开发的面向计算机组成原理课程的系列实验。</p>
+</div>
+<div class="paragraph">
+<p>全书共分五章，第一章集中介绍Digital仿真软件的基本使用方法，第二章复习逻辑电路基础模块。
+但第一章并未设置独立的 “熟悉实验环境” 项目，而是将相关实操任务融入第二章的实验项目中。
+因此第二章的实验项目具有双重作用：既是为了巩固基本的逻辑电路知识，也是为了熟悉Digital仿真软件的操作流程和使用技巧。
+后续三章则围绕计算机的核心组成部件——运算器、存储器、控制器组织实验项目。</p>
+</div>
+<div class="paragraph">
+<p>这些实验项目相互关联、紧密依存，按照从基础到复杂、循序渐进的原则，从逻辑电路的基础模块，到计算机的功能部件，直至计算机主机集成，环环相扣、逐步推进。学生通过这些实验，能够像滚雪球一样积累知识与技能，最终设计出一个简单的计算机主机。
+项目依存关系如图所示。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ds-preface-1.png" alt="ds preface 1" width="466">
+</div>
+</div>
+<div class="paragraph">
+<p>在教学实施层面，教师可以根据实际教学需求及目标，灵活选取部分实验项目。
+控制器一章所包含的三个并列实验项目，分别对应最终可达成的三种具体目标。依据所实现指令集的差异，三个项目名称中括号内的标识具有特定含义：
+“RI”表示控制器仅支持运算指令，前期不需要完成存储器实验和运算器一章的比较运算电路实验。
+“RIM”则表示支持运算指令和存储器访问指令，这就要求前期必须完成相应的存储器实验。
+“RIB”意味着支持运算指令和分支指令，前期需要完成比较运算电路实验。
+此外，还可进一步提出 “RIMB” 的要求，即支持运算指令、访存指令和分支指令，使学生更全面地理解计算机指令系统的实现。</p>
+</div>
+<div class="paragraph">
+<p>本书按照<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA：署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>开源。</p>
+</div>
+<div class="paragraph text-right">
+<p>作者&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</p>
+</div>
+<div class="paragraph text-right">
+<p>肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com">xiaotiejun@foxmail.com</a>&gt;</p>
+</div>
+<div class="paragraph text-right">
+<p>2024年2月15日&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="introduce-digitalsim.html">概述</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

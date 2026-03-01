@@ -161,14 +161,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.3</span>
+    <span class="version">1.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">1.3</a>
+          <a href="index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="1.3/index.html">1.3</a>
         </li>
         <li class="version">
           <a href="1.2/index.html">1.2</a>
@@ -198,9 +201,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.4</button>
   <div class="version-menu">
-    <a class="version is-current" href="ds-getting-started.html">1.3</a>
+    <a class="version is-current" href="ds-getting-started.html">1.4</a>
+    <a class="version" href="1.3/ds-getting-started.html">1.3</a>
     <a class="version" href="1.2/ds-getting-started.html">1.2</a>
     <a class="version" href="1.1/ds-getting-started.html">1.1</a>
     <a class="version" href="1.0/ds-getting-started.html">1.0</a>
@@ -252,11 +256,11 @@
 </li>
 </ul>
 </div>
-<div class="admonitionblock caution">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-caution" title="注意"></i>
+<i class="fa icon-important" title="重要"></i>
 </td>
 <td class="content">
 必须使导线的端点连接到组件的端口（红点或蓝点），才能将导线与组件相连。
@@ -391,7 +395,15 @@
 <div class="sect3">
 <h4 id="_输入数据"><a class="anchor" href="#_输入数据"></a>输入数据</h4>
 <div class="paragraph">
-<p>和1位的输入组件不同，仿真时点击多位的输入组件，并不是直接翻转输入值，而是会弹出一个输入窗口，在窗口中输入想要施加在该端口的数值。</p>
+<p>和1位的输入组件不同，仿真时点击多位的输入组件，并不是直接翻转输入值，而是会弹出一个输入窗口，如<a href="#fig-ds-inputbox">图 2</a>所示，在输入框中输入想要施加在该端口的数值。
+输入框中可以输入十进制、十六进制或二进制数据，十进制数不需要前缀，十六进制和二进制数分别需添加前缀<code>0x</code>和<code>0b</code>。
+「数字格式」用于将输入框中的数据转换为指定的格式显示，可以选择“Decimal”（十进制）、“带符号十进制”、“Hex”（十六进制）或“Bin”（二进制）等格式。</p>
+</div>
+<div id="fig-ds-inputbox" class="imageblock">
+<div class="content">
+<img src="_images/ds-inputbox.png" alt="ds inputbox">
+</div>
+<div class="title">图 2. 多位数据的输入界面</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -414,7 +426,10 @@
 </div>
 <div class="paragraph">
 <p>输入、输出组件的数值显示在该组件的上方。
-通过组件「高级设置」中的「数字格式」属性，可以选择数值的显示方式（十进制、带符号十进制、十六进制、二进制等）。</p>
+设计模式下通过组件「高级设置」中的「数字格式」属性，可以选择数值的显示方式（十进制、带符号十进制、十六进制、二进制等）。</p>
+</div>
+<div id="bm-show-measure-table" class="paragraph">
+<p>此外，仿真模式下点击菜单项「仿真 ➤ 显示测量值表格」（Simulation ➤ Show measurement value table），可在“测量”窗口中集中显示所有输入、输出组件的数值。</p>
 </div>
 </div>
 </div>
@@ -424,17 +439,11 @@
 <h2 id="bm-show-measure"><a class="anchor" href="#bm-show-measure"></a>仿真结果记录及导出</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>仿真状态下点击菜单项「仿真 ➤ 显示测量图」（Simulation ➤ Show measurement graph），然后在打开的测量图窗口中点击菜单「视图 ➤ 显示表格」（View ➤ Show table），打开测试数据表格的记录窗口。之后每当改变输入端口的数据，图表中随之增加一步输入、输出数据的记录，如<a href="#fig-ds-rec">图 2</a>所示。</p>
-</div>
-<div id="fig-ds-rec" class="imageblock">
-<div class="content">
-<img src="_images/ds-record.png" alt="ds record">
-</div>
-<div class="title">图 2. 仿真结果记录</div>
+<p>仿真模式下点击菜单项「仿真 ➤ 显示测量图」（Simulation ➤ Show measurement graph），打开测量波形图记录窗口。之后每当改变输入组件的数据，图中随之增加一步输入、输出数据的记录。</p>
 </div>
 <div class="paragraph">
-<p>当完成需要的验证后，点击图表窗口的菜单项「文件 ➤ 保存数据」（File ➤ Save Data），窗口中记录的数据将被保存为CSV文件。
-该文件可通过WPS等办公软件打开，用于实验报告的实验结果分析。</p>
+<p>与上面「显示测量值表格」只显示当前值不同，「显示测量图」记录了操作历史。
+当完成需要的验证后，点击测量图窗口的菜单项「文件 ➤ 保存数据」（File ➤ Save Data），窗口中记录的波形将以数据的形式保存为CSV文件；该文件可通过WPS等办公软件打开，进行实验数据整理与分析。</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -443,10 +452,24 @@
 <i class="fa icon-caution" title="注意"></i>
 </td>
 <td class="content">
-具有「在测量图中显示」（Show in Measurement Graph）或「作为测量值」（Use as measurement value）属性的组件才可以出现在测量图表中，并且该组件必须有名称（即设置了「标签/Label」属性）。输入、输出组件和<a href="ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>均具有「在测量图中显示」属性，并且默认已勾选。
+只有已命名的输入、输出组件（即设置了「标签/Label」属性），才会出现在图表窗口。
 </td>
 </tr>
 </table>
+</div>
+<div id="bm-measureable-component" class="sidebarblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">可测量组件</dt>
+<dd>
+<p>可测量（Measurable）组件是指其值可以出现在测量值表格或测量图中的组件。
+主要有两类。一类是具有「在测量图中显示」（Show in Measurement Graph）属性的组件，如输入组件、输出组件及<a href="ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>，该属性通常默认有效，无需手动设置。
+另一类是具有「作为测量值」（Use as measurement value）属性的组件，如<a href="ds-sim-dff.html" class="xref page">D触发器</a>等时序逻辑组件，该属性通常默认未生效，需手动勾选。</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -483,14 +506,14 @@
 <p>上面保存的<em>.dig</em>文件只能用Digital仿真软件打开，如果想要在实验报告中插入电路图，可以使用Digital仿真软件的导出功能将电路保存为图片。
 点击菜单项「文件 ➤ 导出 ➤ 导出PNG」（File ➤ Export ➤ Export PNG）将电路图保存为PNG图片。</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="重要"></i>
+<i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-实验报告中的电路图应标注导线的位数，如<a href="#fig-ds-bw">图 1</a>所示。即使已经在<a href="#bm-settings">设置对话框</a>中勾选了「在总线上显示导线数」，但在编辑状态下仍有可能未显示导线位数，此时可先启动仿真使电路显示导线位数，随即结束仿真回到编辑状态，此时导线位数仍保留在电路上，之后再导出PNG图。
+即使已经在<a href="#bm-settings">设置对话框</a>中勾选了「在总线上显示导线数」，但在设计模式下仍有可能未显示导线位数，此时可先启动仿真使电路显示导线位数，随即结束仿真回到编辑状态，此时导线位数仍保留在电路上，之后再导出PNG图。
 </td>
 </tr>
 </table>

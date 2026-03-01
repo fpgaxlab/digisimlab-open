@@ -161,14 +161,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.3</span>
+    <span class="version">1.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.3</a>
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../1.3/index.html">1.3</a>
         </li>
         <li class="version">
           <a href="../1.2/index.html">1.2</a>
@@ -198,9 +201,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.4</button>
   <div class="version-menu">
-    <a class="version is-current" href="op-compare.html">1.3</a>
+    <a class="version is-current" href="op-compare.html">1.4</a>
+    <a class="version" href="../1.3/lab/op-compare.html">1.3</a>
     <a class="version" href="../1.2/lab/op-compare.html">1.2</a>
     <a class="version" href="../1.1/lab/op-compare.html">1.1</a>
     <a class="version" href="../1.0/lab/op-compare.html">1.0</a>
@@ -239,9 +243,10 @@
 <h2 id="_实验原理"><a class="anchor" href="#_实验原理"></a>实验原理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在计算机软件程序设计中，常常需要比较两个变量的数值大小。实现两个数大小比较的最直接的做法就是将这两个数相减，根据减法的结果判断两者的大小。例如，若X&lt;Y，则X-Y的结果一定为负，因此依据符号标志就可以判断；但是若运算结果溢出，则恰恰相反。<a href="#tab-3">表 1</a>给出了两个带符号数依据减法运算结果的标志位比较大小的判断条件。而两个无符号数的相减，则可依据是否有借位来判断两个数的大小。<a href="#tab-4">表 2</a>给出了无符号数比较大小的判断条件。</p>
+<p>在计算机软件程序设计中，常常需要比较两个变量的数值大小。实现两个数大小比较的最直接的做法就是将这两个数相减，根据减法的结果判断两者的大小。例如，若X&lt;Y，则X-Y的结果一定为负，因此依据符号标志就可以判断；但是若运算结果溢出，则恰恰相反。<a href="#tab-signed-comp">表 1</a>给出了两个带符号数依据减法运算结果的标志位比较大小的判断条件。
+而两个无符号数的比较，则可相减后依据是否有借位来判断两个数的大小；<a href="#tab-unsigned-comp">表 2</a>给出了无符号数比较大小的判断条件。</p>
 </div>
-<table id="tab-3" class="tableblock frame-all grid-all center" style="width: 50%;">
+<table id="tab-signed-comp" class="tableblock frame-all grid-all center" style="width: 50%;">
 <caption class="title">表 1. 两个带符号数比较大小的判定条件</caption>
 <colgroup>
 <col style="width: 40%;">
@@ -280,7 +285,7 @@
 </tr>
 </tbody>
 </table>
-<table id="tab-4" class="tableblock frame-all grid-all center" style="width: 50%;">
+<table id="tab-unsigned-comp" class="tableblock frame-all grid-all center" style="width: 50%;">
 <caption class="title">表 2. 两个无符号数比较大小的判定条件</caption>
 <colgroup>
 <col style="width: 40%;">
@@ -325,24 +330,74 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_参考设计"><a class="anchor" href="#_参考设计"></a>参考设计</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>下面以无符号数比较为例，说明比较运算电路的设计与验证。
+根据<a href="#tab-unsigned-comp">表 2</a>写出无符号比较运算的逻辑表达式如<a href="#exa-unsigned-comp">例 1</a>所示。</p>
+</div>
+<div id="exa-unsigned-comp" class="exampleblock">
+<div class="title">例 1. 无符号比较运算的逻辑表达式</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">let EQ=ZF;
+let NE=~ZF;
+let LT=~CF;<i class="conum" data-value="1"></i><b>(1)</b>
+let GE=CF</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>从<a href="op-add_sub_operation.html" class="xref page">加减电路实验</a>可知，借位与进位标志的状态是相反的，即BF=~CF。</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>使用Digital仿真软件的<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>功能，从逻辑表达式生成比较运算电路图，然后将其作为子电路添加到验证电路中。验证电路如<a href="#fig-op-unsigned-comp">图 1</a>所示。</p>
+</div>
+<div id="fig-op-unsigned-comp" class="imageblock">
+<div class="content">
+<img src="_images/op-unsigned-comp.png" alt="op unsigned comp">
+</div>
+<div class="title">图 1. 无符号数比较验证电路</div>
+</div>
+<div class="paragraph">
+<p><a href="#fig-op-unsigned-comp">图 1</a>中，ALU的M、S1、S0固定连接为1、0、0，控制ALU进行减法运算。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>设计</p>
+<p><strong>设计带符号数比较电路</strong></p>
 <div class="paragraph">
-<p>依据S、Z、O标志位，产生带符号数相等、不等、小于、大于等于的比较结果。
+<p>依据S、Z、O标志位，产生<strong>带符号数</strong>相等（EQ）、不等（NE）、小于（LT）、大于等于（GE）的比较结果。
 可使用Digital仿真软件的电路生成功能，输入表达式自动生成电路图，具体用法参考<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
 </div>
 </li>
 <li>
-<p>仿真</p>
+<p><strong>设计验证电路</strong></p>
 <div class="paragraph">
-<p>将比较电路作为子电路添加到ALU实验电路中，并将ALU输出的标志位与比较电路连接。操作ALU做减法运算，输入不同运算数据，验证比较结果是否正确。</p>
+<p>将比较电路作为子电路添加到实验电路中，并将ALU输出的标志位与比较电路连接。设置ALU做减法运算。</p>
 </div>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
+<div class="paragraph">
+<p>输入不同运算数据，验证比较结果是否正确。</p>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">
@@ -353,6 +408,7 @@
 <div class="paragraph">
 <p>作者：
 肖铁军 &lt;<a href="mailto:xiaotiejun@foxmail.com.cn">xiaotiejun@foxmail.com.cn</a>&gt;</p>
+</div>
 </div>
 </div>
 </div>

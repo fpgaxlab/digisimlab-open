@@ -161,14 +161,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.3</span>
+    <span class="version">1.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.3</a>
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../1.3/index.html">1.3</a>
         </li>
         <li class="version">
           <a href="../1.2/index.html">1.2</a>
@@ -198,9 +201,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.4</button>
   <div class="version-menu">
-    <a class="version is-current" href="dp-register_file.html">1.3</a>
+    <a class="version is-current" href="dp-register_file.html">1.4</a>
+    <a class="version" href="../1.3/lab/dp-register_file.html">1.3</a>
     <a class="version" href="../1.2/lab/dp-register_file.html">1.2</a>
     <a class="version" href="../1.1/lab/dp-register_file.html">1.1</a>
     <a class="version" href="../1.0/lab/dp-register_file.html">1.0</a>
@@ -238,8 +242,6 @@
 <p>CPU内部包含若干个通用寄存器，用于暂存参加运算的数据和中间结果，这些寄存器的集合就称为通用寄存器组（Genral Register Set）。
 寄存器组可以设计为单端口、双端口或三端口。单端口是指读出和写入共用同一组地址或数据端口，所以读出和写入不能同时进行，通常应用于多周期的数据通路。而双端口的读、写端口各自独立，在一个周期中可以同时读出和写入。三端口则有两个读端口和一个写端口可以同时操作，通常应用于单周期和流水线数据通路。和早期的处理器相比，现代处理器的通用寄存器的数量更多，一般称为<strong>寄存器堆（Register File）</strong>，也有译为寄存器文件。</p>
 </div>
-<div class="sect2">
-<h3 id="_双端口寄存器堆"><a class="anchor" href="#_双端口寄存器堆"></a>双端口寄存器堆</h3>
 <div class="paragraph">
 <p><a href="#fig-rf-2port">图 1</a>是双端口寄存器堆的电路结构。其中RA（Read Address）表示读端口地址，RD（Read Data）表示读端口数据；WA（Write Address）表示写端口地址，WD（Write Data）表示写端口数据；WE（Write Enable）是写使能，Clk是写时钟。</p>
 </div>
@@ -249,86 +251,36 @@
 </div>
 <div class="title">图 1. 双端口寄存器堆的框图</div>
 </div>
+<div class="sect2">
+<h3 id="_寄存器堆的写入"><a class="anchor" href="#_寄存器堆的写入"></a>寄存器堆的写入</h3>
 <div class="paragraph">
-<p>根据<a href="#fig-rf-2port">图 1</a>用Digital仿真软件设计的电路图如<a href="#fig-rf-2port-sim">图 2</a>所示。</p>
-</div>
-<div id="fig-rf-2port-sim" class="imageblock">
-<div class="content">
-<img src="_images/dp-rf-2port-sim.png" alt="双端口寄存器堆电路图" width="617">
-</div>
-<div class="title">图 2. 双端口寄存器堆电路图</div>
-</div>
-<div class="paragraph">
-<p>电路组成说明如下。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>四个4位的寄存器</p>
-<div class="paragraph">
-<p>R0～R3寄存器使用曾在<a href="bl-register.html" class="xref page">触发器和寄存器实验</a>学习过的寄存器组件，可从菜单「组件 ➤ 存储器 ➤ 寄存器」（Components ➤ Memory ➤ Register）找到该组件，将数据位数设置为4。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="提示"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>为便于观察、记录寄存器的值，在寄存器的Q输出端放置了<a href="../ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>，该组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>2-4译码器</p>
-<div class="paragraph">
-<p>使用<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。
-有关添加子电路的方法，请参考<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="提示"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><a href="#fig-rf-2port-sim">图 2</a>写端口地址WA使用一个2位的输入组件，需要用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的WA拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>多路选择器</p>
-<div class="paragraph">
-<p><a href="bl-multiplexer.html" class="xref page">多路选择器实验</a>中使用过多路器组件作为2选1多路器，这里需要4选1多路器，应将选择位的位数设置为2。</p>
-</div>
-</li>
-<li>
-<p>使用时钟输入组件作为Clk输入</p>
-<div class="paragraph">
-<p>时钟输入组件及其用法见<a href="../ds-sim-dff.html" class="xref page">时序电路的仿真</a>。</p>
-</div>
-</li>
-</ol>
+<p>在<a href="bl-register.html" class="xref page">触发器和寄存器实验</a>中已经学习了单个寄存器组件的写入。
+<a href="#fig-rf-2port">图 1</a>寄存器堆有4个寄存器，这4个寄存器共用一个数据输入端（WD），时钟输入端（Clk）也是共用的，但这并不意味着4个寄存器同时写入相同的数据；相反，一次只能写入其中一个寄存器，这是由寄存器的使能端（en）控制的。
+4个寄存器的使能端（en）分别连接到2-4译码器的4个输出Y0～Y3，从<a href="bl-decoder.html" class="xref page">译码器实验</a>可知，Y0～Y3最多只可能有一个为1，也就是最多只有一个寄存器被允许写入。写入哪个寄存器由2-4译码器的输入端A1、A0即寄存器堆的写地址WA决定。
+2-4译码器的En作为寄存器堆的写使能（WE），起到一个总体控制的作用。若WE=0，Y0～Y3均为0，任何一个寄存器都不会被写入；只有当WE=1时，才会由WA选择一个寄存器被允许写入。
+此时，若Clk端输入一个时钟上升沿，WD端的输入数据将会被存储到指定的寄存器，同时反映在该寄存器的Q端。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_三端口寄存器堆"><a class="anchor" href="#_三端口寄存器堆"></a>三端口寄存器堆</h3>
+<h3 id="_寄存器堆的读出"><a class="anchor" href="#_寄存器堆的读出"></a>寄存器堆的读出</h3>
 <div class="paragraph">
-<p><a href="#fig-9">图 3</a>是具有2个读端口和1个写端口的三端口寄存器堆的电路结构。</p>
+<p>单个<a href="bl-register.html" class="xref page">寄存器组件</a>内部存储的值始终反映在它的Q输出端，所以并不需要额外的读出操作。
+寄存器堆内部有多个寄存器，共用一个读数据端口（RD），因此需要选择其中一个寄存器，将它的值输出到RD端口，即“读出”操作。
+由<a href="#fig-rf-2port">图 1</a>可见，4个寄存器的Q端连接到4选1多路器的4个输入，多路器的输出连接到RD端口；RA作为多路器的选择信号，决定哪一个寄存器的Q输出到RD。
+和写入不同，读出并没有使能控制，在任何时刻都会有一个寄存器的值被读出。
+读出也不受时钟控制，只要RA改变，立刻改变选择读出的寄存器，无需等待时钟上升沿到来。</p>
+</div>
+<div class="paragraph">
+<p>可见，<strong>寄存器堆的读写操作是独立的</strong>。在写入一个寄存器的时候，可以读出另一个寄存器。如果要写入的寄存器地址和读地址相同，在时钟上升沿到来之前，读出的是该寄存器之前存储的值；时钟上升沿之后，读出新写入的值。</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig-9">图 2</a>是具有2个读端口和1个写端口的三端口寄存器堆的电路结构。</p>
 </div>
 <div id="fig-9" class="imageblock">
 <div class="content">
 <img src="_images/dp-rf.png" alt="三端口寄存器堆" width="475" height="409">
 </div>
-<div class="title">图 3. 三端口寄存器堆的框图</div>
+<div class="title">图 2. 三端口寄存器堆的框图</div>
 </div>
 <div class="paragraph">
 <p>和<a href="#fig-rf-2port">图 1</a>相比，有两个区别：</p>
@@ -359,7 +311,7 @@
 <li>
 <p>R0寄存器的值恒为0</p>
 <div class="paragraph">
-<p>在RISC指令系统中，通常要求R0恒为0。为了实现这一要求，用常数“0”代替R0寄存器作为4选1多路选择器0通道的输入，<a href="#fig-9">图 3</a>中R0寄存器的虚线表示其实际并不存在。</p>
+<p>在RISC指令系统中，通常要求R0恒为0。为了实现这一要求，用常数“0”代替R0寄存器作为4选1多路选择器0通道的输入，<a href="#fig-9">图 2</a>中R0寄存器的虚线表示其实际并不存在。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -382,12 +334,89 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_参考设计"><a class="anchor" href="#_参考设计"></a>参考设计</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>下面给出双端口寄存器堆的设计实例。
+根据<a href="#fig-rf-2port">图 1</a>用Digital仿真软件设计的双端口寄存器堆电路如<a href="#fig-rf-2port-sim">图 3</a>所示。</p>
+</div>
+<div id="fig-rf-2port-sim" class="imageblock">
+<div class="content">
+<img src="_images/dp-rf-2port-sim.png" alt="双端口寄存器堆电路图" width="617">
+</div>
+<div class="title">图 3. 双端口寄存器堆电路图</div>
+</div>
+<div class="paragraph">
+<p>电路组成说明如下。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>四个4位的寄存器</p>
+<div class="paragraph">
+<p>R0～R3寄存器使用曾在<a href="bl-register.html" class="xref page">触发器和寄存器实验</a>学习过的寄存器组件，可从菜单「组件 ➤ 存储器 ➤ 寄存器」（Components ➤ Memory ➤ Register）找到该组件，将数据位数设置为4。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>由于寄存器的输出不是电路的输出，默认不会出现在<a href="../ds-getting-started.html#bm-show-measure" class="xref page">仿真结果记录</a>中。
+为便于观察、记录寄存器的值，在寄存器的Q输出端放置了<a href="../ds-other-useful.html#bm-probe" class="xref page">探测器组件</a>，该组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。
+另一种方法是设置寄存器组件的<a href="../ds-sim-dff.html#bm-use-as-measure" class="xref page">「作为测量值」属性</a>。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>2-4译码器</p>
+<div class="paragraph">
+<p>使用<a href="bl-decoder.html" class="xref page">译码器实验</a>完成的2-4译码器作为子电路。
+有关添加子电路的方法，请参考<a href="../ds-hierarchical-design.html" class="xref page">层次化设计</a>。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="#fig-rf-2port-sim">图 3</a>写端口地址WA使用一个2位的输入组件，需要用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的WA拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>多路选择器</p>
+<div class="paragraph">
+<p>多路器组件在<a href="bl-multiplexer.html" class="xref page">多路选择器实验</a>中练习过，这里需要4选1多路器，应将选择位的位数设置为2。</p>
+</div>
+</li>
+<li>
+<p>时钟输入组件</p>
+<div class="paragraph">
+<p>使用时钟输入组件作为Clk输入。时钟输入组件及其用法见<a href="../ds-sim-dff.html" class="xref page">时序电路的仿真</a>。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_实验任务"><a class="anchor" href="#_实验任务"></a>实验任务</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_设计任务"><a class="anchor" href="#_设计任务"></a>设计任务</h3>
 <div class="paragraph">
-<p>理解<a href="#fig-9">图 3</a>结构，按照该结构设计字长为4位的三端口寄存器堆。</p>
+<p>理解<a href="#fig-9">图 2</a>结构，按照该结构设计字长为4位的三端口寄存器堆。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -413,7 +442,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>数据写入寄存器堆</p>
+<p><strong>数据写入寄存器堆</strong></p>
 <div class="paragraph">
 <p>尝试将不同的非零数据存入R0、R1、R2、R3寄存器。</p>
 </div>
@@ -435,7 +464,7 @@
 </div>
 </li>
 <li>
-<p>从寄存器堆读出数据</p>
+<p><strong>从寄存器堆读出数据</strong></p>
 <div class="paragraph">
 <p>同时从RD1和RD2读出不同寄存器的值。</p>
 </div>

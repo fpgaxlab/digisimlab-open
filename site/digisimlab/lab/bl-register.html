@@ -161,14 +161,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.3</span>
+    <span class="version">1.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.3</a>
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../1.3/index.html">1.3</a>
         </li>
         <li class="version">
           <a href="../1.2/index.html">1.2</a>
@@ -198,9 +201,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.4</button>
   <div class="version-menu">
-    <a class="version is-current" href="bl-register.html">1.3</a>
+    <a class="version is-current" href="bl-register.html">1.4</a>
+    <a class="version" href="../1.3/lab/bl-register.html">1.3</a>
     <a class="version" href="../1.2/lab/bl-register.html">1.2</a>
     <a class="version" href="../1.1/lab/bl-register.html">1.1</a>
     <a class="version is-missing" href="../1.0/index.html">1.0</a>
@@ -236,26 +240,39 @@
 常见的触发器有SR触发器、JK触发器、D触发器等。其中D触发器（D type Flip-Flop）在计算机电路中最为常用。
 D触发器通常包含以下几个端口。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>数据输入端（D）：用于输入要存储的数据。“D”代表“Data”，是D触发器名称的由来。</p>
-</li>
-<li>
-<p>输出端（Q）：Q端输出存储的数据。通常还有一个反相输出端Q̅，输出Q端的反相值。</p>
-</li>
-<li>
-<p>时钟输入端（CLK）：时钟信号是控制D触发器存储数据的关键信号。
+<div class="dlist">
+<dl>
+<dt class="hdlist1">数据输入端（D）</dt>
+<dd>
+<p>用于输入要存储的数据。“D”代表“Data”，是D触发器名称的由来。</p>
+</dd>
+<dt class="hdlist1">输出端（Q）</dt>
+<dd>
+<p>Q端输出存储的数据。通常还有一个反相输出端Q̅，输出Q端的反相值。</p>
+</dd>
+<dt class="hdlist1">时钟输入端（CLK）</dt>
+<dd>
+<p>时钟信号是控制D触发器存储数据的关键信号。
 只有当CLK信号发生跳变时，D触发器才会将D端的输入数据更新到Q端，并保持该状态直到下一个时钟信号的跳变沿到来。
 根据具体电路设计的不同，如果从0到1的跳变起作用，称为上升沿触发；如果从1到0的跳变起作用，称为下降沿触发。Digital仿真软件的触发器为<strong>上升沿触发</strong>。</p>
-</li>
-</ul>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
 <p>在计算机中，用于保存数据的电路元件通常称为<strong>寄存器</strong>。一般而言，D触发器与寄存器没有本质区别，例如一个8位数据寄存器可由8个D触发器构成；从应用的角度，“寄存器”这个名称更为普通。
 而在Digital仿真软件中，D触发器和寄存器是两种组件，端口略有不同。
-和D触发器组件相比，寄存器组件多了一个<code>en</code>端口，作为装入数据的使能（enable）控制。如果en为0，即使时钟上升沿到来，也不会将D输入端的数据保存在寄存器内；只有当en为1的时候，才允许保存数据。
-数据寄存器将应用于后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>。</p>
+和D触发器组件相比，寄存器组件增加了一个<code>en</code>（enable）端口，其作用如下。</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">时钟使能端（en）</dt>
+<dd>
+<p>控制时钟是否起作用。如果en为0，即使时钟上升沿到来，也不会将D输入端的数据保存在寄存器内；只有当en为1的时候，才允许保存数据。</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>数据寄存器将应用于后面的<a href="dp-register_file.html" class="xref page">寄存器堆实验</a>。</p>
 </div>
 </div>
 </div>
@@ -265,13 +282,13 @@ D触发器通常包含以下几个端口。</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>熟悉时序电路仿真</p>
+<p><strong>熟悉时序电路仿真</strong></p>
 <div class="paragraph">
 <p>阅读<a href="../ds-digital-sim-guide.html" class="xref page">Digital仿真软件使用指南</a>的<a href="../ds-sim-dff.html" class="xref page">时序电路仿真</a>，熟悉D触发器的功能特性和时序电路的仿真方法。</p>
 </div>
 </li>
 <li>
-<p>设计一个4位寄存器组件的验证电路</p>
+<p><strong>设计一个4位寄存器组件的验证电路</strong></p>
 <div class="paragraph">
 <p>寄存器组件位于菜单项「组件 ➤ 存储器 ➤ 寄存器」（Components ➤ Memory ➤ Register）。
 添加寄存器组件后将其「数据位数」属性设置为4。
@@ -279,15 +296,11 @@ D触发器通常包含以下几个端口。</p>
 </div>
 </li>
 <li>
-<p>通过仿真熟悉寄存器的功能和用法，记录仿真过程。</p>
+<p><strong>仿真及结果分析</strong></p>
 <div class="paragraph">
-<p>尤其注意en的作用。</p>
-</div>
-</li>
-<li>
-<p>实验结果分析</p>
-<div class="paragraph">
-<p>对仿真结果进行分析，从中体现对寄存器各端口功能的理解。</p>
+<p>通过仿真熟悉寄存器的功能和用法，记录仿真过程。
+对仿真结果进行分析，从中体现对寄存器各端口功能的理解。
+尤其注意en的作用。</p>
 </div>
 </li>
 </ol>

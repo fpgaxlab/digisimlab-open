@@ -161,14 +161,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">计算机组成原理实验指导</span>
-    <span class="version">1.3</span>
+    <span class="version">1.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">计算机组成原理实验指导</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.3</a>
+          <a href="../index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../1.3/index.html">1.3</a>
         </li>
         <li class="version">
           <a href="../1.2/index.html">1.2</a>
@@ -198,9 +201,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.4</button>
   <div class="version-menu">
-    <a class="version is-current" href="op-add_sub_operation.html">1.3</a>
+    <a class="version is-current" href="op-add_sub_operation.html">1.4</a>
+    <a class="version" href="../1.3/lab/op-add_sub_operation.html">1.3</a>
     <a class="version" href="../1.2/lab/op-add_sub_operation.html">1.2</a>
     <a class="version" href="../1.1/lab/op-add_sub_operation.html">1.1</a>
     <a class="version" href="../1.0/lab/op-add_sub_operation.html">1.0</a>
@@ -410,10 +414,6 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <h3 id="_验证任务"><a class="anchor" href="#_验证任务"></a>验证任务</h3>
 <div class="sect3">
 <h4 id="_1_验证加法运算"><a class="anchor" href="#_1_验证加法运算"></a>1. 验证加法运算</h4>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>实验数据记录</p>
 <div class="paragraph">
 <p>设置M=0，按<a href="#tab-op-adder-1">表 1</a>步骤操作，填写加法运算的结果，并仿照第①行的形式写出运算数和结果的真值。</p>
 </div>
@@ -545,9 +545,13 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <i class="fa icon-tip" title="提示"></i>
 </td>
 <td class="content">
-<div class="paragraph">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在输入组件的输入框中输入二进制数据时，需添加前缀<code>0b</code>，如<code>0b1011</code>；否则，即使输入窗口中的数字格式选择了「Bin」，只要未加前缀也将被软件视为十进制数一千零一十一，转换为二进制后截取最低4位作为输入数值，即二进制数<code>0b0011</code>。输入二进制数据更简便的方法是，直接用鼠标点击输入窗口底部的「Bin」复选框。</p>
+</li>
+<li>
 <p>为方便分析运算结果，可以在输出端F添加两个探测器组件，「数字格式」属性分别设置为“Decimal”和“带符号十进制”。</p>
-</div>
 <div class="paragraph">
 <p>或者事先列出负数的4位补码与真值的对应关系：</p>
 </div>
@@ -588,13 +592,13 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 </tbody>
 </table>
+</li>
+</ol>
+</div>
 </td>
 </tr>
 </table>
 </div>
-</li>
-<li>
-<p>实验数据分析。</p>
 <div class="paragraph">
 <p>分别针对无符号数和带符号数（补码），分析加法运算结果（包括标志位）。特别注意无符号数、带符号数加法溢出是由C标志反映还是由O标志反映，溢出时的运算结果是否正确。</p>
 </div>
@@ -610,16 +614,9 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </div>
 </div>
 </div>
-</li>
-</ol>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_2_验证减法运算"><a class="anchor" href="#_2_验证减法运算"></a>2. 验证减法运算</h4>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>实验数据记录</p>
 <div class="paragraph">
 <p>设置M=1，按<a href="#tab-op-adder-2">表 2</a>步骤操作，填写减法运算结果。</p>
 </div>
@@ -705,9 +702,6 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>实验数据分析。</p>
 <div class="paragraph">
 <p>注意观察减法运算是否产生借位和进位标志的关系；补码减法溢出是否与溢出标志相符。</p>
 </div>
@@ -719,9 +713,6 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 如果希望是一致的，即减法运算有借位时C=1，无借位时C=0，应如何修改电路？</p>
 </dd>
 </dl>
-</div>
-</li>
-</ol>
 </div>
 <div class="sidebarblock text-center">
 <div class="content">
