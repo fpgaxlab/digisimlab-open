@@ -272,6 +272,20 @@
 <div class="paragraph">
 <p><a href="#fig-bl-decoder-1">图 1</a>的Address端口使用一个2位的输入组件，而生成的2-4译码器的A1、A0是两个1位的输入端口，因此用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>将2位的Addrress拆分为两个1位的导线，再连接到译码器的A1、A0。分线器组件的介绍见<a href="../ds-other-useful.html" class="xref page">几个有用的组件</a>。</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>位于菜单「组件 ➤ 导线 ➤ 分裂器/合并器」，添加该组件后修改属性：「输入分割」为<code>2</code>，「输出分割」为<code>1,1</code>。注意连接时，分线器的输出端子“1”、“0”分别对应2-4译码器的“A1”、“A0”端口，必要时可勾选「镜像」属性调整分线器的输出端子的顺序。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><strong>电路测试</strong></p>

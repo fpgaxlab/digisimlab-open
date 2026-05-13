@@ -239,7 +239,7 @@
 <p>多路选择器（multiplexer）简称多路器（MUX），是一种常用的组合逻辑电路模块，可从多个输入中选择一个输出，在数字电路中有着非常广泛的应用。</p>
 </div>
 <div class="paragraph">
-<p>在电路原理图中，通常用梯形符号表示多路器。
+<p>在电路原理图中，通常用梯形符号表示多路选择器。
 2选1多路器的电路符号如<a href="#fig-mux-1">图 1</a>(a)所示，电路功能如<a href="#fig-mux-1">图 1</a>(b)所示。
 S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为输出。
 当选择信号S为0时，将通道0的输入A传输到输出Y，当选择信号S为1时，从Y输出的是通道1的输入B。</p>
@@ -259,7 +259,7 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 <td class="content">
 <div class="paragraph">
 <p>多路选择器是一种很简单且经常使用的逻辑组件。
-本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆</a>、<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元</a>、<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>等实验中都会用到多路器。</p>
+本课程后面的<a href="dp-register_file.html" class="xref page">寄存器堆</a>、<a href="op-arithmetic_logic_unit.html" class="xref page">算术逻辑单元</a>、<a href="dp-single_cycle_datapath.html" class="xref page">运算器数据通路</a>等实验中都会用到多路选择器。</p>
 </div>
 </td>
 </tr>
@@ -290,9 +290,9 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 <div class="title">图 2. 多路选择器的实验电路图</div>
 </div>
 <div class="paragraph">
-<p>多路器组件位于菜单项「组件 ➤ 复用器 ➤ 复用器」（Components ➤ Plexer ➤ Multiplexer）。
-添加组件后将其「数据位数」属性设置为4。
-输入组件A、B和输出组件Y的「数据位数」也应设置为4，即与多路器的数据位数一致。</p>
+<p>多路选择器组件位于菜单项「组件 ➤ 复用器 ➤ 复用器」（Components ➤ Plexer ➤ Multiplexer）。
+添加组件后将其「数据位数」属性设置为4，设置方法见<a href="../ds-getting-started.html#bm-data-width" class="xref page">新手入门-数据位宽</a>。
+输入组件A、B和输出组件Y的「数据位数」也应设置为4，即与多路选择器的数据位数一致。</p>
 </div>
 <div class="paragraph">
 <p>通过仿真验证其功能，导出仿真数据为CSV文件，导出方法见<a href="../ds-getting-started.html#bm-show-measure" class="xref page">新手入门-仿真结果记录及导出</a>。</p>
@@ -310,7 +310,7 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 </table>
 </div>
 <div class="paragraph">
-<p>多路选择器组件还有另一个重要属性「选择位」，它是<a href="#fig-mux-2">图 2</a>梯形符号侧边（腰）上的端口的位数，该端口与Sel输入组件相连，因此Sel输入组件的「数据位数」属性值应与多路器组件的「选择位」属性值相一致；对于2选1多路器来说，其值应为1。</p>
+<p>多路选择器组件还有另一个重要属性「选择位」，它是<a href="#fig-mux-2">图 2</a>梯形符号侧边（腰）上的端口的位数，该端口与Sel输入组件相连，因此Sel输入组件的「数据位数」属性值应与多路选择器组件的「选择位」属性值相一致；对于2选1多路器来说，其值应为1。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -342,7 +342,7 @@ S为选择信号，梯形符号中的0和1分别对应A和B两个输入，Y为�
 <td class="content">
 <div class="paragraph">
 <p>验证数据应有助于检验实验电路的功能和特性。
-例如，如果只是使用“1”作为多路器的输入数据，则无法测试电路的数据位数是不是4位。
+例如，如果只是使用“1”作为多路选择器的输入数据，则无法测试电路的数据位数是不是4位。
 如果4路输入的数据相同，则无法通过输出数据分辨是否正确地选择了通路。</p>
 </div>
 </td>

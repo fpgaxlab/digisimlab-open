@@ -366,21 +366,21 @@ C0＝1，故<span class="image"><img src="_images/op-add_sub-sub.png" alt="op ad
 <p>加法器组件位于「组件 ➤ 运算器 ➤ 加法器」（Components ➤ Arithmetic ➤ Adder）。</p>
 </li>
 <li>
-<p><a href="#fig-21">图 1</a>原理图的X、Y都是4位的，所以异或运算用了4个1位的异或门；而<a href="#fig-op-add_sub">图 2</a>为了画图的简洁，使用1个4位的异或门。但控制信号M仍然是1位的，因此需要用「符号扩展器」（Sign extender）组件扩展为4位。</p>
+<p><a href="#fig-21">图 1</a>原理图的X、Y都是4位的，所以异或运算用了4个1位的异或门；而<a href="#fig-op-add_sub">图 2</a>为了画图的简洁，使用1个4位的异或门。
+为了将1位的控制输入M连接到异或门的4位数据输入，使用了「符号扩展器」（Sign extender）组件；该组件「输入位宽」为<code>1</code>，「输出位宽」为<code>4</code>。</p>
 </li>
 <li>
-<p>为便于观察异或门输出的数据，添加了一个「探测器」（Probe）组件（图中显示问号的那个）。</p>
+<p>异或门输出与加法器b输入端之间导线上连接了一个形如问号的组件，其为「探测器」（Probe）组件，便于仿真时观察该导线上传输的数据。</p>
 </li>
 <li>
-<p><a href="#fig-op-add_sub">图 2</a>未给出溢出检测电路。根据上面介绍的溢出检测方法，可以在Digital仿真软件中用如下表达式生成溢出检测电路。</p>
+<p><a href="#fig-op-add_sub">图 2</a>未给出溢出检测电路。根据上面介绍的溢出检测方法，可以在Digital仿真软件中用如下表达式生成溢出检测电路，然后将生成的溢出检测电路作为子电路添加到加减电路中。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">let OF = As &amp; Bs &amp; ~Fs | ~As &amp; ~Bs &amp; Fs</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>然后将生成的溢出检测电路作为子电路添加到加减电路中。
-<a href="#fig-op-add_sub">图 2</a>为了从4位数据中抽取最高位作为符号位，使用了3个「分裂器」（Splitter）组件；将这3个组件的输出端与溢出检测电路的相应输入端连接。</p>
+<p><a href="#fig-op-add_sub">图 2</a>为了从4位数据中抽取最高位作为符号位，使用了3个「分线器」（Splitter）组件。这3个组件的输入端分别连接加法器a、b、s端口，因此它们的「输入分割」属性值为<code>4</code>；输出端是a、b、s的符号位，作为溢出检测电路的输入，故「输出分割」属性值为<code>3-3</code>。</p>
 </div>
 </li>
 </ol>

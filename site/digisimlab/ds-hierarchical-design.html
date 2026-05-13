@@ -218,7 +218,7 @@
 <article class="doc">
 <h1 class="page">层次化设计</h1>
 <div class="sect1">
-<h2 id="_概念"><a class="anchor" href="#_概念"></a>概念</h2>
+<h2 id="_层次化设计的方法"><a class="anchor" href="#_层次化设计的方法"></a>层次化设计的方法</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>用Digital仿真软件的内置组件设计更复杂的电路，本质上是一种层次化的设计。
@@ -234,41 +234,63 @@
 本课程实验的安排是自底向上的，前面实验完成的电路模块将作为后面实验电路的子电路。
 Digital仿真软件也支持自顶向下的设计方法。</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_层次化设计的方法"><a class="anchor" href="#_层次化设计的方法"></a>层次化设计的方法</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_自底向上的构建方法"><a class="anchor" href="#_自底向上的构建方法"></a>自底向上的构建方法</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>设计子电路并保存到文件</p>
+</li>
+<li>
+<p>新建并保存上层电路</p>
 <div class="paragraph">
-<p>当一个电路设计保存到文件之后，便可以通过菜单「组件 ➤ 自定义 ➤ &#8230;&#8203;」（Components ➤ Custom ➤ &#8230;&#8203;）将其作为子电路嵌入到另一个电路中。
-任何一个电路都可以作为子电路，并不需要额外的操作将电路封装为子电路，但是需要注意以下几点。</p>
+<p>点击菜单项「文件 ➤ 新建」作为上层电路，之后立即点击菜单项「文件 ➤ 另存为」将空白电路保存到子电路所在的文件夹。</p>
+</div>
+</li>
+<li>
+<p>将子电路添加到上层电路</p>
+<div class="paragraph">
+<p>点击菜单「组件 ➤ 自定义 ➤ &#8230;&#8203;」（Components ➤ Custom ➤ &#8230;&#8203;），选择子电路文件名将其作为子电路添加到当前电路中。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_自顶向下的构建方法"><a class="anchor" href="#_自顶向下的构建方法"></a>自顶向下的构建方法</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>设计并保存上层电路文件</p>
+</li>
+<li>
+<p>新建子电路</p>
+<div class="paragraph">
+<p>在上层电路中通过点击菜单「文件 ➤ 新建子电路」（File ➤ New embedded Circuit）打开一个新的电路设计窗口。
+在该窗口中设计子电路，并将其保存到上层电路所在的文件夹或其子文件夹中。</p>
+</div>
+</li>
+<li>
+<p>将子电路添加到上层电路</p>
+<div class="paragraph">
+<p>通过菜单「组件 ➤ 自定义 ➤ &#8230;&#8203;」（Components ➤ Custom ➤ &#8230;&#8203;）将子电路嵌入到上层电路。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_注意事项"><a class="anchor" href="#_注意事项"></a>注意事项</h3>
+<div class="paragraph">
+<p>任何一个电路都可以作为子电路，并不需要额外的操作将电路封装为子电路，但是需要注意以下几点。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>子电路文件必须位于上层电路所在的文件夹或者子文件夹中</p>
 <div class="paragraph">
-<p>如果一个电路作为子电路嵌入到另一个电路中，Digital仿真软件并不是将子电路保存在上层电路中，他只是在上层电路中保存了子电路的文件名，
-而且所保存的子电路文件名并不包含完整的文件路径。
+<p>如果一个电路作为子电路嵌入到另一个电路中，Digital仿真软件并不是将子电路保存在上层电路中，只是在上层电路中保存了子电路的文件名，而且所保存的子电路文件名并不包含完整的文件路径。
 Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名，仿真时如果找不到则会报错。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="提示"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>如果当前路径中没有搜索到其他电路文件，「组件」菜单中不会出现「自定义」菜单项。
-因此，在添加子电路之前，首先要将当前电路（上层电路）保存到子电路所在的文件夹或其上层文件夹。</p>
-</div>
-<div class="paragraph">
-<p>如果采用自顶向下的设计方法，可在上层电路中通过点击菜单「文件 ➤ 新建子电路」（File ➤ New embedded Circuit）打开一个新的电路设计窗口，在新窗口中设计子电路，并将其保存到上层电路所在的文件夹或其子文件夹中，然后才能嵌入到上层电路。</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </li>
 <li>
@@ -336,6 +358,7 @@ Digital仿真软件在当前文件夹及子文件夹中搜索子电路文件名�
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 </div>
