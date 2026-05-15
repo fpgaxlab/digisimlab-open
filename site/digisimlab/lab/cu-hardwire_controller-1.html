@@ -428,6 +428,20 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 <div class="paragraph">
 <p>根据各个指令的功能，设计<a href="#tab-cu-opdecode-1">表 1</a>的输出取值。使用真值表生成电路图，操作方法见<a href="../ds-generate-circuit.html" class="xref page">电路生成</a>。</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="提示"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>由于Digital仿真软件的真值表不能将4位的输入作为1个变量，可将<a href="#tab-cu-opdecode-1">表 1</a>的opcode分作为4个1位的输入变量，如op3、op2、op1、op0。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><strong>设计实验电路</strong></p>
@@ -450,6 +464,9 @@ rs1寄存器的值已经通过寄存器堆的RD1连接到了ALU的X输入端。�
 </li>
 <li>
 <p>指令存储器可使用<a href="mem-rom.html" class="xref page">ROM</a>组件。该组件位于菜单项「组件 ➤ 存储器 ➤ ROM」，「数据位数」属性值为14，即指令字长；「地址位数」为4，可以存放16条指令。</p>
+</li>
+<li>
+<p>指令存储器的输出可使用<a href="../ds-other-useful.html#bm-splitter" class="xref page">分线器组件</a>根据<a href="cu-overview.html#tab-cu-instr-filed" class="xref page">指令格式</a>将指令拆分为多个部分，再与寄存器堆等部件连接。</p>
 </li>
 </ul>
 </div>
